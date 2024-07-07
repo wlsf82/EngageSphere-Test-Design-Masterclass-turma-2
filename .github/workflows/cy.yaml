@@ -1,12 +1,68 @@
 name: Component tests
+
 on: [push]
+
 jobs:
   cypress-run:
     runs-on: ubuntu-22.04
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+
+    services:
+      backend:
+        image: node:16
+        ports:
+          - 3001:3001
+        options: >-
+          --health-cmd "curl --fail http://localhost:3001 || exit 1"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 3
+        steps:
+          - name: Checkout
+            uses: actions/checkout@v4
+
+          - name: Setup Node.js
+            uses: actions/setup-node@v3
+            with:
+              node-version: '16'
+
+          - name: Install backend dependencies
+            run: |
+              cd backend
+              npm install
+
+          - name: Start backend server
+            run: |
+              cd backend
+              npm start &
+            env:
+              CI: true
+
+      frontend:
+        image: node:16
+        ports:
+          - 3000:3000
+        options: >-
+          --health-cmd "curl --fail http://localhost:3000 || exit 1"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 3
+        steps:
+          - name: Install frontend dependencies
+            run: |
+              cd frontend
+              npm install
+
+          - name: Start frontend server
+            run: |
+              cd frontend
+              npm start &
+            env:
+              CI: true
+
+      - name: Wait for servers to be ready
+        run: sleep 30
+
       - name: Cypress run
         uses: cypress-io/github-action@v6
-
-
+        with:
+          start: npm start
