@@ -21,7 +21,7 @@ npm start
 ## Pre-requirements
 
 
-node: v21.7.3
-npm: 10.5.0
-cypress: 13.13.0
+# node: v21.7.3
+# npm: 10.5.0
+# cypress: 13.13.0
 
