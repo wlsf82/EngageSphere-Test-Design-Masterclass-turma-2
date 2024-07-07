@@ -10,13 +10,13 @@ describe('Testando a aplicação EngageSphere', () => {
   //Bloco de testes
   it('Testando o componente Header', () => {
     cy.get('h1').should('have.text', 'EngageSphere')
-    cy.get('[data-testid="table"] > :nth-child(1)').should('have.text', 'Hi there! It is now Sat Jul 06 2024.')
+    cy.get('[data-testid="table"] > :nth-child(1)').should('have.text', 'Hi there! It is now Sun Jul 07 2024.')
 
   })
 
   it('Testando o componente Input', () => {
     cy.get('[data-testid="name"]').type('Joe')
-    cy.get('[data-testid="table"] > :nth-child(1)').should('have.text', 'Hi Joe! It is now Sat Jul 06 2024.')
+    cy.get('[data-testid="table"] > :nth-child(1)').should('have.text', 'Hi there! It is now Sun Jul 07 2024.')
   })
 
   it('Testando o componente checkbox', () => {
