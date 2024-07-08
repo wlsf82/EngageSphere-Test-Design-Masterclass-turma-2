@@ -1,46 +1,53 @@
-name: Component tests
+name: ci
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
 
 jobs:
-  cypress-run:
-    runs-on: ubuntu-22.04
+  frontend-unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install frontend modules
+      run: npm run install:frontend
+    - name: Run frontend unit tests 🧪
+      run: npm run test:frontend:unit
+  api-tests:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/checkout@v3
+      - name: Install Backend modules
+        uses: cypress-io/github-action@v5
         with:
-          node-version: '16'
-
-      - name: Install backend dependencies
-        run: |
-          cd backend
-          npm install
-
-      - name: Install frontend dependencies
-        run: |
-          cd frontend
-          npm install
-
-      - name: Start backend server
-        run: |
-          cd backend
-          npm start &
-        env:
-          CI: true
-
-      - name: Start frontend server
-        run: |
-          cd frontend
-          npm start &
-        env:
-          CI: true
-
-      - name: Wait for servers to be ready
-        run: npx wait-on http://localhost:3000 http://localhost:3001
-
-      - name: Cypress run
-        uses: cypress-io/github-action@v6
-         
+          install-command: npm run install:backend
+          runTests: false
+      - name: Install Frontend modules
+        uses: cypress-io/github-action@v5
+        with:
+          install-command: npm run install:frontend
+          runTests: false
+      - name: Run API tests 🧪
+        uses: cypress-io/github-action@v5
+        with:
+          start: npm run start:frontend, npm run start:server
+          command: npm run test:api
+  frontend-tests:
+    needs: frontend-unit-tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install Frontend modules
+        uses: cypress-io/github-action@v5
+        with:
+          install-command: npm run install:frontend
+          runTests: false
+      - name: Run Frontend UI tests 🧪
+        uses: cypress-io/github-action@v5
+        with:
+          start: npm run start:frontend
+          command: npm run test:frontend
