@@ -6,6 +6,5 @@ describe('Home Page Tests', () => {
     it('Shows the default greeting (i.e., Hi there! ...)', () => {
         cy.get('[data-testid="name"]').should('have.value', '');
         cy.contains('there').should('be.visible');
-        cy
     })
 })
