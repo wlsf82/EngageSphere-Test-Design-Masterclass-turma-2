@@ -11,8 +11,8 @@
     "cy:run": "cypress run",
     "lint": "eslint . --ignore-pattern 'backend/*' --ignore-pattern 'frontend/*'",
     "api:run": "npx cypress run --spec cypress/e2e/api-tests/**.cy.js --record false",
-    "gui:run": "cypress run --spec cypress/e2e/gui-tests/**.cy.js --record false",
-    "component:run": "cypress run --component --record false"
+    "gui:run": "npx cypress run --spec cypress/e2e/gui-tests/**.cy.js --record false",
+    "component:run": "npx cypress run --component --record false"
   },
   "repository": {
     "type": "git",
