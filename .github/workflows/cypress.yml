@@ -30,7 +30,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run GUI tests
-        run: npm run gui:run
+        run: npx cypress run --spec cypress/e2e/gui-tests/**.cy.js --record false
 
   component-tests:
     runs-on: ubuntu-latest
@@ -40,7 +40,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run component tests
-        run: npm run component:run
+        run: npx cypress run --component --record false
 
   api-tests:
     runs-on: ubuntu-latest
@@ -50,4 +50,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run API tests
-        run: npm run api:run
+        run: npx cypress run --spec cypress/e2e/api-tests/**.cy.js --record false
