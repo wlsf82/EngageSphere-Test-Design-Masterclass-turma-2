@@ -1,6 +1,6 @@
 const { defineConfig } = require('cypress')
 
-export default defineConfig({
+module.exports = {
   viewportWidth: 1920,
   viewportHeight: 1080,
 
@@ -23,5 +23,4 @@ export default defineConfig({
     indexHtmlFile: 'frontend/cypress/support/component-index.html',
     specPattern: 'frontend/src/**/*.cy.{js,jsx,ts,tsx}',
     supportFile: 'frontend/cypress/support/component.js'
-  }
-});
+  }}
