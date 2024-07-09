@@ -27,14 +27,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Install dependencies
-        run: npm install
-
-      - name: Install frontend
-        run: npm run install:frontend
-
-      - name: Install backend
-        run: npm run install:backend
 
       - name: Checkout code
         uses: actions/checkout@v4
@@ -46,14 +38,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Install dependencies
-        run: npm install
-      
-      - name: Install frontend
-        run: npm run install:frontend
-
-      - name: Install backend
-        run: npm run install:backend
 
       - name: Checkout code
         uses: actions/checkout@v4
@@ -65,14 +49,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Install dependencies
-        run: npm install
-      
-      - name: Install frontend
-        run: npm run install:frontend
-
-      - name: Install backend
-        run: npm run install:backend
 
       - name: Checkout code
         uses: actions/checkout@v4
