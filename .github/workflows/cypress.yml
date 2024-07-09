@@ -55,15 +55,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Install frontend
-        run: npm run install:frontend
-
       - name: Install backend
-        run: npm run install:backend
-
+        uses: cypress-io/github-action@v6
+        with:
+          install-command: npm run install:backend
+          runTests: false
+      - name: Install frontend
+        uses: cypress-io/github-action@v6
+        with:
+          install-command: npm run install:frontend
+          runTests: false
       - name: Run API tests
-        run: npm run api:run
+        uses: cypress-io/github-action@v6
+        with:
+          start: npm run start:frontend, npm run start:server
+          command: npm run api:run
