@@ -27,28 +27,55 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install frontend
+        run: npm run install:frontend
+
+      - name: Install backend
+        run: npm run install:backend
+
       - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Run GUI tests
-        run: npx cypress run --spec cypress/e2e/gui-tests/**.cy.js --record false
+        run: npm run gui:run
 
   component-tests:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Install frontend
+        run: npm run install:frontend
+
+      - name: Install backend
+        run: npm run install:backend
+
       - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Run component tests
-        run: npx cypress run --component --record false
+        run: npm run component:run
 
   api-tests:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Install frontend
+        run: npm run install:frontend
+
+      - name: Install backend
+        run: npm run install:backend
+
       - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Run API tests
-        run: ./node_modules/cypress/bin/cypress install && npm run api:run
+        run: npm run api:run
