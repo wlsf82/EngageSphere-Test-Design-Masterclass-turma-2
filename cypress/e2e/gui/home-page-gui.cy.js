@@ -27,7 +27,7 @@ describe("EngageSphere", () => {
     cy.contains("button", "Back").click();
     cy.get("p").eq(0).contains("Hi there!");
   });
-  it.only("Mostra o rodapé e seus links", () => {
+  it("Mostra o rodapé e seus links", () => {
     cy.get('[data-testid="footer"]').should("be.visible");
     cy.get(
       '[data-testid="footer"] a[href="https://hotmart.com/pt-br/club/talking-about-testing"]'
