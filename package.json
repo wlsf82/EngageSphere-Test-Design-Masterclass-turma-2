@@ -6,7 +6,11 @@
     "install:frontend": "cd frontend && npm install",
     "install:backend": "cd backend && npm install",
     "start:frontend": "cd frontend && npm start",
-    "start:server": "cd backend && npm start"
+    "start:server": "cd backend && npm start",
+    "lint": "eslint cypress/**/*.cy.js",
+    "lint:fix": "eslint cypress/e2e/*.cy.js --fix",
+    "cy:open": "cypress open",
+    "test": "cypress run"
   },
   "repository": {
     "type": "git",
@@ -29,6 +33,14 @@
     ]
   },
   "devDependencies": {
-    "cypress": "^13.13.0"
+    "@eslint/js": "^9.6.0",
+    "cypress": "^13.13.0",
+    "eslint": "^9.6.0",
+    "eslint-plugin-cypress": "^3.3.0",
+    "globals": "^15.8.0"
+  },
+  "dependencies": {
+    "cypress-plugin-api": "^2.11.1",
+    "lint": "eslint 'cypress/**/*.js"
   }
 }
