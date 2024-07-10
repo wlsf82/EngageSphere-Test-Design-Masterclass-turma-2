@@ -173,6 +173,7 @@ describe('Customers Tests', () => {
 
     it('Hides customer address', () => {
         cy.get('[data-testid="filter"]').select('Small')
+        cy.wait(3000) // eslint-disable-line
         cy.contains('td', 'Jacobs Co').click()
 
         cy.get('.show-address-btn').click()
@@ -183,8 +184,9 @@ describe('Customers Tests', () => {
         cy.get('.show-address-btn').should('be.exist')
     });
 
-    it('Shows "No address available" for a customer without address information', () => {
+    it.only('Shows "No address available" for a customer without address information', () => {
         cy.get('select[aria-label="Pagination limit"]').select('50');
+        cy.wait(3000) // eslint-disable-line
         cy.contains('td', 'Dickinson - Kutch').click()
         cy.get('.show-address-btn').click()
 

@@ -1,33 +1,78 @@
-# EngageSphere
+# EngageSphere Automation Tests 
 
-Sample project with a [Node.js](https://nodejs.org/) backend and a [React](https://react.dev/) frontend.
+## 🚀 Funcionalidades
+### Test suite
+* ✔️ Cypress, usado para criar e rodar a automação de testes GUI, API e componentes.
+* ✔️ Axe, usado para criar e rodar a automação de testes de acessibilidade.
+* ✔️ Test retry, para repetir testes que falharem e evitar testes "flaky".
 
-## Business rules
+### Qualidade de código
+* ✔️ ESLint, para evitar erros no padrão do código e garantir uma boa qualidade do mesmo.
 
-Read the following [doc](./docs/Requirements.md) to understand all the EngageSphere application's functionalities.
+### CI/CD
+* ✔️ [GitHub Actions](https://github.com/thaydutra/test-design-masterclass/actions), para acionar uma pipeline a cada push, essa pipeline executa os testes automatizados com Cypress e também o ESlint para garantir testes funcionando e um código de qualidade.
 
-## Pre-requirements
+## 💻 Pré-requisitos para rodar o projeto na sua maquina
 
-To run this project, you will need:
-
-- [git](https://git-scm.com/downloads) (I've used version `2.42.1` while writing this doc)
-- [Node.js](https://nodejs.org/en/) (I've used version `v20.13.1` while writing this doc)
-- npm (I've used version `10.5.2` while writing this doc)
+* Ter instalado uma IDE de sua preferencia, nesse projeto utilizamos o VS Code que pode ser encontrado [aqui](https://code.visualstudio.com/).
+* Node.js `v20.+`
+* git `v2.+`
+* npm `v10.+`
 
 **Note:** When installing Node.js, npm is automatically installed too.
 
-## Installing and starting the servers
+## Cenários de teste
 
-Read the following [doc](./docs/TestEnvironment.md) to install and start the backend and frontend servers.
+Os testes estão documentados [aqui](./docs/TestCases.md), você pode conferir os cenários sempre que precisar.
 
-## Installation of `devDependencies`
+## ⚙️ Rodando o projeto na sua maquina
 
-After cloning this project, to install the dev dependencies, open a terminal, go to the root of this repo, and run `npm install` (or `npm i`, for short.)
+Inicialmente, você deve clonar o projeto para sua máquina, caso tenha dúvidas de como fazer você pode seguir o passo a passo para clonagem via IDE VS Code [aqui](https://learn.microsoft.com/pt-br/azure/developer/javascript/how-to/with-visual-studio-code/clone-github-repository?tabs=create-repo-command-palette%2Cinitialize-repo-activity-bar%2Ccreate-branch-command-palette%2Ccommit-changes-command-palette%2Cpush-command-palette).
 
-## Tests
+Link para clonagem do projeto:
+```
+git clone https://github.com/thaydutra/test-design-masterclass
+```
 
-Read the following [doc](./docs/TestCases.md) to get a list of test cases.
+Após clonar o repositório para sua máquina você deverá instalar as dependencias do projeto inserindo o comando abaixo no seu terminal:
+```
+npm install
+```
 
-___
+Agora devemos instalar e executar o servidor do frontend:
+```
+npm run install:frontend
+```
+```
+npm run start:frontend
+```
 
-Made with ❤️ by [Walmyr](https://walmyr.dev).
+E também instalar e executar o servidor do backend:
+```
+npm run install:backend
+```
+```
+npm run start:backend
+```
+
+Para executar os testes automatizados em modo headless, você pode inserir o comando abaixo no terminal para executar testes de GUI e API:
+```
+npm run cy:run
+```
+
+Para executar os testes automatizados em modo headless, você pode inserir o comando abaixo no terminal para executar testes de componente:
+```
+npm run component:run
+```
+
+Para executar os testes  automatizados em modo headed em um navegador, você pode inserir o comando abaixo no terminal, selecionar E2E testing para testes de API e GUI, ou Component para os testes de componente:
+```
+npm run cy:open
+```
+
+Ao finalizar, todos os testes devem ter sido realizados sem falhas.
+
+
+## 💬 Comentários do autor
+
+* Este projeto conta com a execução via pipeline GitHub Actions, que é executada a cada commit e pode ter suas execuções visualizadas [aqui](https://github.com/thaydutra/test-design-masterclass/actions).
