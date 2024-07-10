@@ -1,6 +1,7 @@
 
 describe('Homepage GUI validations', () => {
 
+    // Constants used across multiple tests
     const today = new Date(2024, 6, 9) // July 9, 2024
     const formattedDate = today.toDateString()
 
@@ -11,12 +12,11 @@ describe('Homepage GUI validations', () => {
 
     it('Homepage renders the header with an h1 and theme toggle*', () => {
 
-        cy.get('h1').should('exist')
-            .and('contain.text', 'EngageSphere')
-            .and('be.visible')
+        cy.contains('h1', 'EngageSphere')
+            .should('be.visible')
 
-        cy.get('#theme-toggle-button').should('exist')
-            .and('be.visible')
+        cy.get('#theme-toggle-button')
+            .should('be.visible')
     })
     it('Homepage shows the default greeting (i.e., Hi there! ...) *', () => {
 
@@ -25,7 +25,7 @@ describe('Homepage GUI validations', () => {
     })
 
     it('Homepage shows a customized greeting (e.g., Hi Joe! ...) *', () => {
-        const customerName = 'Lucas'
+        const customerName = 'Lucas' // Constant only used in this test
 
         cy.get('[data-testid="name"]')
             .type(customerName)
