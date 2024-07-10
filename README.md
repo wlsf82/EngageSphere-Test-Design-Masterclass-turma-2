@@ -24,10 +24,36 @@ Read the following [doc](./docs/TestEnvironment.md) to install and start the bac
 
 After cloning this project, to install the dev dependencies, open a terminal, go to the root of this repo, and run `npm install` (or `npm i`, for short.)
 
-## Tests
+# Cypress Test Execution Guide
 
-Read the following [doc](./docs/TestCases.md) to get a list of test cases.
+This guide provides instructions on how to install and run Cypress tests for your project.
 
-___
+## Pre-requirements
+
+Before you begin, ensure you have the following installed:
+
+- [Node.js](https://nodejs.org/en/) - Cypress requires Node.js to run. It's recommended to use the version specified in your project's `package.json` file.
+- npm (comes with Node.js) - Used to install Cypress and manage its versions.
+
+## Installation
+
+1. **Clone the Project**: First, clone the repository to your local machine using `git clone <repository-url>`.
+
+2. **Navigate to the Project Directory**: Change into the project directory with `cd <project-name>`.
+
+3. **Install Dependencies**: Install the project dependencies by running `npm install`. This command also installs Cypress if it's listed as a dependency in your `package.json` file.
+
+   If Cypress is not installed automatically, you can install it manually by running:`npm install cypress --save-dev`
+
+4. **Running Tests**: Cypress tests can be run in two modes: Headless and Interactive.
+
+   Headless Mode
+   To run tests in headless mode (ideal for CI/CD environments), use the following command: `npx cypress run`
+
+   Interactive Mode
+   For development and debugging, it's often useful to run tests in interactive mode. Use this command: `npx cypress open`
+   This opens the Cypress Test Runner, where you can run individual test files and see the results in real-time.
+
+---
 
 Made with ❤️ by [Walmyr](https://walmyr.dev).
