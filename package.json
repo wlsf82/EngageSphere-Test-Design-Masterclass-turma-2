@@ -1,5 +1,5 @@
 {
-  "name": "EngageSphere-Test-Design-Masterclass-turma-2",
+  "name": "engagesphere-test-design-masterclass-turma-2",
   "version": "1.0.0",
   "description": "Sample project with a Node.js backend and a React frontend.",
   "scripts": {
@@ -27,5 +27,15 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "bugs": {
+    "url": "https://github.com/wlsf82/EngageSphere-Test-Design-Masterclass-turma-2/issues"
+  },
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "devDependencies": {
+    "cypress": "^13.13.0"
   }
 }
