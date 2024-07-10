@@ -1,4 +1,4 @@
-name: GUI, API and Components Tests
+name: GUI, API and Components .
 
 on:
   push:
