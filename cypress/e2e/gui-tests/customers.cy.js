@@ -106,7 +106,7 @@ describe('Customers Tests', () => {
         let allSizesAreLargeEnterprise = true;
 
         cy.get('[data-testid="filter"]').select('Large Enterprise')
-        cy.wait(3000) // eslint-disable-line 
+        cy.wait(3000) // eslint-disable-line
 
         cy.get('table tbody tr td:nth-child(4)').each(($element) => { // eslint-disable-line 
             const size = $element.text().trim();
@@ -173,7 +173,7 @@ describe('Customers Tests', () => {
 
     it('Hides customer address', () => {
         cy.get('[data-testid="filter"]').select('Small')
-        cy.wait(3000) // eslint-disable-line
+        cy.get('table tbody tr').should('be.visible');
         cy.contains('td', 'Jacobs Co').click()
 
         cy.get('.show-address-btn').click()
@@ -184,9 +184,10 @@ describe('Customers Tests', () => {
         cy.get('.show-address-btn').should('be.exist')
     });
 
-    it.only('Shows "No address available" for a customer without address information', () => {
-        cy.get('select[aria-label="Pagination limit"]').select('50');
-        cy.wait(3000) // eslint-disable-line
+    it('Shows "No address available" for a customer without address information', () => {
+        cy.get('[data-testid="filter"]').select('Enterprise')
+        cy.get('table tbody tr').should('be.visible');
+
         cy.contains('td', 'Dickinson - Kutch').click()
         cy.get('.show-address-btn').click()
 
