@@ -11,9 +11,10 @@ module.exports = {
 
   e2e: {
     baseUrl: "http://localhost:3000",
-    // setupNodeEvents(on, config) {
-    //   // implement node event listeners here
-    // },
+    retries: {
+      runMode: 2,
+      openMode: 1,
+    },
   },
 
   component: {

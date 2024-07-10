@@ -1,0 +1,65 @@
+{
+    "customers": [
+      {
+        "id": 8,
+        "name": "Lowe Co",
+        "employees": 50000,
+        "contactInfo": null,
+        "address": {
+          "street": "87908 Adkins Islands Apt. 944",
+          "city": "West Sarah",
+          "state": "Georgia",
+          "zipCode": "79943",
+          "country": "United States of America"
+        },
+        "size": "Very Large Enterprise"
+      },
+      {
+        "id": 30,
+        "name": "Conn LLC",
+        "employees": 74838,
+        "contactInfo": null,
+        "address": {
+          "street": "9043 Cooper Fords",
+          "city": "West Sylviaville",
+          "state": "Utah",
+          "zipCode": "59524",
+          "country": "United States of America"
+        },
+        "size": "Very Large Enterprise"
+      },
+      {
+        "id": 45,
+        "name": "Williamson Group",
+        "employees": 98978,
+        "contactInfo": {
+          "name": "Dejon",
+          "email": "Dejon94@gmail.com"
+        },
+        "address": {
+          "street": "147 Priory Road",
+          "city": "Petaluma",
+          "state": "Arkansas",
+          "zipCode": "10109-4658",
+          "country": "United States of America"
+        },
+        "size": "Very Large Enterprise"
+      },
+      {
+        "id": 46,
+        "name": "Senger Group",
+        "employees": 74912,
+        "contactInfo": {
+          "name": "Jaiden",
+          "email": "Jaiden_Shields@gmail.com"
+        },
+        "address": null,
+        "size": "Very Large Enterprise"
+      }
+    ],
+    "pageInfo": {
+      "currentPage": "1",
+      "totalPages": 1,
+      "totalCustomers": 4
+    }
+  }

@@ -1,0 +1,192 @@
+{
+    "customers": [
+      {
+        "id": 2,
+        "name": "Kilback Co",
+        "employees": 100,
+        "contactInfo": {
+          "name": "Daija",
+          "email": "Daija_Gislason93@gmail.com"
+        },
+        "address": {
+          "street": "5099 Murray Inlet",
+          "city": "South Tiffany",
+          "state": "Kentucky",
+          "zipCode": "08496",
+          "country": "United States of America"
+        },
+        "size": "Medium"
+      },
+      {
+        "id": 3,
+        "name": "Parisian Co",
+        "employees": 999,
+        "contactInfo": {
+          "name": "Alysson",
+          "email": "Alysson.Lang@hotmail.com"
+        },
+        "address": {
+          "street": "43247 Bennett Keys Apt. 999",
+          "city": "New Paulside",
+          "state": "Connecticut",
+          "zipCode": "87855",
+          "country": "United States of America"
+        },
+        "size": "Medium"
+      },
+      {
+        "id": 9,
+        "name": "Emmerich - Flatley",
+        "employees": 242,
+        "contactInfo": {
+          "name": "Ara",
+          "email": "Ara_Kulas12@yahoo.com"
+        },
+        "address": {
+          "street": "42542 Schuster Stravenue",
+          "city": "Dunwoody",
+          "state": "New York",
+          "zipCode": "81499-8578",
+          "country": "United States of America"
+        },
+        "size": "Medium"
+      },
+      {
+        "id": 13,
+        "name": "Feil Group",
+        "employees": 311,
+        "contactInfo": {
+          "name": "Cullen",
+          "email": "Cullen28@gmail.com"
+        },
+        "address": {
+          "street": "9695 S Chestnut Street",
+          "city": "East Karianne",
+          "state": "South Dakota",
+          "zipCode": "62862",
+          "country": "United States of America"
+        },
+        "size": "Medium"
+      },
+      {
+        "id": 21,
+        "name": "Daugherty Group",
+        "employees": 776,
+        "contactInfo": null,
+        "address": null,
+        "size": "Medium"
+      },
+      {
+        "id": 28,
+        "name": "Ziemann Group",
+        "employees": 712,
+        "contactInfo": null,
+        "address": {
+          "street": "356 E Jefferson Street",
+          "city": "Lancaster",
+          "state": "Minnesota",
+          "zipCode": "43880-8994",
+          "country": "United States of America"
+        },
+        "size": "Medium"
+      },
+      {
+        "id": 31,
+        "name": "Berge LLC",
+        "employees": 807,
+        "contactInfo": null,
+        "address": {
+          "street": "24037 A Street",
+          "city": "Cummeratafort",
+          "state": "Texas",
+          "zipCode": "13011",
+          "country": "United States of America"
+        },
+        "size": "Medium"
+      },
+      {
+        "id": 36,
+        "name": "Erdman - Kuhic",
+        "employees": 446,
+        "contactInfo": {
+          "name": "Sven",
+          "email": "Sven.Jones@yahoo.com"
+        },
+        "address": {
+          "street": "2924 Savion Cove",
+          "city": "Franklin",
+          "state": "Arizona",
+          "zipCode": "29384-4910",
+          "country": "United States of America"
+        },
+        "size": "Medium"
+      },
+      {
+        "id": 38,
+        "name": "Klocko - Skiles",
+        "employees": 942,
+        "contactInfo": null,
+        "address": {
+          "street": "5690 Leuschke Club",
+          "city": "Port Damon",
+          "state": "New Mexico",
+          "zipCode": "28030-2501",
+          "country": "United States of America"
+        },
+        "size": "Medium"
+      },
+      {
+        "id": 40,
+        "name": "Ziemann - Lowe",
+        "employees": 860,
+        "contactInfo": null,
+        "address": {
+          "street": "9913 Dillan Rue",
+          "city": "Lake Ole",
+          "state": "Vermont",
+          "zipCode": "94543",
+          "country": "United States of America"
+        },
+        "size": "Medium"
+      },
+      {
+        "id": 42,
+        "name": "Rau Group",
+        "employees": 505,
+        "contactInfo": {
+          "name": "Zena",
+          "email": "Zena4@gmail.com"
+        },
+        "address": {
+          "street": "58672 Harmony Falls",
+          "city": "Terrellport",
+          "state": "Connecticut",
+          "zipCode": "32928-0090",
+          "country": "United States of America"
+        },
+        "size": "Medium"
+      },
+      {
+        "id": 48,
+        "name": "Metz - Russel",
+        "employees": 573,
+        "contactInfo": {
+          "name": "Kennedi",
+          "email": "Kennedi_Ankunding@yahoo.com"
+        },
+        "address": {
+          "street": "57260 Tommie Rest",
+          "city": "East Rubye",
+          "state": "Alabama",
+          "zipCode": "99455-3743",
+          "country": "United States of America"
+        },
+        "size": "Medium"
+      }
+    ],
+    "pageInfo": {
+      "currentPage": "1",
+      "totalPages": 1,
+      "totalCustomers": 12
+    }
+  }
