@@ -7,47 +7,52 @@ on:
   pull_request:
 
 jobs:
-  frontend-unit-tests:
+  e2e-tests:
     runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - name: Install frontend modules
-      run: npm run install:frontend
-    - name: Run frontend unit tests 🧪
-      run: npm run test:frontend:unit
-  api-tests:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Install Backend modules
-        uses: cypress-io/github-action@v5
-        with:
-          install-command: npm run install:backend
-          runTests: false
-      - name: Install Frontend modules
-        uses: cypress-io/github-action@v5
-        with:
-          install-command: npm run install:frontend
-          runTests: false
-      - name: Run API tests 🧪
-        uses: cypress-io/github-action@v5
-        with:
-          start: npm run start:frontend, npm run start:server
-          command: npm run test:api
-  frontend-tests:
-    needs: frontend-unit-tests
-    runs-on: ubuntu-latest
+    services:
+      # Configura o serviço Docker para rodar o backend na porta 3001
+      backend:
+        image: your-backend-image:latest  # Substitua pela imagem Docker do seu backend
+        ports:
+          - 3001:3001
+        options: --name backend
+      # Configura o serviço Docker para rodar o frontend na porta 3000
+      frontend:
+        image: your-frontend-image:latest  # Substitua pela imagem Docker do seu frontend
+        ports:
+          - 3000:3000
+        options: --name frontend
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Install Frontend modules
-        uses: cypress-io/github-action@v5
-        with:
-          install-command: npm run install:frontend
-          runTests: false
-      - name: Run Frontend UI tests 🧪
-        uses: cypress-io/github-action@v5
-        with:
-          start: npm run start:frontend
-          command: npm run test:frontend
+
+      # Instalação e execução dos testes de API
+      - name: Install Backend modules and start server
+        run: |
+          npm install
+          npm run install:backend
+          npm run start:server &
+
+      # Aguarda até que o servidor backend esteja pronto
+      - name: Wait for backend to start
+        run: |
+          npx wait-on http://localhost:3001
+          echo "Backend server is ready!"
+
+      # Instalação e execução dos testes de frontend
+      - name: Install Frontend modules and start server
+        run: |
+          npm run install:frontend
+          npm run start:frontend &
+
+      # Aguarda até que o servidor frontend esteja pronto
+      - name: Wait for frontend to start
+        run: |
+          npx wait-on http://localhost:3000
+          echo "Frontend server is ready!"
+
+      # Executa os testes E2E (backend e frontend) usando Cypress
+      - name: Run E2E tests 🧪
+        run: npm run test:e2e
+        env:
+          CYPRESS_BASE_URL: http://localhost:3000  # URL base para os testes do Cypress
