@@ -119,7 +119,7 @@ describe('Customers Tests', () => {
         });
     });
 
-    it.only('Filter customers by very large enterprise size', () => {
+    it('Filter customers by very large enterprise size', () => {
         const expectedSize = 'Very Large Enterprise';
         let allSizesAreVeryLargeEnterprise = true;
 
@@ -135,16 +135,6 @@ describe('Customers Tests', () => {
         }).then(() => {
             cy.wrap(allSizesAreVeryLargeEnterprise).should('be.true');
         });
-
-        // cy.get('table tbody tr td:nth-child(4)').each(($element) => {
-        //     const size = $element.text().trim();
-
-        //     if (size !== expectedSize) {
-        //         allSizesAreVeryLargeEnterprise = false;
-        //     }
-        // }).then(() => {
-        //     expect(allSizesAreVeryLargeEnterprise).to.be.true;
-        // });
     });
 
     it('Correctly downloads a list of customers as a CSV file', () => {
