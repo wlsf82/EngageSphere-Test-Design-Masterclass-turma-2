@@ -33,7 +33,7 @@ jobs:
         with:
           install-command: npm run install:frontend
           runTests: false
-      - name: Run API tests
+      - name: Run GUI tests
         uses: cypress-io/github-action@v6
         with:
           start: npm run start:frontend, npm run start:server
@@ -55,7 +55,7 @@ jobs:
         with:
           install-command: npm run install:frontend
           runTests: false
-      - name: Run API tests
+      - name: Run Components tests
         uses: cypress-io/github-action@v6
         with:
           start: npm run start:frontend, npm run start:server
@@ -99,7 +99,7 @@ jobs:
         with:
           install-command: npm run install:frontend
           runTests: false
-      - name: Run API tests
+      - name: Run Accessibility tests
         uses: cypress-io/github-action@v6
         with:
           start: npm run start:frontend, npm run start:server

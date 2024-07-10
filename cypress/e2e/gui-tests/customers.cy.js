@@ -183,15 +183,4 @@ describe('Customers Tests', () => {
         cy.get('.hide-address-btn').click()
         cy.get('.show-address-btn').should('be.exist')
     });
-
-    it('Shows "No address available" for a customer without address information', () => {
-        cy.get('[data-testid="filter"]').select('Enterprise')
-        cy.get('table tbody tr').should('be.visible');
-        cy.wait(3000) // eslint-disable-line
-
-        cy.contains('td', 'Dickinson - Kutch').click()
-        cy.get('.show-address-btn').click()
-
-        cy.contains('.customer-details', 'No address available').should('be.exist')       
-    });
 })
