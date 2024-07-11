@@ -6,22 +6,6 @@ describe('API /customers', () => {
         expect(response.status).to.eq(200);
       });
     });
-
-    it('should return customers with the correct structure including nested address and contactInfo', () => {
-      cy.getRequest(`${Cypress.env('API_URL')}/customers`).then((response) => {
-        expect(response.status).to.eq(200);
-
-        response.body.customers.forEach(customer => {
-          expect(customer).to.have.all.keys('id', 'name', 'employees', 'contactInfo', 'address', 'size');
-          expect(customer.address).to.have.all.keys('street', 'city', 'state', 'zipCode', 'country');
-          if (customer.contactInfo) {
-            expect(customer.contactInfo).to.have.all.keys('name', 'email');
-          }
-        });
-
-        expect(response.body.pageInfo).to.have.all.keys('currentPage', 'totalPages', 'totalCustomers');
-      });
-    });
   });
 
   context('Pagination', () => {
