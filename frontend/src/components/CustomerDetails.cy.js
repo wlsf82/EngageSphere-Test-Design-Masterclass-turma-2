@@ -1,4 +1,4 @@
-import CustomerDetails from '../../src/components/CustomerDetails';
+// import CustomerDetails from '../../src/components/CustomerDetails';
 
 describe('<CustomerDetails />', () => {
   const customerWithContactAndAddress = {

@@ -10,10 +10,10 @@
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "lint": "eslint . --ignore-pattern 'backend/*' --ignore-pattern 'frontend/*'",
-    "api:run": "cypress run --spec cypress/e2e/api-tests/**.cy.js",
-    "gui:run": "cypress run --spec cypress/e2e/gui-tests/**.cy.js",
-    "component:run": "cypress run --component",
-    "accessibility:run": "cypress run --spec cypress/e2e/accessibility-tests/**.cy.js"
+    "api:run": "cypress run --spec cypress/e2e/api-tests/**.cy.js --record false",
+    "gui:run": "cypress run --spec cypress/e2e/gui-tests/**.cy.js --record false",
+    "component:run": "cypress run --component --record false",
+    "accessibility:run": "cypress run --spec cypress/e2e/accessibility-tests/**.cy.js --record false"
   },
   "repository": {
     "type": "git",
@@ -40,13 +40,12 @@
     "@babel/parser": "^7.24.7",
     "@babel/preset-react": "^7.24.7",
     "axe-core": "^4.9.1",
-    "core-js": "^3.37.1",
     "cypress": "^13.13.0",
     "cypress-axe": "^1.5.0",
     "eslint": "^9.6.0",
     "eslint-plugin-cypress": "^3.3.0",
     "globals": "^15.8.0",
-    "react-scripts": "^3.0.1"
+    "react-scripts": "^5.0.1"
   },
   "devDependencies": {
     "react": "^18.3.1",
