@@ -28,6 +28,22 @@ After cloning this project, to install the dev dependencies, open a terminal, go
 
 Read the following [doc](./docs/TestCases.md) to get a list of test cases.
 
+## How to run the tests
+
+- Running Backend Tests
+1.Navigate to the backend directory:
+- `cd backend`  
+- `npm install`
+- `npm start`
+- Another terminal `npx cypress open`
+
+- Running frontend Tests
+1.Navigate to the frontend directory:
+- `cd frontend`  
+- `npm install`
+- `npm start`
+- Another terminal `npx cypress open`
+
 ___
 
 Made with ❤️ by [Walmyr](https://walmyr.dev).

@@ -93,10 +93,10 @@ const getSize = ({ employees }) => {
  */
 app.get('/customers', (req, res) => {
   const { page = 1, limit = 10, size = 'All' } = req.query
-  const validSizes = ['Small', 'Medium',  'Enterprise', 'Large Enterprise', 'Very Large Enterprise', 'All']
+  const validSizes = ['Small', 'Medium', 'Enterprise', 'Large Enterprise', 'Very Large Enterprise', 'All']
 
   if (isNaN(page) || isNaN(limit) || page < 1 || limit < 1) {
-    return res.status(400).json({error: 'Invalid page or limit. Both must be positive numbers.'})
+    return res.status(400).json({ error: 'Invalid page or limit. Both must be positive numbers.' })
   }
 
   if (!validSizes.includes(size)) {
