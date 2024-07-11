@@ -6,7 +6,9 @@
     "install:frontend": "cd frontend && npm install",
     "install:backend": "cd backend && npm install",
     "start:frontend": "cd frontend && npm start",
-    "start:server": "cd backend && npm start"
+    "start:server": "cd backend && npm start",
+    "cy:open": "cypress open",
+    "test:e2e": "cypress run"
   },
   "repository": {
     "type": "git",
@@ -27,5 +29,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "cypress": "^13.13.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "webpack": "^5.92.1"
+  },
+  "dependencies": {
+    "cypress-plugin-api": "^2.11.1"
   }
 }
