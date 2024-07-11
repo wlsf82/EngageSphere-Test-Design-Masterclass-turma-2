@@ -6,7 +6,7 @@ describe('Customers', () => {
     context('Filtering Customers', () => {
       it('filters and shows only Small customers', () => { 
         cy.get('[data-testid="filter"]').select('Small');
-        cy.wait(1500);
+        cy.wait(1500); // eslint-disable-line
         cy.get('[data-testid="table"] tbody tr').each(($row) => {
           cy.wrap($row).find('td').eq(3).should('contain.text', 'Small');
         });
@@ -14,7 +14,7 @@ describe('Customers', () => {
   
       it('filters and shows only Medium customers', () => { 
         cy.get('[data-testid="filter"]').select('Medium');
-        cy.wait(1500);
+        cy.wait(1500); // eslint-disable-line
         cy.get('[data-testid="table"] tbody tr').each(($row) => {
           cy.wrap($row).find('td').eq(3).should('contain.text', 'Medium');
         });
@@ -22,7 +22,7 @@ describe('Customers', () => {
   
       it('filters and shows only Enterprise customers', () => { 
         cy.get('[data-testid="filter"]').select('Enterprise');
-        cy.wait(1500);
+        cy.wait(1500); // eslint-disable-line
         cy.get('[data-testid="table"] tbody tr').each(($row) => {
           cy.wrap($row).find('td').eq(3).should('contain.text', 'Enterprise');
         });
@@ -30,7 +30,7 @@ describe('Customers', () => {
   
       it('filters and shows only Large Enterprise customers', () => { 
         cy.get('[data-testid="filter"]').select('Large Enterprise');
-        cy.wait(1500);
+        cy.wait(1500); // eslint-disable-line
         cy.get('[data-testid="table"] tbody tr').each(($row) => {
           cy.wrap($row).find('td').eq(3).should('contain.text', 'Large Enterprise');
         });
@@ -38,7 +38,7 @@ describe('Customers', () => {
   
       it('filters and shows only Very Large Enterprise customers', () => { 
         cy.get('[data-testid="filter"]').select('Very Large Enterprise');
-        cy.wait(1500);
+        cy.wait(1500); // eslint-disable-line
         cy.get('[data-testid="table"] tbody tr').each(($row) => {
           cy.wrap($row).find('td').eq(3).should('contain.text', 'Very Large Enterprise');
         });

@@ -1,38 +1,38 @@
-name: GUI, API and Components .
+name: GUI, API and Components Tests
 
 on:
   push:
     branches:
-      - main
+      - main  
 
 jobs:
   dependencies-install:
     runs-on: ubuntu-latest
-
+    
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Install backend dependencies
-        uses: cypress-io/github-action@v6
-        with:
-          install-command: npm run install:backend
-          runTests: false
-
-      - name: Install frontend dependencies
-        uses: cypress-io/github-action@v6
-        with:
-          install-command: npm run install:frontend
-          runTests: false
+      - name: Install dependencies
+        run: npm install
+      
 
   gui-tests:
-    needs: dependencies-install
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
+      - name: Install backend
+        uses: cypress-io/github-action@v6
+        with:
+          install-command: npm run install:backend
+          runTests: false
+      - name: Install frontend
+        uses: cypress-io/github-action@v6
+        with:
+          install-command: npm run install:frontend
+          runTests: false
       - name: Run GUI tests
         uses: cypress-io/github-action@v6
         with:
@@ -40,13 +40,21 @@ jobs:
           command: npm run gui:run
 
   component-tests:
-    needs: dependencies-install
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
+      - name: Install backend
+        uses: cypress-io/github-action@v6
+        with:
+          install-command: npm run install:backend
+          runTests: false
+      - name: Install frontend
+        uses: cypress-io/github-action@v6
+        with:
+          install-command: npm run install:frontend
+          runTests: false
       - name: Run Components tests
         uses: cypress-io/github-action@v6
         with:
@@ -54,13 +62,21 @@ jobs:
           command: npm run component:run
 
   api-tests:
-    needs: dependencies-install
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
+      - name: Install backend
+        uses: cypress-io/github-action@v6
+        with:
+          install-command: npm run install:backend
+          runTests: false
+      - name: Install frontend
+        uses: cypress-io/github-action@v6
+        with:
+          install-command: npm run install:frontend
+          runTests: false
       - name: Run API tests
         uses: cypress-io/github-action@v6
         with:
@@ -68,13 +84,21 @@ jobs:
           command: npm run api:run
 
   accessibility-tests:
-    needs: dependencies-install
     runs-on: ubuntu-latest
-
+        
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
+      - name: Install backend
+        uses: cypress-io/github-action@v6
+        with:
+          install-command: npm run install:backend
+          runTests: false
+      - name: Install frontend
+        uses: cypress-io/github-action@v6
+        with:
+          install-command: npm run install:frontend
+          runTests: false
       - name: Run Accessibility tests
         uses: cypress-io/github-action@v6
         with:

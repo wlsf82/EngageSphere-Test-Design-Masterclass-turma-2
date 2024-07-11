@@ -45,7 +45,7 @@
     "eslint": "^9.6.0",
     "eslint-plugin-cypress": "^3.3.0",
     "globals": "^15.8.0",
-    "react-scripts": "^5.0.1"
+    "react-scripts": "^3.0.1"
   },
   "devDependencies": {
     "react": "^18.3.1",
