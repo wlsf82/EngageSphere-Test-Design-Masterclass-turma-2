@@ -13,7 +13,6 @@ describe('Successfully retrieves customers (e.g., checks for the 200 status code
         cy.api_retrieveCustomers(2, 10, 'All')
             .then(response => {
 
-                // Assert that the response contains the expected status
                 expect(response.status).to.eq(200)
 
                 // Assert that the response contains the expected structure

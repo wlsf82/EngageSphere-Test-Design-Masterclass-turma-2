@@ -18,6 +18,7 @@ describe('Homepage GUI validations', () => {
         cy.get('#theme-toggle-button')
             .should('be.visible')
     })
+    
     it('Homepage shows the default greeting (i.e., Hi there! ...) *', () => {
 
         cy.contains('p', 'Hi there! It is now Tue Jul 9 2024.').should('be.visible')
