@@ -20,7 +20,7 @@ describe('Homepage GUI validations', () => {
     })
     it('Homepage shows the default greeting (i.e., Hi there! ...) *', () => {
 
-        cy.get('[data-testid="table"].table-container')
+        cy.contains('p', 'Hi there! It is now Tue Jul 9 2024.').should('be.visible')
             .should('contain.text', `Hi there! It is now ${formattedDate}.Below is our customer list.Click on each of them to view their contact details.`)
     })
 
