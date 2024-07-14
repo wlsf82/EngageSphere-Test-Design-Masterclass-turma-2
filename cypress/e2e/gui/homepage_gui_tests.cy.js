@@ -1,5 +1,5 @@
 
-describe('Homepage GUI validations', () => {
+describe('EngageSphere, () => {
 
     // Constants used across multiple tests
     const today = new Date(2024, 6, 9) // July 9, 2024
