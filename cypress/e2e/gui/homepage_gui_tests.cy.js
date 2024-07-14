@@ -30,7 +30,8 @@ describe('Homepage GUI validations', () => {
         cy.get('[data-testid="name"]')
             .type(customerName)
 
-        cy.get('[data-testid="table"].table-container')
+        cy.contains('p', 'Hi Lucas! It is now Tue Jul 9 2024.')
+          .should('be.visible')
             .should('contain.text', `Hi ${customerName}! It is now ${formattedDate}.Below is our customer list.Click on each of them to view their contact details.`)
     })
 
