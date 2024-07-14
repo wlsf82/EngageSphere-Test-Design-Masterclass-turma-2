@@ -6,7 +6,7 @@ module.exports = defineConfig({
     env: {
       hideCredentials: true,
       requestMode: true,
-      //backendUrl: 'http://localhost:3001'
+      API_URL: 'http://localhost:3001',
     },
   },
   fixturesFolder: false,
