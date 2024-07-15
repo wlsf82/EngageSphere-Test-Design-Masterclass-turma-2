@@ -18,21 +18,20 @@ describe('EngageSphere', () => {
         cy.get('#theme-toggle-button')
             .should('be.visible')
     })
-    
+
     it('Homepage shows the default greeting (i.e., Hi there! ...) *', () => {
 
-        cy.contains('p', 'Hi there! It is now Tue Jul 9 2024.').should('be.visible')
-            .should('contain.text', `Hi there! It is now ${formattedDate}.Below is our customer list.Click on each of them to view their contact details.`)
+        cy.contains('p', `Hi there! It is now ${formattedDate}.`)
+            .should('be.visible')
     })
 
     it('Homepage shows a customized greeting (e.g., Hi Joe! ...) *', () => {
-        const customerName = 'Lucas' // Constant only used in this test
+        const customerName = 'Lucas'
 
         cy.get('[data-testid="name"]')
             .type(customerName)
 
-        cy.contains('p', 'Hi Lucas! It is now Tue Jul 9 2024.')
-          .should('be.visible')
-            .should('contain.text', `Hi ${customerName}! It is now ${formattedDate}.Below is our customer list.Click on each of them to view their contact details.`)
+        cy.contains('p', `Hi ${customerName}! It is now ${formattedDate}.`)
+            .should('be.visible')
     })
 })

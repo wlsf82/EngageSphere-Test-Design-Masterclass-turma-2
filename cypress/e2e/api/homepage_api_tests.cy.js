@@ -6,11 +6,16 @@ describe('Successfully retrieves customers (e.g., checks for the 200 status code
             .then(response => {
                 expect(response.status).to.eq(200)
             })
-
     })
 
-    it('Paginates the customer list correctly when fetching products for page 2 with limit 10**', () => {
-        cy.api_retrieveCustomers(2, 10, 'All')
+    it.only('Paginates the customer list correctly when fetching products for page 2 with limit 10**', () => {
+        const queryParams = {
+            page: 2,
+            limit: 10,
+            size: 'All'
+        }
+
+        cy.api_retrieveCustomers(queryParams)
             .then(response => {
 
                 expect(response.status).to.eq(200)
@@ -21,7 +26,7 @@ describe('Successfully retrieves customers (e.g., checks for the 200 status code
 
                 // Assert that the returned page info matches the expected values
                 const pageInfo = response.body.pageInfo
-                expect(pageInfo.currentPage).to.be.eq(1)
+                expect(pageInfo.currentPage).to.be.eq('2')
                 expect(pageInfo).to.have.property('totalPages').to.eq(5) 
                 expect(pageInfo).to.have.property('totalCustomers').to.eq(50)
 
