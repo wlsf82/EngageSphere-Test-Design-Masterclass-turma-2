@@ -1,5 +1,5 @@
 
-describe('EngageSphere, () => {
+describe('EngageSphere', () => {
 
     // Constants used across multiple tests
     const today = new Date(2024, 6, 9) // July 9, 2024
@@ -35,5 +35,4 @@ describe('EngageSphere, () => {
           .should('be.visible')
             .should('contain.text', `Hi ${customerName}! It is now ${formattedDate}.Below is our customer list.Click on each of them to view their contact details.`)
     })
-
 })
