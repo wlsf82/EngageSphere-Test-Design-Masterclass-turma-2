@@ -6,7 +6,8 @@
     "install:frontend": "cd frontend && npm install",
     "install:backend": "cd backend && npm install",
     "start:frontend": "cd frontend && npm start",
-    "start:server": "cd backend && npm start"
+    "start:server": "cd backend && npm start",
+    "cy:open:server":"cypress open"
   },
   "repository": {
     "type": "git",
@@ -27,5 +28,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.7",
+    "@babel/preset-react": "^7.24.7",
+    "@cypress/react": "^8.0.2",
+    "@cypress/webpack-dev-server": "^3.10.0",
+    "babel-loader": "^9.1.3",
+    "cypress": "^13.13.0",
+    "webpack": "^5.92.1"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   }
 }
