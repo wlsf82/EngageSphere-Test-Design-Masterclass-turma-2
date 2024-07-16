@@ -10,9 +10,9 @@
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "lint": "eslint . --ignore-pattern 'backend/*' --ignore-pattern 'frontend/*'",
-    "api:run": "cypress run --spec cypress/e2e/api-tests/**.cy.js --record",
-    "gui:run": "cypress run --spec cypress/e2e/gui-tests/**.cy.js --record",
-    "component:run": "cypress run --component --record",
+    "api:run": "cypress run --spec cypress/e2e/api-tests/**.cy.js --record --key=538a92a3-326c-4662-a1cf-283f56021209",
+    "gui:run": "cypress run --spec cypress/e2e/gui-tests/**.cy.js --record --key=538a92a3-326c-4662-a1cf-283f56021209 ",
+    "component:run": "cypress run --component --record --key=538a92a3-326c-4662-a1cf-283f56021209",
     "accessibility:run": "cypress run --spec cypress/e2e/accessibility-tests/**.cy.js --record false",
     "cloud:run": "npx cypress run && npm run --component -- --record --key=538a92a3-326c-4662-a1cf-283f56021209"  },
 
