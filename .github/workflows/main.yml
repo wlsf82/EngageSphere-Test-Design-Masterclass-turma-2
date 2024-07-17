@@ -11,13 +11,14 @@ jobs:
       
       - name: Install Dependencies and Run Tests
         run: |
+          cd backend &&
+          npm install &&
+          npm start
+          echo "all backend dependencies have been installed"
+          cd ..
           cd frontend && 
           npm install &&
           npm start
           npm build
           echo "all backend dependencies have been installed"
-          cd ..
-          cd backend &&
-          npm install &&
-          npm start
-          echo "all backend dependencies have been installed"
+          
