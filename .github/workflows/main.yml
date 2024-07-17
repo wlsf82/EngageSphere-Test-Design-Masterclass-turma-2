@@ -9,9 +9,23 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Cypress run
+      # - name: Cypress run
+      #   uses: cypress-io/github-action@v6
+      #   with:
+      #     build: npm run cd install:frontend && cd install:backend
+      #     start: npm run cd start:frontend && cd start:backend   
+
+        # Build package1
+      - name: Build frontend
         uses: cypress-io/github-action@v6
         with:
-          build: npm run cd install:frontend && cd install:backend
-          start: npm run cd start:frontend && cd start:backend   
-       
+          build: npm run install:frontend && npm run 
+          run: npm run start:frontend && npm run start:server && install:backend
+        
+      # Build package2
+      # - name: Build backend
+      #   uses: cypress-io/github-action@v6
+      #   with:
+      #     build: npm run cd backend && npm install 
+      #     run: npm run cd backend && npm start
+      
