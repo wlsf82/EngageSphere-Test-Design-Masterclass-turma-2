@@ -10,7 +10,7 @@ describe('EngageSphere', () => {
         cy.clock(today.getTime())
     })
 
-    it('Homepage renders the header with an h1 and theme toggle*', () => {
+    it('Homepage renders the header with an h1 and theme toggle', () => {
 
         cy.contains('h1', 'EngageSphere')
             .should('be.visible')
@@ -19,13 +19,13 @@ describe('EngageSphere', () => {
             .should('be.visible')
     })
 
-    it('Homepage shows the default greeting (i.e., Hi there! ...) *', () => {
+    it('Homepage shows the default greeting (i.e., Hi there! ...)', () => {
 
         cy.contains('p', `Hi there! It is now ${formattedDate}.`)
             .should('be.visible')
     })
 
-    it('Homepage shows a customized greeting (e.g., Hi Joe! ...) *', () => {
+    it('Homepage shows a customized greeting (e.g., Hi Joe! ...)', () => {
         const customerName = 'Lucas'
 
         cy.get('[data-testid="name"]')

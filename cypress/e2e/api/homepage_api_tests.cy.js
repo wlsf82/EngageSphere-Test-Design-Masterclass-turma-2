@@ -1,14 +1,14 @@
 
 describe('Successfully retrieves customers (e.g., checks for the 200 status code)', () => {
 
-    it('successfully retrieves a list of customers*', () => {
+    it('successfully retrieves a list of customers', () => {
         cy.api_retrieveCustomers()
             .then(response => {
                 expect(response.status).to.eq(200)
             })
     })
 
-    it.only('Paginates the customer list correctly when fetching products for page 2 with limit 10**', () => {
+    it.only('Paginates the customer list correctly when fetching products for page 2 with limit 10', () => {
         const queryParams = {
             page: 2,
             limit: 10,
