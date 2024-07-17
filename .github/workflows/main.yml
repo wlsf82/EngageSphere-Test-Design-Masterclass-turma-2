@@ -27,10 +27,12 @@ jobs:
       - name: Install and Start Frontend and Backend
         uses: cypress-io/github-action@v6
         with:
-          build: |
-            npm install
-            npm run install:frontend
-            npm run install:backend
-          run: |
-            npm run start:frontend 
-            npm run start:backend 
+          build: npm run build
+          start: npm start
+          # build: |
+          #   npm install
+          #   npm run install:frontend
+          #   npm run install:backend
+          # run: |
+          #   npm run start:frontend 
+          #   npm run start:backend 
