@@ -19,7 +19,7 @@ jobs:
       - name: Build frontend
         uses: cypress-io/github-action@v6
         with:
-          build: npm run install:frontend && npm run 
+          build: npm run install:frontend && npm run install:backend
           run: npm run start:frontend && npm run start:server && install:backend
         
       # Build package2
