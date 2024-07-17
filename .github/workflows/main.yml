@@ -10,8 +10,9 @@ jobs:
         uses: actions/checkout@v4
       # Install npm dependencies, cache them correctly
       # and run all Cypress tests
-      - name: Cypress run
+      - name: Cypress tests
         uses: cypress-io/github-action@v6
         with:
-          build: npm run install:backend, npm run install:frontend
-          start: npm run start:server, npm run start:frontend
+          start: npm run start:frontend
+          wait-on: 'http://localhost:3000'
+          command: test
