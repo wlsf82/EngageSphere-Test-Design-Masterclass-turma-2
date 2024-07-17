@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "Sample project with a Node.js backend and a React frontend.",
   "scripts": {
-    "install:frontend": "cd frontend && react-scripts build",
+    "install:frontend": "cd frontend && npm install",
     "install:backend": "cd backend && npm install",
-    "start:frontend": "cd frontend && npm install && react-scripts start",
-    "start:server": "cd backend && npm install & node server",
-    "build:all": "install:frontend && install:backend",
-    "test:all": "start-test start:server 3001 start:frontend 3001 test"
+    "start:frontend": "cd frontend && npm start",
+    "start:server": "cd backend && npm start",
+    "cy:open": "cypress open",
+    "test": "cypress run"
   },
   "repository": {
     "type": "git",
