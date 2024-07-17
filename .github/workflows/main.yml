@@ -14,4 +14,9 @@ jobs:
           cd frontend && 
           npm install &&
           npm start
-          echo "all frontend dependencies have been installed"
+          echo "all backend dependencies have been installed"
+          cd ..
+          cd backend &&
+          npm install &&
+          npm start
+          echo "all backend dependencies have been installed"
