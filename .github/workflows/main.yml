@@ -13,5 +13,5 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          # build: npm run build
+          build: npm run install:backend, npm run install:frontend
           start: npm run start:server, npm run start:frontend
