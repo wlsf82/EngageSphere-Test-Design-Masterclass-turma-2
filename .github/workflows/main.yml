@@ -7,5 +7,6 @@ jobs:
       - uses: actions/checkout@v4
       - uses: cypress-io/github-action@v6
         with:
-          browser: chrome
-          headed: true
+          start: npm start
+          # quote the url to be safe against YML parsing surprises
+          wait-on: 'http://localhost:3000'
