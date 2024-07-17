@@ -9,12 +9,13 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v6
 
-      - name: Start Backend Server
-        run: 
-          npm run install:backend
-          npm run start:server 
+      - name: Run e2e tests
+        run:
+          npm run test:all 
+          # npm run install:backend
+          # npm run start:server 
       
-      - name: Install Dependencies and Run Tests
-        run: |
-          npm run install:frontend
-          npm run start:frontend
+      # - name: Install Dependencies and Run Tests
+      #   run: |
+      #     npm run install:frontend
+      #     npm run start:frontend
