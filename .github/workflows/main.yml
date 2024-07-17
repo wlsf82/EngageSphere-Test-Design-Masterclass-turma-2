@@ -1,39 +1,11 @@
-name: E2E on Chrome
-
-on: [push]
-
-# jobs:
-#   install:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Checkout
-#         uses: actions/checkout@v4 
-
-#         # Build package1
-#       - name: Build frontend
-#         uses: cypress-io/github-action@v6
-#         with:
-#           build: npm run install:frontend && npm run install:backend
-#           run: npm run start:frontend && npm run start:server
-        
+name: Chrome headed
+on: push
 jobs:
-  install-and-run:
-    runs-on: ubuntu-latest
+  cypress-run:
+    runs-on: ubuntu-22.04
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      # Install dependencies and start frontend and backend
-      - name: Install and Start Frontend and Backend
-        uses: cypress-io/github-action@v6
+      - uses: actions/checkout@v4
+      - uses: cypress-io/github-action@v6
         with:
-          build:
-            cd frontend  
-            npm install
-          start: npm start
-          # build: |
-          #   npm install
-            
-          # run: |
-          #   npm run start:frontend 
-          #   npm run start:backend 
+          browser: chrome
+          headed: true
