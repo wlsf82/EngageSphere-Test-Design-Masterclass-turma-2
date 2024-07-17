@@ -28,8 +28,8 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           build:
-            npm run install:frontend
-            npm run install:backend
+            cd frontend && npm install
+            cd backend && npm install
           start: npm start
           # build: |
           #   npm install
