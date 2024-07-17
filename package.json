@@ -5,9 +5,9 @@
   "scripts": {
     "install:frontend": "cd frontend && react-scripts build",
     "install:backend": "cd backend && npm install",
-    "start:frontend": "cd frontend && react-scripts start",
-    "start:server": "cd backend && node server",
-    "build:all": "install:frontend, install:backend",
+    "start:frontend": "cd frontend && npm install && react-scripts start",
+    "start:server": "cd backend && npm install & node server",
+    "build:all": "install:frontend && install:backend",
     "test:all": "start-test start:server 3001 start:frontend 3001 test"
   },
   "repository": {
