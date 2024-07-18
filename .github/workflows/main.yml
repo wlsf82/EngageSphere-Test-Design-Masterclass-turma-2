@@ -2,32 +2,52 @@ name: Cypress Tests
 
 on: push
 
-# CHATGPT PIPELINE
 jobs:
   cypress-run:
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-22.04
     steps:
-      - name: Checkout Repository
+      - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Install Dependencies
-        run: npm install
-      
-      - name: Create the builds
-        run: |
-          npm run install:frontend
-          npm run install:backend
-          
-      - name: Start API Server
-        run: |
-          npm run start:server
-          npm run start:frontend
-
-      - name: Run Cypress Tests
+      # Install npm dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress tests
         uses: cypress-io/github-action@v6
         with:
-          start: npm run test
+          build: |
+            npm run install:backend
+            npm run install:frontend
+          start: |
+            npm run start:server
+            npm run start:frontend
+          wait-on: 'http://localhost:3000'
+          command: npm run test         
+
+# # CHATGPT PIPELINE
+# jobs:
+#   cypress-run:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Checkout Repository
+#         uses: actions/checkout@v4
+
+#       - name: Install Dependencies
+#         run: npm install
+      
+#       - name: Create the builds
+#         run: |
+#           npm run install:frontend
+#           npm run install:backend
+          
+#       - name: Start API Server
+#         run: |
+#           npm run start:server
+#           npm run start:frontend
+
+#       - name: Run Cypress Tests
+#         uses: cypress-io/github-action@v6
+#         with:
+#           start: npm run test
 
 
 # CLOSE TO BEING A WORKING COPY 
