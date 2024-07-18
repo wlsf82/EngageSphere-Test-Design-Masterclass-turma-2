@@ -24,7 +24,7 @@ jobs:
           npm run start:server
 
       - name: Wait for Servers to Start
-        run: npx wait-on http://localhost:3001 http://localhost:3000
+        run: npx wait-on http://localhost:3000
 
       - name: Run Cypress Tests
         uses: cypress-io/github-action@v6
