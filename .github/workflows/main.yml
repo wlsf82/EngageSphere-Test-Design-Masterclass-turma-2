@@ -16,7 +16,6 @@ jobs:
       
       - name: Create the builds
         run: |
-          npm run intall:backend
           npm run install:frontend
           
       - name: Start API Server
