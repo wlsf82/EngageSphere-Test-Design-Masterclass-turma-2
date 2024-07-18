@@ -17,11 +17,12 @@ jobs:
       - name: Create the builds
         run: |
           npm run install:frontend
+          npm run install:backend
           
       - name: Start API Server
         run: |
           npm run start:server
-             
+
       - name: Wait for Servers to Start
         run: npx wait-on http://localhost:3001 http://localhost:3000
 
