@@ -13,20 +13,19 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
-
+      
+      - name: Create the builds
+        run: |
+          npm run intall:backend
+          npm run install:frontend
+          
       - name: Start API Server
         run: |
-          npm run start:server &
-          sleep 10  # Adjust sleep duration based on server startup time
-
-      - name: Start Web Server
-        run: |
-          npm run start:frontend &
-          sleep 10  # Adjust sleep duration based on server startup time
-
+          npm run start:server
+          npm run start:frontend    
+   
       - name: Wait for Servers to Start
         run: npx wait-on http://localhost:3001 http://localhost:3000
-        # Replace http://localhost:3001 and http://localhost:3000 with your server URLs or ports
 
       - name: Run Cypress Tests
         uses: cypress-io/github-action@v6
