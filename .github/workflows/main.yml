@@ -15,7 +15,9 @@ jobs:
         with:
           build: |
             npm run install:backend
+            cd ..
             npm run install:frontend
+            cd ..
           start: |
             npm run start:server
             npm run start:frontend
