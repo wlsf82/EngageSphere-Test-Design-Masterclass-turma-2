@@ -16,4 +16,4 @@ jobs:
           build: npm run install:frontend
           start: npm run start:frontend
           wait-on: 'http://localhost:3000'
-          command: test
+          command: npm run test
