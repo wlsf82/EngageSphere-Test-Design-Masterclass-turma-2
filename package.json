@@ -36,6 +36,7 @@
     "start-server-and-test": "^2.0.4"
   },
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "swagger-ui-express": "^5.0.1"
   }
 }
