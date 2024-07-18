@@ -10,6 +10,15 @@ jobs:
         uses: actions/checkout@v4
       # Install npm dependencies, cache them correctly
       # and run all Cypress tests
+
+      - name: Start Backend Server
+        uses: cypress-io/github-action@v6
+        with:
+          build: npm run install:backend
+          start: npm run start:backend
+          wait-on: 'http://localhost:3001'
+         
+
       - name: Cypress tests
         uses: cypress-io/github-action@v6
         with:
@@ -17,3 +26,26 @@ jobs:
           start: npm run start:frontend
           wait-on: 'http://localhost:3000'
           command: npm run test
+
+
+
+# CLOSE TO BEING A WORKING COPY 
+# name: Cypress Tests
+
+# on: push
+
+# jobs:
+#   cypress-run:
+#     runs-on: ubuntu-22.04
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v4
+#       # Install npm dependencies, cache them correctly
+#       # and run all Cypress tests
+#       - name: Cypress tests
+#         uses: cypress-io/github-action@v6
+#         with:
+#           build: npm run install:frontend
+#           start: npm run start:frontend
+#           wait-on: 'http://localhost:3000'
+#           command: npm run test         
