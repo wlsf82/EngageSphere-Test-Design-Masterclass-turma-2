@@ -22,6 +22,7 @@ jobs:
       - name: Start API Server
         run: |
           npm run start:server
+          npm run start:frontend
 
       - name: Run Cypress Tests
         uses: cypress-io/github-action@v6
