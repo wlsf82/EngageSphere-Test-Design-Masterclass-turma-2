@@ -21,7 +21,32 @@ jobs:
           # build: npm run install:frontend, npm run install:backend
           start: npm run start:frontend, npm run start:server
           wait-on: 'http://localhost:3000, http://localhost:3001'
-          command: npm run test:all  
+          command: npm run test 
+
+# name: Cypress Tests
+
+# on: push
+
+# jobs:
+#   cypress-run:
+#     runs-on: ubuntu-22.04
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v4
+      
+#       - name: Install npm dependencies
+#         run: |
+#           npm install
+#           npm run install:frontend
+#           npm run install:backend
+      
+#       - name: Cypress tests
+#         uses: cypress-io/github-action@v6
+#         with:
+#           # build: npm run install:frontend, npm run install:backend
+#           start: npm run start:frontend, npm run start:server
+#           wait-on: 'http://localhost:3000, http://localhost:3001'
+#           command: npm run test:all  
 
 # name: Cypress Tests
 
