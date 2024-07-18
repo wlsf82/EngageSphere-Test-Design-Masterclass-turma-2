@@ -16,7 +16,7 @@ jobs:
           build: npm run install:frontend, npm run install:backend
           start: npm run start:frontend, npm run start:server
           wait-on: 'http://localhost:3050, http://localhost:8080'
-          command: npm run test  
+          command: npm run test:all  
 
 # name: Cypress Tests
 
