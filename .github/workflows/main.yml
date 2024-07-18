@@ -14,7 +14,7 @@ jobs:
       - name: Cypress tests
         uses: cypress-io/github-action@v6
         with:
-          build: npm run install:frontend
+          build: npm run install:frontend, npm run install:backend
           start: npm run start:frontend, npm run start:server
           wait-on: 'http://localhost:3000'
           command: npm run test         
@@ -39,3 +39,5 @@ jobs:
 #           start: npm run start:frontend
 #           wait-on: 'http://localhost:3000'
 #           command: npm run test         
+
+
