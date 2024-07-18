@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "express": "^4.19.2",
-    "swagger-ui-express": "^5.0.1"
+    "swagger-ui-express": "^5.0.1",
+    "webpack-dev-middleware": "^7.2.1"
   }
 }
