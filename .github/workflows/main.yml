@@ -11,113 +11,23 @@ jobs:
       
       - name: Install npm dependencies
         run: |
-          npm install
+          npm install ttttttt
           npm run install:frontend
           npm run install:backend
+
+          # Uncommment this block of code if you want to run workflow changes locally using act: https://github.com/nektos/act
+          # - name: Install Cypress Dependencies
+          # run: |
+          #   sudo apt-get update
+          #   sudo apt-get install -y libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libnss3 libxss1 libasound2 libxtst6 xauth xvfb
+          # env:
+          #   DEBIAN_FRONTEND: noninteractive     
       
       - name: Cypress tests
         uses: cypress-io/github-action@v6
         with:
-          # build: npm run install:frontend, npm run install:backend
           start: npm run start:frontend, npm run start:server
           wait-on: 'http://localhost:3000'
-          command: npm run test 
-
-# name: Cypress Tests
-
-# on: push
-
-# jobs:
-#   cypress-run:
-#     runs-on: ubuntu-22.04
-#     steps:
-#       - name: Checkout
-#         uses: actions/checkout@v4
-      
-#       - name: Install npm dependencies
-#         run: |
-#           npm install
-#           npm run install:frontend
-#           npm run install:backend
-      
-#       - name: Cypress tests
-#         uses: cypress-io/github-action@v6
-#         with:
-#           # build: npm run install:frontend, npm run install:backend
-#           start: npm run start:frontend, npm run start:server
-#           wait-on: 'http://localhost:3000, http://localhost:3001'
-#           command: npm run test:all  
-
-# name: Cypress Tests
-
-# on: push
-
-# jobs:
-#   cypress-run:
-#     runs-on: ubuntu-22.04
-#     steps:
-#       - name: Checkout
-#         uses: actions/checkout@v4
-
-#       - name: Install npm dependencies
-#         run: |
-#           npm install
-#           npm run install:frontend
-#           npm run install:backend
-
-#       - name: Start frontend and backend servers
-#         run: |
-#           npm run start:frontend &
-#           npm run start:server &
-#           wait-on http://localhost:3000
-
-#       - name: Run Cypress tests
-#         uses: cypress-io/github-action@v6
-#         with:
-#           wait-on: 'http://localhost:3000'
-#           command-prefix: npm run
-#           command: test
-          
-# name: Cypress Tests
-
-# on: push
-
-# jobs:
-#   cypress-run:
-#     runs-on: ubuntu-22.04
-#     steps:
-#       - name: Checkout
-#         uses: actions/checkout@v4
-#       # Install npm dependencies, cache them correctly
-#       # and run all Cypress test
-
-#       - name: Cypress tests
-#         uses: cypress-io/github-action@v6
-#         with:
-#           build: npm run install:frontend, npm run install:backend
-#           start: npm run start:frontend, npm run start:server
-#           wait-on: 'http://localhost:3000'
-#           command: npm run test         
-
-# CLOSE TO BEING A WORKING COPY 
-# name: Cypress Tests
-
-# on: push
-
-# jobs:
-#   cypress-run:
-#     runs-on: ubuntu-22.04
-#     steps:
-#       - name: Checkout
-#         uses: actions/checkout@v4
-#       # Install npm dependencies, cache them correctly
-#       # and run all Cypress tests
-#       - name: Cypress tests
-#         uses: cypress-io/github-action@v6
-#         with:
-#           build: npm run install:frontend
-#           start: npm run start:frontend
-#           wait-on: 'http://localhost:3000'
-#           command: npm run test         
+          command: npm run test      
 
 
