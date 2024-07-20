@@ -2,11 +2,11 @@
 
 describe('Teste de API', () => {
   it('GET - Recupera clientes com sucesso', () => {
-    cy.request('http://localhost:3001/customers')
-    .should((response)=>{
-      // Verifica se o status da resposta é 200
-      expect(response.status).to.equal(200)
+    const CUSTOMERS_API_URL = `${Cypress.env('API_URL')}/customers`
 
-    })
+    cy.request('GET', CUSTOMERS_API_URL).as('getCustumers')
+    cy.get('@getCustumers')
+      .its('status')
+      .should('eq', 200)
   })
 })

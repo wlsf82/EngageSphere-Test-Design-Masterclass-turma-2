@@ -1,9 +1,15 @@
-const { defineConfig } = require("cypress");
+const { defineConfig } = require('cypress')
 
 module.exports = defineConfig({
-  e2e: {
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
-    },
+  env: {
+    API_URL: 'http://localhost:3001',
+    hideCredentials: true,
+    requestMode: true
   },
-});
+  e2e: {
+    baseUrl: 'http://localhost:3000',
+    experimentalRunAllSpecs: true // permite rodar todos os testes visuais de uma vez só
+  },
+  fixturesFolder: false,
+  video: false
+})
