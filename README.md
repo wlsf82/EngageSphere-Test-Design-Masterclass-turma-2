@@ -1,10 +1,10 @@
 # EngageSphere Automation Tests 
 
-## 🚀 Funcionalidades
 ### Test suite
-* ✔️ Cypress, usado para criar e rodar a automação de testes GUI, API e componentes.
+
+* ✔️ Cypress, usado para a escrita e execução dos testes GUI, API e componentes.
 * ✔️ Axe, usado para criar e rodar a automação de testes de acessibilidade.
-* ✔️ Test retry, para repetir testes que falharem e evitar testes "flaky".
+* ✔️ Test retry, para repetir testes que falharem e evienciar testes "flaky".
 
 ### Qualidade de código
 * ✔️ ESLint, para evitar erros no padrão do código e garantir uma boa qualidade do mesmo.
@@ -34,7 +34,7 @@ Link para clonagem do projeto:
 git clone https://github.com/thaydutra/test-design-masterclass
 ```
 
-Após clonar o repositório para sua máquina você deverá instalar as dependencias do projeto inserindo o comando abaixo no seu terminal:
+Após clonar o repositório para sua máquina você deverá instalar as dependencias do projeto executando o comando abaixo no seu terminal:
 ```
 npm install
 ```
@@ -55,17 +55,17 @@ npm run install:backend
 npm run start:backend
 ```
 
-Para executar os testes automatizados em modo headless, você pode inserir o comando abaixo no terminal para executar testes de GUI e API:
+Para executar os testes automatizados em modo headless, você pode executar o comando abaixo no terminal para executar testes de GUI e API:
 ```
 npm run cy:run
 ```
 
-Para executar os testes automatizados em modo headless, você pode inserir o comando abaixo no terminal para executar testes de componente:
+Para executar os testes automatizados em modo headless, você pode executar o comando abaixo no terminal para executar testes de componente:
 ```
 npm run component:run
 ```
 
-Para executar os testes  automatizados em modo headed em um navegador, você pode inserir o comando abaixo no terminal, selecionar E2E testing para testes de API e GUI, ou Component para os testes de componente:
+Para executar os testes  automatizados em modo headed em um navegador, você pode executar o comando abaixo no terminal, selecionar E2E testing para testes de API e GUI, ou Component para os testes de componente:
 ```
 npm run cy:open
 ```
