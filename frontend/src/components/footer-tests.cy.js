@@ -11,36 +11,32 @@ describe('<Footer />', () => {
   it('Shows hotmart link', () => {
     cy.mount(<Footer />)
 
-    cy.get('[href="https://hotmart.com/pt-br/club/talking-about-testing"]').each($a => {
-      const message = $a.text();
-      expect($a, message).to.have.attr("href").not.contain("undefined");
-    })
+    cy.contains('a', 'Hotmart')
+      .should('be.visible')
+      .and('have.attr', 'href', 'https://hotmart.com/pt-br/club/talking-about-testing')
   });
 
   it('Shows udemy link', () => {
     cy.mount(<Footer />)
 
-    cy.get('[href="https://udemy.com/user/walmyr"]').each($a => {
-      const message = $a.text();
-      expect($a, message).to.have.attr("href").not.contain("undefined");
-    })
-  });
+    cy.contains('a', 'Udemy')
+      .should('be.visible')
+      .and('have.attr', 'href', 'https://udemy.com/user/walmyr')
+  })
 
-  it('Shows TAT Blog link', () => {
-    cy.mount(<Footer />)
+it('Shows TAT Blog link', () => {
+  cy.mount(<Footer />)
 
-    cy.get('[href="https://talkingabouttesting.com"]').each($a => {
-      const message = $a.text();
-      expect($a, message).to.have.attr("href").not.contain("undefined");
-    })
-  });
+  cy.contains('a', 'Blog')
+    .should('be.visible')
+    .and('have.attr', 'href', 'https://talkingabouttesting.com')
+});
 
-  it('Shows youtube link', () => {
-    cy.mount(<Footer />)
+it('Shows youtube link', () => {
+  cy.mount(<Footer />)
 
-    cy.get('[href="https://youtube.com/@talkingabouttesting"]').each($a => {
-      const message = $a.text();
-      expect($a, message).to.have.attr("href").not.contain("undefined");
-    })
-  });
+  cy.contains('a', 'YouTube')
+    .should('be.visible')
+    .and('have.attr', 'href', 'https://youtube.com/@talkingabouttesting')
 })
+});

@@ -10,9 +10,9 @@ describe('API /customers Test', () => {
     })
 
     it('Paginates the customer list correctly', () => {
-        cy.request('GET', `${CUSTOMERS_API}?page=5&limit=10`).as('getCustomersFivePages')
+        cy.request('GET', `${CUSTOMERS_API}?page=5&limit=10`).as('getCustomersPageFive')
 
-        cy.get('@getCustomersFivePages').should((response) => {
+        cy.get('@getCustomersPageFive').should((response) => {
             expect(response.status).to.eq(200)
             expect(response.body).to.have.property('pageInfo')
 
