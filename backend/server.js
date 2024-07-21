@@ -9,7 +9,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
 const database = require('./db')
 
-const allowedOrigins = ['https://engage-sphere.vercel.app', 'http://localhost:3000']
+const allowedOrigins = ['https://engage-sphere.vercel.app', 'http://localhost:3001']
 
 app.use((req, res, next) => {
   const origin = req.headers.origin
