@@ -11,7 +11,7 @@ describe('TESTES DE ACESSIBILIDADE', () => {
       cy.get('[data-theme="dark"]').should('exist')
     });
 
-    it('VERIFICA ACESSIBILIDADE NO MODO DARK', () => {
+    it('VERIFICA ACESSIBILIDADE NO MODO DARK EM DIFERENTES VIEWPORT', () => {
       cy.pageAccessibility();
     });
 
@@ -33,16 +33,16 @@ describe('TESTES DE ACESSIBILIDADE', () => {
       cy.injectAxe()
     });
 
-    it('VERIFICA ACESSIBILIDADE NO MODO DARK', () => {
+    it('VERIFICA ACESSIBILIDADE NO MODO LIGTH EM DIFERENTES VIEWPORT', () => {
       cy.pageAccessibility();
     });
 
-    it('NÃO ENCONTRA ERROS DE AY11 EM DETALHES DO CLIENTE COM MODO DARK', () => {
+    it('NÃO ENCONTRA ERROS DE AY11 EM DETALHES DO CLIENTE COM MODO LIGTH', () => {
       cy.get('tbody').first().click()
       cy.checkA11y()
     });
 
-    it('NÃO ENCONTRA ERROS DE AY11 NO DETALHE DO ENDEREÇO COM MODO DARK', () => {
+    it('NÃO ENCONTRA ERROS DE AY11 NO DETALHE DO ENDEREÇO COM MODO LIGTH', () => {
       cy.get('tbody').first().click()
       cy.get('.show-address-btn').click()
       cy.checkA11y()
