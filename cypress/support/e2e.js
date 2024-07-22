@@ -14,7 +14,6 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
 require('cypress-plugin-xhr-toggle')
 Cypress.on('uncaught:exception', (err, runnable) => {
     // retornando false aqui evita que o Cypress falhe no teste

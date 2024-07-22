@@ -75,12 +75,5 @@ function callback(violations) {
     });
   });
   
-  Cypress.Commands.add("componentAccessibility", (selector) => {
-    /*
-      O parâmetro selector é um seletor CSS do elemento que irá ser testado.
-      O mesmo pode ser id, class ou combinações. Ex: #container-ava > .home > .continue-onde-parou
-    */
-    cy.injectAxe();
-    cy.checkA11y(selector, {}, callback);
-  });
+
   
