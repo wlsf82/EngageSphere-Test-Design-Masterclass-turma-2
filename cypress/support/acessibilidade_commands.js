@@ -75,5 +75,3 @@ function callback(violations) {
     });
   });
   
-
-  
