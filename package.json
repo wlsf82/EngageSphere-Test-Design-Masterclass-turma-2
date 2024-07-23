@@ -9,9 +9,9 @@
     "start:server": "cd backend && npm start",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "api:run": "cypress run --tag 'API' --spec cypress/e2e/API/**.cy.js",
-    "gui:run": "cypress run --tag 'GUI' --spec cypress/e2e/GUI/**.cy.js",
-    "accessibility:run": "cypress run --tag 'A11' --spec cypress/e2e/AY11/**.cy.js"
+    "api:run": "cypress run --spec cypress/e2e/API/**.cy.js",
+    "gui:run": "cypress run --spec cypress/e2e/GUI/**.cy.js",
+    "accessibility:run": "cypress run --spec cypress/e2e/AY11/**.cy.js"
   },
   "repository": {
     "type": "git",
