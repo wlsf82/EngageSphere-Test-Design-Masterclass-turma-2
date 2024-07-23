@@ -1,9 +1,9 @@
 /// <reference types="cypress" />
 import 'cypress-axe'
 
-describe('TESTES DE ACESSIBILIDADE', () => {
+describe('ACCESSIBILITY TESTS', () => {
 
-  context('VERIFICA ACESSIBLIDADE NO MODO DARK', () => {
+  context('CHECK ACCESSIBLITY IN DARK MODE', () => {
     beforeEach(() => {
       cy.visit('/')
       cy.injectAxe()
@@ -11,38 +11,39 @@ describe('TESTES DE ACESSIBILIDADE', () => {
       cy.get('[data-theme="dark"]').should('exist')
     });
 
-    it('VERIFICA ACESSIBILIDADE NO MODO DARK EM DIFERENTES VIEWPORT', () => {
+    it('CHECK ACCESSIBILITY IN DARK MODE IN DIFFERENT VIEWPORTS', () => {
       cy.pageAccessibility();
     });
 
-    it('NÃO ENCONTRA ERROS DE AY11 EM DETALHES DO CLIENTE COM MODO DARK', () => {
+    it('DO NOT FIND AY11 ERRORS IN CLIENT DETAILS WITH DARK MODE', () => {
       cy.get('tbody').first().click()
       cy.checkA11y()
     });
 
-    it('NÃO ENCONTRA ERROS DE AY11 NO DETALHE DO ENDEREÇO COM MODO DARK', () => {
+    it('DO NOT FIND AY11 ERRORS IN ADDRESS DETAIL WITH DARK MODE', () => {
       cy.get('tbody').first().click()
       cy.get('.show-address-btn').click()
       cy.checkA11y()
     });
   })
 
-  context('VERIFICA ACESSIBLIDADE NO MODO LIGHT', () => {
+  context('CHECK ACCESSIBLITY IN LIGHT MODE', () => {
     beforeEach(() => {
       cy.visit('/')
+      cy.get('[data-theme="light"]').should('exist')
       cy.injectAxe()
     });
 
-    it('VERIFICA ACESSIBILIDADE NO MODO LIGTH EM DIFERENTES VIEWPORT', () => {
+    it('CHECK ACCESSIBILITY IN LIGHT MODE IN DIFFERENT VIEWPORTS', () => {
       cy.pageAccessibility();
     });
 
-    it('NÃO ENCONTRA ERROS DE AY11 EM DETALHES DO CLIENTE COM MODO LIGTH', () => {
+    it('DO NOT FIND AY11 ERRORS IN CLIENT DETAILS WITH LIGHT MODE', () => {
       cy.get('tbody').first().click()
       cy.checkA11y()
     });
 
-    it('NÃO ENCONTRA ERROS DE AY11 NO DETALHE DO ENDEREÇO COM MODO LIGTH', () => {
+    it('DO NOT FIND AY11 ERRORS IN ADDRESS DETAIL WITH LIGHT MODE', () => {
       cy.get('tbody').first().click()
       cy.get('.show-address-btn').click()
       cy.checkA11y()

@@ -8,7 +8,7 @@ describe('ENGAGE SPHERE API TESTING', () => {
 
     const CUSTOMERS_API_URL = `${Cypress.env('API_URL')}`
 
-    it('Successfully retrieves customers (e.g., checks for the 200 status code)', () => {
+    it('SUCCESSFULLY RETRIEVES CUSTOMERS (E.G., CHECKS FOR THE 200 STATUS CODE)', () => {
         cy.request('GET', CUSTOMERS_API_URL + '/customers')
             .then(({ body, status }) => {
                 expect(status).to.be.eq(200);
@@ -16,7 +16,7 @@ describe('ENGAGE SPHERE API TESTING', () => {
 
             });
     })
-    it('Returns the correct structure of the response of the first page of customers(i.e., customers and pageInfo properties)', () => {
+    it('RETURNS THE CORRECT STRUCTURE OF THE RESPONSE OF THE FIRST PAGE OF CUSTOMERS(I.E., CUSTOMERS AND PAGEINFO PROPERTIES)', () => {
         cy.request('GET', CUSTOMERS_API_URL + '/customers?page=1')
             .then(({ body, status }) => {
                 expect(status, 'Status code').to.be.eq(200);
@@ -48,12 +48,12 @@ describe('ENGAGE SPHERE API TESTING', () => {
 
             });
     })
-    context('Filter customers by size on a single page', () => {
+    context('FILTER CUSTOMERS BY SIZE ON A SINGLE PAGE', () => {
 
         //MANEIRA CORRETA PARA VERIFICAR TODOS OS TAMANHOS EM UM ÚNICO BLOCO IT
         //SUGESTÃO DO PROFESSOR!!
 
-        it('filters customers by size correctly', () => {
+        it('FILTERS CUSTOMERS BY SIZE CORRECTLY', () => {
             const sizes = ['Small', 'Medium', 'Enterprise', 'Large Enterprise', 'Very Large Enterprise']
             const limitOfEmployessPerSize = [99, 999, 9999, 49999, 999999] // Assuming that there aren't companies with more than 999999 employees in the database
 
@@ -68,7 +68,7 @@ describe('ENGAGE SPHERE API TESTING', () => {
                     })
             })
         })
-        it('Filter All customers', () => {
+        it('FILTER ALL CUSTOMERS', () => {
             cy.request('GET', CUSTOMERS_API_URL + '/customers?size=All')
                 .then(({ status, body }) => {
                     expect(status).to.be.eq(200);
@@ -79,7 +79,7 @@ describe('ENGAGE SPHERE API TESTING', () => {
                 });
         });
 
-        it('Filters Small size customers', () => {
+        it('FILTERS SMALL SIZE CUSTOMERS', () => {
             cy.request('GET', CUSTOMERS_API_URL + '/customers?size=Small')
                 .then(({ status, body }) => {
                     expect(status).to.be.eq(200);
@@ -96,7 +96,7 @@ describe('ENGAGE SPHERE API TESTING', () => {
                 });
         });
 
-        it('Filters Medium size customers', () => {
+        it('FILTERS MEDIUM SIZE CUSTOMERS', () => {
             cy.request('GET', CUSTOMERS_API_URL + '/customers?size=Medium')
                 .then(({ status, body }) => {
                     expect(status).to.be.eq(200);
@@ -111,7 +111,7 @@ describe('ENGAGE SPHERE API TESTING', () => {
                 });
         });
 
-        it('Filters Enterprise size customers', () => {
+        it('FILTERS ENTERPRISE SIZE CUSTOMERS', () => {
             cy.request('GET', CUSTOMERS_API_URL + '/customers?size=Enterprise')
                 .then(({ status, body }) => {
                     expect(status).to.be.eq(200);
@@ -127,7 +127,7 @@ describe('ENGAGE SPHERE API TESTING', () => {
                 });
         });
 
-        it('Filters Large Enterprise size customers', () => {
+        it('FILTERS LARGE ENTERPRISE SIZE CUSTOMERS', () => {
             cy.request('GET', CUSTOMERS_API_URL + '/customers?size=Large%20Enterprise')
                 .then(({ status, body }) => {
                     expect(status).to.be.eq(200);
@@ -143,7 +143,7 @@ describe('ENGAGE SPHERE API TESTING', () => {
                 });
         });
 
-        it('Filters Very Large Enterprise size customers', () => {
+        it('FILTERS VERY LARGE ENTERPRISE SIZE CUSTOMERS', () => {
             cy.request('GET', CUSTOMERS_API_URL + '/customers?limit=50&size=Very%20Large%20Enterprise')
                 .then(({ status, body }) => {
                     expect(status).to.be.eq(200);
