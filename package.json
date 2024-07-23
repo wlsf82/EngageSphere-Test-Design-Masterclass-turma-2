@@ -34,12 +34,19 @@
     ]
   },
   "devDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "webpack": "^5.92.1",
+    "@babel/eslint-parser": "^7.24.7",
+    "@babel/parser": "^7.24.7",
+    "@babel/preset-react": "^7.24.7",
     "axe-core": "^4.9.1",
     "cypress": "^13.13.0",
     "cypress-axe": "^1.5.0",
-    "@babel/eslint-parser": "^7.24.7",
-    "@babel/parser": "^7.24.7",
-    "@babel/preset-react": "^7.24.7"
+    "eslint": "^9.6.0",
+    "eslint-plugin-cypress": "^3.3.0",
+    "globals": "^15.8.0",
+    "react-scripts": "^5.0.1"
   },
   "dependencies": {
     "cypress-plugin-xhr-toggle": "^1.2.1"

@@ -6,15 +6,15 @@ on:
       - main  
 
 jobs:
-  setup:
+  SETUP:
     runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v4
     - name: Install modules
       run: npm install
 
-  api-tests:
-    needs: setup
+  API-TESTS:
+    needs: SETUP
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -35,8 +35,8 @@ jobs:
          start: npm run start:frontend & npm run start:server
          command: npm run api:run
 
-  accessibility-tests:
-    needs: setup
+  ACCESSIBILITY-TESTS:
+    needs: SETUP
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
