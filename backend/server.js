@@ -3,7 +3,7 @@ const swaggerUi = require('swagger-ui-express')
 const swaggerDocument = require('./swaggerConfig')
 
 const app = express()
-const PORT = process.env.PORT || 3002
+const PORT = process.env.PORT || 3001
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
