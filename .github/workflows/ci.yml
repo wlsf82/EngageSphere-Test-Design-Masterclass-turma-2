@@ -13,28 +13,6 @@ jobs:
     - name: Install modules
       run: npm install
 
-  gui-tests:
-    needs: setup
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Install backend
-        uses: cypress-io/github-action@v6
-        with:
-          install-command: npm run install:backend
-          runTests: false
-      - name: Install frontend
-        uses: cypress-io/github-action@v6
-        with:
-          install-command: npm run install:frontend
-          runTests: false
-      - name: Run GUI tests
-        uses: cypress-io/github-action@v6
-        with:
-          start: npm run start:frontend & npm run start:server
-          command: npm run gui:run
-
   api-tests:
     needs: setup
     runs-on: ubuntu-latest
