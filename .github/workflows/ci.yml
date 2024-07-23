@@ -32,7 +32,7 @@ jobs:
       - name: Run GUI tests
         uses: cypress-io/github-action@v6
         with:
-          start: npm run start:frontend, npm run start:server
+          start: npm run start:frontend & npm run start:server
           command: npm run gui:run
 
   api-tests:
@@ -54,8 +54,8 @@ jobs:
       - name: Run API tests
         uses: cypress-io/github-action@v6
         with:
-          start: npm run start:frontend, npm run start:server
-          command: npm run api:run
+         start: npm run start:frontend & npm run start:server
+         command: npm run api:run
 
   accessibility-tests:
     needs: setup
@@ -76,5 +76,5 @@ jobs:
       - name: Run Accessibility tests
         uses: cypress-io/github-action@v6
         with:
-          start: npm run start:frontend, npm run start:server
+          start: npm run start:frontend & npm run start:server
           command: npm run accessibility:run
