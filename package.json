@@ -3,10 +3,17 @@
   "version": "1.0.0",
   "description": "Sample project with a Node.js backend and a React frontend.",
   "scripts": {
-    "install:frontend": "cd frontend && npm install",
     "install:backend": "cd backend && npm install",
     "start:frontend": "cd frontend && npm start",
-    "start:server": "cd backend && npm start"
+    "start:server": "cd backend && npm start",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "lint": "eslint . --ignore-pattern 'backend/*' --ignore-pattern 'frontend/*'",
+    "api:run": "cypress run --record --tag 'API' --spec cypress/e2e/api-tests/**.cy.js",
+    "gui:run": "cypress run --record --tag 'GUI' --spec cypress/e2e/gui-tests/**.cy.js",
+    "component:run": "cypress run --record  --tag 'component' --component",
+    "accessibility:run": "cypress run --record --tag 'a11y' --spec cypress/e2e/accessibility-tests/**.cy.js",
+    "cloud:run": "npx cypress run && npm run --component"  
   },
   "repository": {
     "type": "git",

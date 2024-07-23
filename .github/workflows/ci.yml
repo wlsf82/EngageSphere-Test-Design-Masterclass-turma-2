@@ -1,43 +1,80 @@
-name: Cypress Tests with Dependency and Artifact Caching
+name: GUI, API and Components Tests
 
-on: push
+on:
+  push:
+    branches:
+      - main  
 
 jobs:
-  install:
+  setup:
     runs-on: ubuntu-22.04
+    steps:
+    - uses: actions/checkout@v4
+    - name: Install modules
+      run: npm install
+
+  gui-tests:
+    needs: setup
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Cypress install
+      - name: Install backend
         uses: cypress-io/github-action@v6
         with:
-          # Disable running of tests within install job
+          install-command: npm run install:backend
           runTests: false
-          build: npm run build
-
-      - name: Save build folder
-        uses: actions/upload-artifact@v4
+      - name: Install frontend
+        uses: cypress-io/github-action@v6
         with:
-          name: build
-          if-no-files-found: error
-          path: build
+          install-command: npm run install:frontend
+          runTests: false
+      - name: Run GUI tests
+        uses: cypress-io/github-action@v6
+        with:
+          start: npm run start:frontend, npm run start:server
+          command: npm run gui:run
 
-  cypress-run:
-    runs-on: ubuntu-22.04
-    needs: install
+  api-tests:
+    needs: setup
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Download the build folder
-        uses: actions/download-artifact@v4
-        with:
-          name: build
-          path: build
-
-      - name: Cypress run
+      - name: Install backend
         uses: cypress-io/github-action@v6
         with:
-          start: npm start
-          browser: chrome
+          install-command: npm run install:backend
+          runTests: false
+      - name: Install frontend
+        uses: cypress-io/github-action@v6
+        with:
+          install-command: npm run install:frontend
+          runTests: false
+      - name: Run API tests
+        uses: cypress-io/github-action@v6
+        with:
+          start: npm run start:frontend, npm run start:server
+          command: npm run api:run
+
+  accessibility-tests:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install backend
+        uses: cypress-io/github-action@v6
+        with:
+          install-command: npm run install:backend
+          runTests: false
+      - name: Install frontend
+        uses: cypress-io/github-action@v6
+        with:
+          install-command: npm run install:frontend
+          runTests: false
+      - name: Run Accessibility tests
+        uses: cypress-io/github-action@v6
+        with:
+          start: npm run start:frontend, npm run start:server
+          command: npm run accessibility:run
