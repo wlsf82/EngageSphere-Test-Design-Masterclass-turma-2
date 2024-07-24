@@ -24,12 +24,10 @@ jobs:
         with:
           install-command: npm run install:backend
           runTests: false
-      - name: Install frontend
-
       - name: Run API tests
         uses: cypress-io/github-action@v6
         with:
-         start: npm run start:server
+         start:   npm run start:server
          command: npm run api:run
 
   ACCESSIBILITY-TESTS:
