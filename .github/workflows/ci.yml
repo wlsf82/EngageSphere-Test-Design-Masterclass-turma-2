@@ -37,7 +37,7 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           start: npm run start:frontend, npm run start:server
-          command: npm run gui:run
+          command: npm run gui:run:cloud
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
@@ -62,7 +62,7 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           start: npm run start:frontend, npm run start:server
-          command: npm run component:run
+          command: npm run component:run:cloud
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
@@ -87,7 +87,7 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           start: npm run start:frontend, npm run start:server
-          command: npm run api:run
+          command: npm run api:run:cloud
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
