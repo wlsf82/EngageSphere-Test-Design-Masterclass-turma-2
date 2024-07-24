@@ -12,11 +12,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      
       - name: Cypress tests
         uses: cypress-io/github-action@v6
         with:
-          start: npm run start:frondend
-          wait-on: 'http://localhost:3000'
-          command: npm test
-
-
+          start: npm run start:frontend
+          wait-on: 'http://localhost:3000' 
+          command: npm run test
