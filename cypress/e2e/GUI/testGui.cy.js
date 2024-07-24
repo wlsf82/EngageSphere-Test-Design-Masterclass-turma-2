@@ -1,5 +1,4 @@
 /// <reference types="Cypress" />
-/* global cy, describe, it, beforeEach */
 
 describe('Testando a aplicação EngageSphere', () => {
 
@@ -14,7 +13,8 @@ describe('Testando a aplicação EngageSphere', () => {
     // Bloco de testes
     it('Testando o componente Header', () => {
       cy.get('h1').should('have.text', 'EngageSphere');
-      cy.get('[data-testid="table"] > :nth-child(1)').should('have.text', 'Hi there! It is now Wed Jul 10 2024.');
+      cy.contains('p', 'Hi there! It is now Wed Jul 10 2024.')
+    
     });
   
     it('Testando o componente Input', () => {
@@ -31,16 +31,14 @@ describe('Testando a aplicação EngageSphere', () => {
       // Define o nome do arquivo e o caminho do diretório de downloads
       const fileName = 'customers.csv';
       const downloadsFolder = Cypress.config('downloadsFolder');
-  
-      // Clique no botão de download
+
       cy.get('.download-csv-button').should('be.visible').click();
-  
-      // Espera um pouco para o download ser concluído
-      cy.wait(2000);
   
       // Verifica se o arquivo foi baixado
       cy.readFile(`${downloadsFolder}/${fileName}`).should('exist');
+      
     });
   
   });
+  
   

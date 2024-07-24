@@ -7,44 +7,16 @@ on:
   pull_request:
 
 jobs:
-  e2e-tests:
-    runs-on: ubuntu-latest
+  tests:
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+      - name: Cypress tests
+        uses: cypress-io/github-action@v6
+        with:
+          start: npm run start:frondend
+          wait-on: 'http://localhost:3000'
+          command: npm test
 
-      # Instalação de dependências
-      - name: Install dependencies
-        run: npm install
 
-      # Inicia o servidor backend localmente
-      - name: Start Backend Server
-        run: |
-          npm run install:backend
-          npm run start:server &
-          sleep 5  # Aguarda alguns segundos para o servidor iniciar
-
-      # Inicia o servidor frontend localmente
-      - name: Start Frontend Server
-        run: |
-          npm run install:frontend
-          npm run start:frontend &
-          sleep 5  # Aguarda alguns segundos para o servidor iniciar
-
-      # Aguarda até que o servidor backend esteja pronto
-      - name: Wait for Backend to start
-        run: |
-          npx wait-on http://localhost:3001
-          echo "Backend server is ready!"
-
-      # Aguarda até que o servidor frontend esteja pronto
-      - name: Wait for Frontend to start
-        run: |
-          npx wait-on http://localhost:3000
-          echo "Frontend server is ready!"
-
-      # Executa os testes E2E usando Cypress
-      - name: Run E2E tests 🧪
-        run: npm run test:e2e
-        env:
-          CYPRESS_BASE_URL: http://localhost:3000

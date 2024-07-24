@@ -1,31 +1,24 @@
-# EngageSphere
+## EngageSphere
+Sample project with a Node.js backend and a React frontend.
 
-Sample project with a [Node.js](https://nodejs.org/) backend and a [React](https://react.dev/) frontend.
-
-
-The **EngageSphere** - Sample project with a Node.js backend and a React frontend.
-
-## Install Dependences
-
-d backend
-npm install
-npm start
-
-
-
-cd frontend
-npm install
-npm start
-
+## Business rules
+Read the following doc to understand all the EngageSphere application's functionalities.
 
 ## Pre-requirements
+To run this project, you will need:
 
+Node.js (I've used version v20.13.1 while writing this doc)
+npm (I've used version 10.5.0 while writing this doc)
+Note: When installing Node.js, npm is automatically installed too.
+cypress (I've used version v13.13.0 while writing this doc)
 
-node: v21.7.3
+## Installing and starting the servers
+Read the following doc to install and start the backend and frontend servers.
 
+## Installation of devDependencies
+After cloning this project, to install the dev dependencies, open a terminal, go to the root of this repo, and run npm install (or npm i, for short.)
 
-npm: 10.5.0
+Tests
+Read the following doc to get a list of test cases.
 
-
-cypress: 13.13.0
 

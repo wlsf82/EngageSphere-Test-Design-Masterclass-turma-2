@@ -1,5 +1,3 @@
-
-
 {
     "env": {
       "browser": true,
@@ -25,4 +23,3 @@
       "semi": ["error", "always"]
     }
   }
-  

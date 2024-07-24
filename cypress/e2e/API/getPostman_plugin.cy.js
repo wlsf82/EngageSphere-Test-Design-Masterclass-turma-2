@@ -1,6 +1,5 @@
 /// <reference types="Cypress" />
 
-
 describe('Testando o endpoint /customers', () => {
 
     it('Deve retornar uma lista de clientes com parâmetros de paginação e filtro', () => {
@@ -42,6 +41,7 @@ describe('Testando o endpoint /customers', () => {
     
       });
     });
+    
 
  
   

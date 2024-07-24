@@ -37,9 +37,7 @@
     "cypress": "^13.13.0",
     "eslint": "^9.6.0",
     "eslint-plugin-cypress": "^3.3.0",
-    "globals": "^15.8.0"
-  },
-  "dependencies": {
+    "globals": "^15.8.0",
     "cypress-plugin-api": "^2.11.1",
     "lint": "eslint 'cypress/**/*.js"
   }
