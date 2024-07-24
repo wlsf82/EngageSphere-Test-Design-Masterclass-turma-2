@@ -1,0 +1,827 @@
+[
+  {
+    "id": "area-alt",
+    "description": "Ensures <area> elements of image maps have alternate text",
+    "descriptionTranslated": "Certifique-se de que os elementos <area> dos mapas de imagem tenham texto alternativo",
+    "impact": "Critical",
+    "tags": "cat.text-alternatives, wcag2a, wcag244, wcag412, section508, section508.22.a, ACT",
+    "issueType": "failure, needs review",
+    "category": "wcag"
+  },
+  {
+    "id": "aria-allowed-attr",
+    "description": "Ensures ARIA attributes are allowed for an element's role",
+    "descriptionTranslated": "Certifique-se de que os atributos ARIA sejam permitidos para a função de um elemento",
+    "impact": "Serious, Critical",
+    "tags": "cat.aria, wcag2a, wcag412",
+    "issueType": "failure, needs review",
+    "category": "wcag"
+  },
+  {
+    "id": "aria-command-name",
+    "description": "Ensures every ARIA button, link and menuitem has an accessible name",
+    "descriptionTranslated": "Certifique-se de que cada botão, link e item de menu ARIA tenha um nome acessível",
+    "impact": "Serious",
+    "tags": "cat.aria, wcag2a, wcag412, ACT",
+    "issueType": "failure, needs review",
+    "category": "wcag"
+  },
+  {
+    "id": "aria-hidden-body",
+    "description": "Ensures aria-hidden='true' is not present on the document body.",
+    "descriptionTranslated": "Certifique-se de que aria-hidden='true' não esteja presente no corpo do documento.",
+    "impact": "Critical",
+    "tags": "cat.aria, wcag2a, wcag412",
+    "issueType": "failure",
+    "category": "wcag"
+  },
+  {
+    "id": "aria-hidden-focus",
+    "description": "Ensures aria-hidden elements are not focusable nor contain focusable elements",
+    "descriptionTranslated": "Certifique-se de que os elementos que contenham aria-hidden não sejam focáveis nem contenham elementos focáveis",
+    "impact": "Serious",
+    "tags": "cat.name-role-value, wcag2a, wcag412",
+    "issueType": "failure, needs review",
+    "category": "wcag"
+  },
+  {
+    "id": "aria-input-field-name",
+    "description": "Ensures every ARIA input field has an accessible name",
+    "descriptionTranslated": "Certifique-se de que cada campo de entrada ARIA tenha um nome acessível",
+    "impact": "Moderate, Serious",
+    "tags": "cat.aria, wcag2a, wcag412, ACT",
+    "issueType": "failure, needs review",
+    "category": "wcag"
+  },
+  {
+    "id": "aria-meter-name",
+    "description": "Ensures every ARIA meter node has an accessible name",
+    "descriptionTranslated": "Certifique-se de que cada nó do medidor ARIA tenha um nome acessível",
+    "impact": "Serious",
+    "tags": "cat.aria, wcag2a, wcag111",
+    "issueType": "failure, needs review",
+    "category": "wcag"
+  },
+  {
+    "id": "aria-progressbar-name",
+    "description": "Ensures every ARIA progressbar node has an accessible name",
+    "descriptionTranslated": "Certifique-se de que cada nó da barra de progresso ARIA tenha um nome acessível",
+    "impact": "Serious",
+    "tags": "cat.aria, wcag2a, wcag111",
+    "issueType": "failure, needs review",
+    "category": "wcag"
+  },
+  {
+    "id": "aria-required-attr",
+    "description": "Ensures elements with ARIA roles have all required ARIA attributes",
+    "descriptionTranslated": "Certifique-se de que os elementos com funções ARIA tenham todos os atributos ARIA necessários",
+    "impact": "Critical",
+    "tags": "cat.aria, wcag2a, wcag412",
+    "issueType": "failure",
+    "category": "wcag"
+  },
+  {
+    "id": "aria-required-children",
+    "description": "Ensures elements with an ARIA role that require child roles contain them",
+    "descriptionTranslated": "Certifique-se de que os elementos com uma função ARIA que exigem funções filhas os contenham",
+    "impact": "Critical",
+    "tags": "cat.aria, wcag2a, wcag131",
+    "issueType": "failure, needs review",
+    "category": "wcag"
+  },
+  {
+    "id": "aria-required-parent",
+    "description": "Ensures elements with an ARIA role that require parent roles are contained by them",
+    "descriptionTranslated": "Certifique-se de que os elementos com uma função ARIA que exigem funções pai sejam contidos por eles",
+    "impact": "Critical",
+    "tags": "cat.aria, wcag2a, wcag131",
+    "issueType": "failure",
+    "category": "wcag"
+  },
+  {
+    "id": "aria-roledescription",
+    "description": "Ensure aria-roledescription is only used on elements with an implicit or explicit role",
+    "descriptionTranslated": "Certifique-se de que aria-roledescription seja usada apenas em elementos com uma função implícita ou explícita",
+    "impact": "Serious",
+    "tags": "cat.aria, wcag2a, wcag412",
+    "issueType": "failure, needs review",
+    "category": "wcag"
+  },
+  {
+    "id": "aria-roles",
+    "description": "Ensures all elements with a role attribute use a valid value",
+    "descriptionTranslated": "Certifique-se de que todos os elementos com um atributo role usem um valor válido",
+    "impact": "Minor, Serious, Critical",
+    "tags": "cat.aria, wcag2a, wcag412",
+    "issueType": "failure",
+    "category": "wcag"
+  },
+  {
+    "id": "aria-toggle-field-name",
+    "description": "Ensures every ARIA toggle field has an accessible name",
+    "descriptionTranslated": "Certifique-se de que cada campo de Toggle tenha um nome acessível",
+    "impact": "Moderate, Serious",
+    "tags": "cat.aria, wcag2a, wcag412, ACT",
+    "issueType": "failure, needs review",
+    "category": "wcag"
+  },
+  {
+    "id": "aria-tooltip-name",
+    "description": "Ensures every ARIA tooltip node has an accessible name",
+    "descriptionTranslated": "Certifique-se de que cada campo de Tooltip tenha um nome acessível",
+    "impact": "Serious",
+    "tags": "cat.aria, wcag2a, wcag412",
+    "issueType": "failure, needs review",
+    "category": "wcag"
+  },
+  {
+    "id": "aria-valid-attr-value",
+    "description": "Ensures all ARIA attributes have valid values",
+    "descriptionTranslated": "Certifique-se de que todos os atributos ARIA tenham valores válidos",
+    "impact": "Serious, Critical",
+    "tags": "cat.aria, wcag2a, wcag412",
+    "issueType": "failure, needs review",
+    "category": "wcag"
+  },
+  {
+    "id": "aria-valid-attr",
+    "description": "Ensures attributes that begin with aria- are valid ARIA attributes",
+    "descriptionTranslated": "Certifique-se de que os atributos que começam com aria- são atributos ARIA válidos",
+    "impact": "Critical",
+    "tags": "cat.aria, wcag2a, wcag412",
+    "issueType": "failure",
+    "category": "wcag"
+  },
+  {
+    "id": "audio-caption",
+    "description": "Ensures <audio> elements have captions",
+    "descriptionTranslated": "Certifique-se de que os elementos <audio> tenham legendas",
+    "impact": "Critical",
+    "tags": "cat.time-and-media, wcag2a, wcag121, section508, section508.22.a",
+    "issueType": "needs review",
+    "category": "wcag"
+  },
+  {
+    "id": "blink",
+    "description": "Ensures <blink> elements are not used",
+    "descriptionTranslated": "Certifique-se de que os elementos <blink> não sejam usados",
+    "impact": "Serious",
+    "tags": "cat.time-and-media, wcag2a, wcag222, section508, section508.22.j",
+    "issueType": "failure",
+    "category": "wcag"
+  },
+  {
+    "id": "button-name",
+    "description": "Ensures buttons have discernible text",
+    "descriptionTranslated": "Certifique-se de que os botões tenham texto",
+    "impact": "Critical",
+    "tags": "cat.name-role-value, wcag2a, wcag412, section508, section508.22.a, ACT",
+    "issueType": "failure, needs review",
+    "category": "wcag"
+  },
+  {
+    "id": "bypass",
+    "description": "Ensures each page has at least one mechanism for a user to bypass navigation and jump straight to the content",
+    "descriptionTranslated": "Certifique-se de que cada página tenha pelo menos um mecanismo para um usuário ignorar a navegação e ir direto para o conteúdo principal",
+    "impact": "Serious",
+    "tags": "cat.keyboard, wcag2a, wcag241, section508, section508.22.o",
+    "issueType": "needs review",
+    "category": "wcag"
+  },
+  {
+    "id": "color-contrast",
+    "description": "Ensures the contrast between foreground and background colors meets WCAG 2 AA contrast ratio thresholds",
+    "descriptionTranslated": "Certifique-se de que o contraste entre as cores do primeiro plano e do plano de fundo atende aos limites de taxa de contraste WCAG 2 AA",
+    "impact": "Serious",
+    "tags": "cat.color, wcag2aa, wcag143, ACT",
+    "issueType": "failure, needs review",
+    "category": "wcag"
+  },
+  {
+    "id": "definition-list",
+    "description": "Ensures <dl> elements are structured correctly",
+    "descriptionTranslated": "Certifique-se de que os elementos <dl> sejam estruturados corretamente",
+    "impact": "Serious",
+    "tags": "cat.structure, wcag2a, wcag131",
+    "issueType": "failure",
+    "category": "wcag"
+  },
+  {
+    "id": "dlitem",
+    "description": "Ensures <dt> and <dd> elements are contained by a <dl>",
+    "descriptionTranslated": "Certifique-se de que os elementos <dt> e <dd> estejam contidos por um <dl>",
+    "impact": "Serious",
+    "tags": "cat.structure, wcag2a, wcag131",
+    "issueType": "failure",
+    "category": "wcag"
+  },
+  {
+    "id": "document-title",
+    "description": "Ensures each HTML document contains a non-empty <title> element",
+    "descriptionTranslated": "Certifique-se de que cada documento HTML contenha um elemento <title> não vazio",
+    "impact": "Serious",
+    "tags": "cat.text-alternatives, wcag2a, wcag242, ACT",
+    "issueType": "failure",
+    "category": "wcag"
+  },
+  {
+    "id": "duplicate-id-active",
+    "description": "Ensures every id attribute value of active elements is unique",
+    "descriptionTranslated": "Certifique-se de que cada valor de atributo id de elementos ativos seja único",
+    "impact": "Serious",
+    "tags": "cat.parsing, wcag2a, wcag411",
+    "issueType": "failure",
+    "category": "wcag"
+  },
+  {
+    "id": "duplicate-id-aria",
+    "description": "Ensures every id attribute value used in ARIA and in labels is unique",
+    "descriptionTranslated": "Certifique-se de que cada atributo id usado em ARIA e em rótulos seja único",
+    "impact": "Critical",
+    "tags": "cat.parsing, wcag2a, wcag411",
+    "issueType": "failure",
+    "category": "wcag"
+  },
+  {
+    "id": "duplicate-id",
+    "description": "Ensures every id attribute value is unique",
+    "descriptionTranslated": "Certifique-se de que cada atributo id seja único",
+    "impact": "Minor",
+    "tags": "cat.parsing, wcag2a, wcag411",
+    "issueType": "failure",
+    "category": "wcag"
+  },
+  {
+    "id": "form-field-multiple-labels",
+    "description": "Ensures form field does not have multiple label elements",
+    "descriptionTranslated": "Certifique-se de que o campo do formulário não tenha vários elementos de rótulo",
+    "impact": "Moderate",
+    "tags": "cat.forms, wcag2a, wcag332",
+    "issueType": "needs review",
+    "category": "wcag"
+  },
+  {
+    "id": "frame-focusable-content",
+    "description": "Ensures <frame> and <iframe> elements with focusable content do not have tabindex=-1",
+    "descriptionTranslated": "Certifique-se de que os elementos <frame> e <iframe> com conteúdo focalizável não tenham tabindex=-1",
+    "impact": "Serious",
+    "tags": "cat.keyboard, wcag2a, wcag211",
+    "issueType": "failure, needs review",
+    "category": "wcag"
+  },
+  {
+    "id": "frame-title-unique",
+    "description": "Ensures <iframe> and <frame> elements contain a unique title attribute",
+    "descriptionTranslated": "Certifique-se de que os elementos <iframe> e <frame> contenham um atributo de título exclusivo",
+    "impact": "Serious",
+    "tags": "cat.text-alternatives, wcag412, wcag2a",
+    "issueType": "needs review",
+    "category": "wcag"
+  },
+  {
+    "id": "frame-title",
+    "description": "Ensures <iframe> and <frame> elements have an accessible name",
+    "descriptionTranslated": "Certifique-se de que os elementos <iframe> e <frame> tenham um nome acessível",
+    "impact": "Serious",
+    "tags": "cat.text-alternatives, wcag2a, wcag412, section508, section508.22.i",
+    "issueType": "failure, needs review",
+    "category": "wcag"
+  },
+  {
+    "id": "html-has-lang",
+    "description": "Ensures every HTML document has a lang attribute",
+    "descriptionTranslated": "Certifique-se de que todo documento HTML tenha um atributo lang",
+    "impact": "Serious",
+    "tags": "cat.language, wcag2a, wcag311, ACT",
+    "issueType": "failure",
+    "category": "wcag"
+  },
+  {
+    "id": "html-lang-valid",
+    "description": "Ensures the lang attribute of the <html> element has a valid value",
+    "descriptionTranslated": "Certifique-se de que o atributo lang do elemento <html> tenha um valor válido",
+    "impact": "Serious",
+    "tags": "cat.language, wcag2a, wcag311, ACT",
+    "issueType": "failure",
+    "category": "wcag"
+  },
+  {
+    "id": "html-xml-lang-mismatch",
+    "description": "Ensure that HTML elements with both valid lang and xml:lang attributes agree on the base language of the page",
+    "descriptionTranslated": "Certifique-se de que os elementos HTML com os atributos lang e xml:lang válidos estejam de acordo com o idioma base da página",
+    "impact": "Moderate",
+    "tags": "cat.language, wcag2a, wcag311, ACT",
+    "issueType": "failure",
+    "category": "wcag"
+  },
+  {
+    "id": "image-alt",
+    "description": "Ensures <img> elements have alternate text or a role of none or presentation",
+    "descriptionTranslated": "Certifique-se de que os elementos <img> tenham texto alternativo ou uma role='none' ou role='presentation'",
+    "impact": "Critical",
+    "tags": "cat.text-alternatives, wcag2a, wcag111, section508, section508.22.a, ACT",
+    "issueType": "failure, needs review",
+    "category": "wcag"
+  },
+  {
+    "id": "input-button-name",
+    "description": "Ensures input buttons have discernible text",
+    "descriptionTranslated": "Certifique-se de que os botões tenham texto descritivo",
+    "impact": "Critical",
+    "tags": "cat.name-role-value, wcag2a, wcag412, section508, section508.22.a, ACT",
+    "issueType": "failure, needs review",
+    "category": "wcag"
+  },
+  {
+    "id": "input-image-alt",
+    "description": "Ensures <input type='image'> elements have alternate text",
+    "descriptionTranslated": "Certifique-se de que os elementos <input type='image'> tenham texto alternativo",
+    "impact": "Critical",
+    "tags": "cat.text-alternatives, wcag2a, wcag111, wcag412, section508, section508.22.a, ACT",
+    "issueType": "failure, needs review",
+    "category": "wcag"
+  },
+  {
+    "id": "label",
+    "description": "Ensures every form element has a label",
+    "descriptionTranslated": "Certifique-se de que cada elemento de formulário tenha um rótulo",
+    "impact": "Minor, Critical",
+    "tags": "cat.forms, wcag2a, wcag412, section508, section508.22.n, ACT",
+    "issueType": "failure, needs review",
+    "category": "wcag"
+  },
+  {
+    "id": "link-in-text-block",
+    "description": "Ensure links are distinguished from surrounding text in a way that does not rely on color",
+    "descriptionTranslated": "Certifique-se de que os links sejam diferenciados pelo texto de uma maneira que não dependa da cor",
+    "impact": "Serious",
+    "tags": "cat.color, wcag2a, wcag141",
+    "issueType": "failure, needs review",
+    "category": "wcag"
+  },
+  {
+    "id": "link-name",
+    "description": "Ensures links have discernible text",
+    "descriptionTranslated": "Certifique-se de que os links tenham texto descritivo",
+    "impact": "Serious",
+    "tags": "cat.name-role-value, wcag2a, wcag412, wcag244, section508, section508.22.a, ACT",
+    "issueType": "failure, needs review",
+    "category": "wcag"
+  },
+  {
+    "id": "list",
+    "description": "Ensures that lists are structured correctly",
+    "descriptionTranslated": "Certifique-se de que as listas sejam estruturadas corretamente",
+    "impact": "Serious",
+    "tags": "cat.structure, wcag2a, wcag131",
+    "issueType": "failure",
+    "category": "wcag"
+  },
+  {
+    "id": "listitem",
+    "description": "Ensures <li> elements are used semantically",
+    "descriptionTranslated": "Certifique-se de que os elementos <li> sejam usados semanticamente",
+    "impact": "Serious",
+    "tags": "cat.structure, wcag2a, wcag131",
+    "issueType": "failure",
+    "category": "wcag"
+  },
+  {
+    "id": "marquee",
+    "description": "Ensures <marquee> elements are not used",
+    "descriptionTranslated": "Certifique-se de que os elementos <marquee> não sejam usados",
+    "impact": "Serious",
+    "tags": "cat.parsing, wcag2a, wcag222",
+    "issueType": "failure",
+    "category": "wcag"
+  },
+  {
+    "id": "meta-refresh",
+    "description": "Ensures <meta http-equiv='refresh'> is not used for delayed refresh",
+    "descriptionTranslated": "Certifique-se de que <meta http-equiv='refresh'> não seja usado para atualização atrasada",
+    "impact": "Critical",
+    "tags": "cat.time-and-media, wcag2a, wcag221",
+    "issueType": "failure",
+    "category": "wcag"
+  },
+  {
+    "id": "meta-viewport",
+    "description": "Ensures <meta name='viewport'> does not disable text scaling and zooming",
+    "descriptionTranslated": "Certifique-se de que <meta name='viewport'> não desabilite o dimensionamento e o zoom de texto",
+    "impact": "Critical",
+    "tags": "cat.sensory-and-visual-cues, wcag2aa, wcag144, ACT",
+    "issueType": "failure",
+    "category": "wcag"
+  },
+  {
+    "id": "nested-interactive",
+    "description": "Ensures interactive controls are not nested as they are not always announced by screen readers or can cause focus problems for assistive technologies",
+    "descriptionTranslated": "Certifique-se de que os controles interativos não sejam aninhados, pois nem sempre são anunciados pelos leitores de tela ou podem causar problemas de foco para tecnologias assistivas",
+    "impact": "Serious",
+    "tags": "cat.keyboard, wcag2a, wcag412",
+    "issueType": "failure, needs review",
+    "category": "wcag"
+  },
+  {
+    "id": "no-autoplay-audio",
+    "description": "Ensures <video> or <audio> elements do not autoplay audio for more than 3 seconds without a control mechanism to stop or mute the audio",
+    "descriptionTranslated": "Certifique-se de que os elementos <video> ou <audio> não reproduzam o áudio automaticamente por mais de 3 segundos sem um mecanismo de controle para parar ou silenciar o áudio",
+    "impact": "Moderate",
+    "tags": "cat.time-and-media, wcag2a, wcag142, ACT",
+    "issueType": "needs review",
+    "category": "wcag"
+  },
+  {
+    "id": "object-alt",
+    "description": "Ensures <object> elements have alternate text",
+    "descriptionTranslated": "Certifique-se de que os elementos <object> tenham texto alternativo",
+    "impact": "Serious",
+    "tags": "cat.text-alternatives, wcag2a, wcag111, section508, section508.22.a",
+    "issueType": "failure, needs review",
+    "category": "wcag"
+  },
+  {
+    "id": "role-img-alt",
+    "description": "Ensures [role='img'] elements have alternate text",
+    "descriptionTranslated": "Certifique-se de que os elementos [role='img'] tenham texto alternativo",
+    "impact": "Serious",
+    "tags": "cat.text-alternatives, wcag2a, wcag111, section508, section508.22.a, ACT",
+    "issueType": "failure, needs review",
+    "category": "wcag"
+  },
+  {
+    "id": "scrollable-region-focusable",
+    "description": "Ensure elements that have scrollable content are accessible by keyboard",
+    "descriptionTranslated": "Certifique-se de que os elementos com conteúdo rolável sejam acessíveis pelo teclado",
+    "impact": "Moderate",
+    "tags": "cat.keyboard, wcag2a, wcag211",
+    "issueType": "failure",
+    "category": "wcag"
+  },
+  {
+    "id": "select-name",
+    "description": "Ensures select element has an accessible name",
+    "descriptionTranslated": "Certifique-se de que o elemento selecionado tenha um nome acessível",
+    "impact": "Minor, Critical",
+    "tags": "cat.forms, wcag2a, wcag412, section508, section508.22.n, ACT",
+    "issueType": "failure, needs review",
+    "category": "wcag"
+  },
+  {
+    "id": "server-side-image-map",
+    "description": "Ensures that server-side image maps are not used",
+    "descriptionTranslated": "Certifique-se de que os mapas de imagem do lado do servidor não sejam usados",
+    "impact": "Minor",
+    "tags": "cat.text-alternatives, wcag2a, wcag211, section508, section508.22.f",
+    "issueType": "needs review",
+    "category": "wcag"
+  },
+  {
+    "id": "svg-img-alt",
+    "description": "Ensures <svg> elements with an img, graphics-document or graphics-symbol role have an accessible text",
+    "descriptionTranslated": "Certifique-se de que os elementos <svg> com uma função img, graphics-document ou graphics-symbol tenham um texto acessível",
+    "impact": "Serious",
+    "tags": "cat.text-alternatives, wcag2a, wcag111, section508, section508.22.a, ACT",
+    "issueType": "failure, needs review",
+    "category": "wcag"
+  },
+  {
+    "id": "td-headers-attr",
+    "description": "Ensure that each cell in a table that uses the headers attribute refers only to other cells in that table",
+    "descriptionTranslated": "Certifique-se de que cada célula em uma tabela que usa o atributo headers se refira apenas a outras células dessa tabela",
+    "impact": "Serious",
+    "tags": "cat.tables, wcag2a, wcag131, section508, section508.22.g",
+    "issueType": "failure, needs review",
+    "category": "wcag"
+  },
+  {
+    "id": "th-has-data-cells",
+    "description": "Ensure that <th> elements and elements with role=columnheader/rowheader have data cells they describe",
+    "descriptionTranslated": "Certifique-se de que elementos <th> e elementos com role=columnheader/rowheader tenham células de dados que descrevem",
+    "impact": "Serious",
+    "tags": "cat.tables, wcag2a, wcag131, section508, section508.22.g",
+    "issueType": "failure, needs review",
+    "category": "wcag"
+  },
+  {
+    "id": "valid-lang",
+    "description": "Ensures lang attributes have valid values",
+    "descriptionTranslated": "Certifique-se de que os atributos lang tenham valores válidos",
+    "impact": "Serious",
+    "tags": "cat.language, wcag2aa, wcag312, ACT",
+    "issueType": "failure",
+    "category": "wcag"
+  },
+  {
+    "id": "video-caption",
+    "description": "Ensures <video> elements have captions",
+    "descriptionTranslated": "Certifique-se de que os elementos <video> tenham legendas",
+    "impact": "Critical",
+    "tags": "cat.text-alternatives, wcag2a, wcag122, section508, section508.22.a",
+    "issueType": "needs review",
+    "category": "wcag"
+  },
+  {
+    "id": "autocomplete-valid",
+    "description": "Ensure the autocomplete attribute is correct and suitable for the form field",
+    "descriptionTranslated": "Certifique-se de que o atributo de preenchimento automático esteja correto e adequado para o campo do formulário",
+    "impact": "Serious",
+    "tags": "cat.forms, wcag21aa, wcag135, ACT",
+    "issueType": "failure",
+    "category": "wcag"
+  },
+  {
+    "id": "avoid-inline-spacing",
+    "description": "Ensure that text spacing set through style attributes can be adjusted with custom stylesheets",
+    "descriptionTranslated": "Certifique-se de que o espaçamento de texto definido por meio de atributos de estilo possa ser ajustado com folhas de estilo personalizadas",
+    "impact": "Serious",
+    "tags": "cat.structure, wcag21aa, wcag1412, ACT",
+    "issueType": "failure",
+    "category": "wcag"
+  },
+  {
+    "id": "target-size",
+    "description": "Ensure touch target have sufficient size and space",
+    "descriptionTranslated": "Certifique-se de que o alvo de toque tenha tamanho e espaço suficientes",
+    "impact": "Serious",
+    "tags": "wcag22aa, wcag258, cat.sensory-and-visual-cues",
+    "issueType": "failure, needs review",
+    "category": "wcag"
+  },
+  {
+    "id": "color-contrast-enhanced",
+    "description": "Ensures the contrast between foreground and background colors meets WCAG 2 AAA contrast ratio thresholds",
+    "descriptionTranslated": "Certifique-se de que o contraste entre as cores do primeiro plano e do plano de fundo atende aos limites de taxa de contraste WCAG 2 AAA",
+    "tags": "Serious",
+    "issueType": "cat.color, wcag2aaa, wcag146, ACT",
+    "category": "wcag"
+  },
+  {
+    "id": "identical-links-same-purpose",
+    "description": "Ensure that links with the same accessible name serve a similar purpose",
+    "descriptionTranslated": "Certifique-se de que os links com o mesmo nome acessível tenham um propósito semelhante",
+    "tags": "Minor",
+    "issueType": "cat.semantics, wcag2aaa, wcag249",
+    "category": "wcag"
+  },
+  {
+    "id": "meta-refresh-no-exceptions",
+    "description": "Ensures <meta http-equiv='refresh'> is not used for delayed refresh",
+    "descriptionTranslated": "Certifique-se de que <meta http-equiv='refresh'> não seja usado para atualização atrasada",
+    "tags": "Minor",
+    "issueType": "cat.time-and-media, wcag2aaa, wcag224, wcag325",
+    "category": "wcag"
+  },
+  {
+    "id": "accesskeys",
+    "description": "Ensures every accesskey attribute value is unique",
+    "descriptionTranslated": "Certifique-se de que cada valor de atributo accesskey seja único",
+    "impact": "Serious",
+    "tags": "cat.keyboard, best-practice",
+    "issueType": "failure",
+    "category": "best-practice"
+  },
+  {
+    "id": "aria-allowed-role",
+    "description": "Ensures role attribute has an appropriate value for the element",
+    "descriptionTranslated": "Certifique-se de que o atributo role tenha um valor apropriado para o elemento",
+    "impact": "Minor",
+    "tags": "cat.aria, best-practice",
+    "issueType": "failure, needs review",
+    "category": "best-practice"
+  },
+  {
+    "id": "aria-dialog-name",
+    "description": "Ensures every ARIA dialog and alertdialog node has an accessible name",
+    "descriptionTranslated": "Certifique-se de que cada atributo dialog e alertdialog tenham um nome acessível",
+    "impact": "Serious",
+    "tags": "cat.aria, best-practice",
+    "issueType": "failure, needs review",
+    "category": "best-practice"
+  },
+  {
+    "id": "aria-text",
+    "description": "Ensures 'role=text' is used on elements with no focusable descendants",
+    "descriptionTranslated": "Certifique-se de que 'role=text' seja usado em elementos sem descendentes focalizáveis",
+    "impact": "Serious",
+    "tags": "cat.aria, best-practice",
+    "issueType": "failure, needs review",
+    "category": "best-practice"
+  },
+  {
+    "id": "aria-treeitem-name",
+    "description": "Ensures every ARIA treeitem node has an accessible name",
+    "descriptionTranslated": "Certifique-se de que cada nó de item de árvore tenha um nome acessível",
+    "impact": "Serious",
+    "tags": "cat.aria, best-practice",
+    "issueType": "failure, needs review",
+    "category": "best-practice"
+  },
+  {
+    "id": "empty-heading",
+    "description": "Ensures headings have discernible text",
+    "descriptionTranslated": "Certifique-se de que os títulos tenham texto descritivo",
+    "impact": "Minor",
+    "tags": "cat.name-role-value, best-practice",
+    "issueType": "failure, needs review",
+    "category": "best-practice"
+  },
+  {
+    "id": "empty-table-header",
+    "description": "Ensures table headers have discernible text",
+    "descriptionTranslated": "Certifique-se de que os cabeçalhos das tabelas tenham texto descritivo",
+    "impact": "Minor",
+    "tags": "cat.name-role-value, best-practice",
+    "issueType": "failure, needs review",
+    "category": "best-practice"
+  },
+  {
+    "id": "frame-tested",
+    "description": "Ensures <iframe> and <frame> elements contain the axe-core script",
+    "descriptionTranslated": "Certifique-se de que os elementos <iframe> e <frame> contenham o script axe-core",
+    "impact": "Critical",
+    "tags": "cat.structure, review-item, best-practice",
+    "issueType": "failure, needs review",
+    "category": "best-practice"
+  },
+  {
+    "id": "heading-order",
+    "description": "Ensures the order of headings is semantically correct",
+    "descriptionTranslated": "Certifique-se de que a ordem dos títulos esteja semanticamente correta",
+    "impact": "Moderate",
+    "tags": "cat.semantics, best-practice",
+    "issueType": "failure, needs review",
+    "category": "best-practice"
+  },
+  {
+    "id": "image-redundant-alt",
+    "description": "Ensure image alternative is not repeated as text",
+    "descriptionTranslated": "Certifique-se de que o texto alternativo de imagem não seja repetido como texto",
+    "impact": "Minor",
+    "tags": "cat.text-alternatives, best-practice",
+    "issueType": "failure",
+    "category": "best-practice"
+  },
+  {
+    "id": "label-title-only",
+    "description": "Ensures that every form element has a visible label and is not solely labeled using hidden labels, or the title or aria-describedby attributes",
+    "descriptionTranslated": "Certifique-se de que cada elemento do formulário tenha um rótulo visível e não seja apenas rotulado usando rótulos ocultos ou o título ou atributos descritos por ARIA",
+    "impact": "Serious",
+    "tags": "cat.forms, best-practice",
+    "issueType": "failure",
+    "category": "best-practice"
+  },
+  {
+    "id": "landmark-banner-is-top-level",
+    "description": "Ensures the banner landmark is at top level",
+    "descriptionTranslated": "Certifique-se de que o marco <banner> esteja no nível superior",
+    "impact": "Moderate",
+    "tags": "cat.semantics, best-practice",
+    "issueType": "failure",
+    "category": "best-practice"
+  },
+  {
+    "id": "landmark-complementary-is-top-level",
+    "description": "Ensures the complementary landmark or aside is at top level",
+    "descriptionTranslated": "Certifique-se de que o marco <aside> esteja no nível superior",
+    "impact": "Moderate",
+    "tags": "cat.semantics, best-practice",
+    "issueType": "failure",
+    "category": "best-practice"
+  },
+  {
+    "id": "landmark-contentinfo-is-top-level",
+    "description": "Ensures the contentinfo landmark is at top level",
+    "descriptionTranslated": "Certifique-se de que o marco <contentinfo> esteja no nível superior",
+    "impact": "Moderate",
+    "tags": "cat.semantics, best-practice",
+    "issueType": "failure",
+    "category": "best-practice"
+  },
+  {
+    "id": "landmark-main-is-top-level",
+    "description": "Ensures the main landmark is at top level",
+    "descriptionTranslated": "Certifique-se de que o marco <main> esteja no nível superior",
+    "impact": "Moderate",
+    "tags": "cat.semantics, best-practice",
+    "issueType": "failure",
+    "category": "best-practice"
+  },
+  {
+    "id": "landmark-no-duplicate-banner",
+    "description": "Ensures the document has at most one banner landmark",
+    "descriptionTranslated": "Certifique-se de que o documento tenha no máximo um marco <banner>",
+    "impact": "Moderate",
+    "tags": "cat.semantics, best-practice",
+    "issueType": "failure",
+    "category": "best-practice"
+  },
+  {
+    "id": "landmark-no-duplicate-contentinfo",
+    "description": "Ensures the document has at most one contentinfo landmark",
+    "descriptionTranslated": "Certifique-se de que o documento tenha no máximo um marco <contentinfo>",
+    "impact": "Moderate",
+    "tags": "cat.semantics, best-practice",
+    "issueType": "failure",
+    "category": "best-practice"
+  },
+  {
+    "id": "landmark-no-duplicate-main",
+    "description": "Ensures the document has at most one main landmark",
+    "descriptionTranslated": "Certifique-se de que o documento tenha no máximo um marco <main>",
+    "impact": "Moderate",
+    "tags": "cat.semantics, best-practice",
+    "issueType": "failure",
+    "category": "best-practice"
+  },
+  {
+    "id": "landmark-one-main",
+    "description": "Ensures the document has a main landmark",
+    "descriptionTranslated": "Certifique-se de que o documento tenha um marco <main>",
+    "impact": "Moderate",
+    "tags": "cat.semantics, best-practice",
+    "issueType": "failure",
+    "category": "best-practice"
+  },
+  {
+    "id": "landmark-unique",
+    "description": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+    "descriptionTranslated": "Os marcos devem ter uma função exclusiva ou combinação de função/rótulo/título (ou seja, nome acessível)",
+    "impact": "Moderate",
+    "tags": "cat.semantics, best-practice",
+    "issueType": "failure",
+    "category": "best-practice"
+  },
+  {
+    "id": "meta-viewport-large",
+    "description": "Ensures <meta name='viewport'> can scale a significant amount",
+    "descriptionTranslated": "Certifique-se de que <meta name='viewport'> possa dimensionar em escala significativa",
+    "impact": "Minor",
+    "tags": "cat.sensory-and-visual-cues, best-practice",
+    "issueType": "failure",
+    "category": "best-practice"
+  },
+  {
+    "id": "page-has-heading-one",
+    "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+    "descriptionTranslated": "Certifique-se de que a página, ou pelo menos um de seus quadros, contenha um título de nível um (<h1>)",
+    "impact": "Moderate",
+    "tags": "cat.semantics, best-practice",
+    "issueType": "failure",
+    "category": "best-practice"
+  },
+  {
+    "id": "presentation-role-conflict",
+    "description": "Elements marked as presentational should not have global ARIA or tabindex to ensure all screen readers ignore them",
+    "descriptionTranslated": "Elementos marcados como de apresentação (role=presentation) não devem ter ARIA global ou tabindex para garantir que todos os leitores de tela os ignorem",
+    "impact": "Minor",
+    "tags": "cat.aria, best-practice, ACT",
+    "issueType": "failure",
+    "category": "best-practice"
+  },
+  {
+    "id": "region",
+    "description": "Ensures all page content is contained by landmarks",
+    "descriptionTranslated": "Certifique-se de que todo o conteúdo da página seja contido por marcos de referência",
+    "impact": "Moderate",
+    "tags": "cat.keyboard, best-practice",
+    "issueType": "failure",
+    "category": "best-practice"
+  },
+  {
+    "id": "scope-attr-valid",
+    "description": "Ensures the scope attribute is used correctly on tables",
+    "descriptionTranslated": "Certifique-se de que o atributo scope seja usado corretamente nas tabelas",
+    "impact": "Moderate, Critical",
+    "tags": "cat.tables, best-practice",
+    "issueType": "failure",
+    "category": "best-practice"
+  },
+  {
+    "id": "skip-link",
+    "description": "Ensure all skip links have a focusable target",
+    "descriptionTranslated": "Certifique-se de que todos os links ignorados tenham um destino focalizável",
+    "impact": "Moderate",
+    "tags": "cat.keyboard, best-practice",
+    "issueType": "failure, needs review",
+    "category": "best-practice"
+  },
+  {
+    "id": "tabindex",
+    "description": "Ensures tabindex attribute values are not greater than 0",
+    "descriptionTranslated": "Certifique-se de que os valores do atributo tabindex não sejam maiores que 0",
+    "impact": "Serious",
+    "tags": "cat.keyboard, best-practice",
+    "issueType": "failure",
+    "category": "best-practice"
+  },
+  {
+    "id": "table-duplicate-name",
+    "description": "Ensure the <caption> element does not contain the same text as the summary attribute",
+    "descriptionTranslated": "Certifique-se de que o elemento <caption> não contenha o mesmo texto que o atributo de resumo",
+    "impact": "Minor",
+    "tags": "cat.tables, best-practice",
+    "issueType": "failure, needs review",
+    "category": "best-practice"
+  }
+]
