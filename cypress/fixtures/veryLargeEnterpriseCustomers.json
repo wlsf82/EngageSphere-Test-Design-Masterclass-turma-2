@@ -1,0 +1,144 @@
+{
+    "customers": [
+      {
+        "id": 8,
+        "name": "Lowe Co",
+        "employees": 50000,
+        "contactInfo": null,
+        "address": {
+          "street": "87908 Adkins Islands Apt. 944",
+          "city": "West Sarah",
+          "state": "Georgia",
+          "zipCode": "79943",
+          "country": "United States of America"
+        },
+        "size": "Very Large Enterprise"
+      },
+      {
+        "id": 9,
+        "name": "Stroman - O'Connell",
+        "employees": 83411,
+        "contactInfo": null,
+        "address": {
+          "street": "67771 Devonshire Road",
+          "city": "Lonieburgh",
+          "state": "Kentucky",
+          "zipCode": "89956",
+          "country": "United States of America"
+        },
+        "size": "Very Large Enterprise"
+      },
+      {
+        "id": 12,
+        "name": "Durgan - Herman",
+        "employees": 70769,
+        "contactInfo": {
+          "name": "Laura",
+          "email": "Laura6@gmail.com"
+        },
+        "address": {
+          "street": "3742 E 12th Street",
+          "city": "East Trevion",
+          "state": "Oregon",
+          "zipCode": "70588",
+          "country": "United States of America"
+        },
+        "size": "Very Large Enterprise"
+      },
+      {
+        "id": 23,
+        "name": "Labadie - Volkman",
+        "employees": 56773,
+        "contactInfo": {
+          "name": "Ansel",
+          "email": "Ansel.Hettinger@gmail.com"
+        },
+        "address": {
+          "street": "574 Earlene Canyon",
+          "city": "East Faustoport",
+          "state": "Minnesota",
+          "zipCode": "77440",
+          "country": "United States of America"
+        },
+        "size": "Very Large Enterprise"
+      },
+      {
+        "id": 24,
+        "name": "Hilpert and Sons",
+        "employees": 91761,
+        "contactInfo": {
+          "name": "Gabe",
+          "email": "Gabe.Hackett41@hotmail.com"
+        },
+        "address": {
+          "street": "648 Hartmann Walk",
+          "city": "Amirafort",
+          "state": "Indiana",
+          "zipCode": "58133-3943",
+          "country": "United States of America"
+        },
+        "size": "Very Large Enterprise"
+      },
+      {
+        "id": 25,
+        "name": "Wilderman - McLaughlin",
+        "employees": 90306,
+        "contactInfo": null,
+        "address": {
+          "street": "15853 Morar Creek",
+          "city": "Bartolettiview",
+          "state": "Colorado",
+          "zipCode": "94533-2978",
+          "country": "United States of America"
+        },
+        "size": "Very Large Enterprise"
+      },
+      {
+        "id": 36,
+        "name": "Sauer Group",
+        "employees": 99975,
+        "contactInfo": null,
+        "address": {
+          "street": "81973 Ferry Gateway",
+          "city": "South Muhammad",
+          "state": "Connecticut",
+          "zipCode": "36892",
+          "country": "United States of America"
+        },
+        "size": "Very Large Enterprise"
+      },
+      {
+        "id": 45,
+        "name": "Abshire, Hane and Boyle",
+        "employees": 65068,
+        "contactInfo": null,
+        "address": {
+          "street": "5692 The Maltings",
+          "city": "North Ernestofort",
+          "state": "Ohio",
+          "zipCode": "22924",
+          "country": "United States of America"
+        },
+        "size": "Very Large Enterprise"
+      },
+      {
+        "id": 46,
+        "name": "McGlynn Inc",
+        "employees": 75516,
+        "contactInfo": null,
+        "address": {
+          "street": "16498 Hayes Coves",
+          "city": "Korbinstad",
+          "state": "Michigan",
+          "zipCode": "78648-2640",
+          "country": "United States of America"
+        },
+        "size": "Very Large Enterprise"
+      }
+    ],
+    "pageInfo": {
+      "currentPage": "1",
+      "totalPages": 1,
+      "totalCustomers": 9
+    }
+  }

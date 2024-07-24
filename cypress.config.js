@@ -1,7 +1,6 @@
-// eslint-disable-next-line
 const { defineConfig } = require('cypress')
 
-module.exports = {
+module.exports = defineConfig ({
 
   projectId: "kvars8",
   
@@ -15,9 +14,11 @@ module.exports = {
   e2e: {
     baseUrl: "http://localhost:3000",
     retries: {
-      runMode: 2,
-      openMode: 1,
+      runMode: 1,
+      openMode: 0,
     },
+
+    experimentalRunAllSpecs: true,
   },
 
   component: {
@@ -28,4 +29,4 @@ module.exports = {
     indexHtmlFile: 'frontend/cypress/support/component-index.html',
     specPattern: 'frontend/src/**/*.cy.{js,jsx,ts,tsx}',
     supportFile: 'frontend/cypress/support/component.js'
-  }}
+  }})

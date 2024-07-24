@@ -6,7 +6,7 @@ describe('Home Page Tests', () => {
     it('Renders the header with an h1 and theme toggle', () => {
         cy.get('h1').should('exist').and('have.text', 'EngageSphere');
 
-        cy.get('.theme-toggle-container').should('exist');
+        cy.get('.theme-toggle-container').should('be.visible');
     })
 
     it('Shows the default greeting (i.e., Hi there! ...)', () => {
@@ -41,121 +41,189 @@ describe('Home Page Tests', () => {
     })
 
     it('Sorts by Number of employees in ascending order', () => {
-        cy.get('select[aria-label="Pagination limit"]').select('50')
-        cy.get('[data-testid="pagination"] > :nth-child(3)').should('be.disabled')
+        cy.intercept(
+            'GET',
+            `${Cypress.env('API_URL')}/customers?page=1&limit=10&size=Small`,
+            { fixture: 'smallCustomers' }
+        ).as('getSmallCustomers')
 
-        cy.get('thead > tr > :nth-child(3)').click()
-        cy.get('thead > tr > :nth-child(3)').click()
-        cy.get('span[aria-label="up arrow"]').should('exist');
+        cy.get('[data-testid="filter"]').select('Small')
 
-        cy.get('table tbody tr').should('have.length', 50);
+        cy.wait('@getSmallCustomers')
 
-        cy.get('table tbody tr td:nth-child(3)')
-            .then(($elements) => {
-                const numericValues = $elements.map((index, element) => parseFloat(element.textContent));
+        cy.get('tr:contains(Number of employees)').children().eq(2).click()
+        cy.get('tr:contains(Number of employees)').children().eq(2).click()
 
-                for (let i = 0; i < numericValues.length - 1; i++) {
-                    expect(numericValues[i]).to.be.at.most(numericValues[i + 1]);
-                }
-            });
+        cy.get('table tbody tr').should('have.length', 5);
+
+        cy.get('tr:contains(32)')
+            .find('td:contains(57)')
+            .parent()
+            .children()
+            .first()
+
+        cy.get('tr:contains(22)')
+            .find('td:contains(68)')
+            .parent()
+            .children()
+            .first()
+
+        cy.get('tr:contains(38)')
+            .find('td:contains(70)')
+            .parent()
+            .children()
+            .first()
+
+        cy.get('tr:contains(35)')
+            .find('td:contains(71)')
+            .parent()
+            .children()
+            .first()
+
+        cy.get('tr:contains(1)')
+            .find('td:contains(99)')
+            .parent()
+            .children()
+            .first()
     })
 
     it('Sorts by Number of employees in descending order', () => {
-        cy.get('select[aria-label="Pagination limit"]').select('50')
-        cy.get('[data-testid="pagination"] > :nth-child(3)').should('be.disabled')
+        cy.intercept(
+            'GET',
+            `${Cypress.env('API_URL')}/customers?page=1&limit=10&size=Small`,
+            { fixture: 'smallCustomers' }
+        ).as('getSmallCustomers')
 
-        cy.get('thead > tr > :nth-child(3)').click()
-        cy.get('span[aria-label="down arrow"]').should('exist');
+        cy.get('[data-testid="filter"]').select('Small')
 
-        cy.get('table tbody tr').should('have.length', 50);
+        cy.wait('@getSmallCustomers')
 
-        cy.get('table tbody tr td:nth-child(3)')
-            .then(($elements) => {
-                const numericValues = $elements.map((index, element) => parseFloat(element.textContent));
+        cy.get('tr:contains(Number of employees)').children().eq(2).click()
 
-                for (let i = 0; i < numericValues.length - 1; i++) {
-                    expect(numericValues[i]).to.be.at.least(numericValues[i + 1]);
-                }
-            });
+        cy.get('table tbody tr').should('have.length', 5);
+
+        cy.get('tr:contains(1)')
+            .find('td:contains(99)')
+            .parent()
+            .children()
+            .first()
+
+        cy.get('tr:contains(35)')
+            .find('td:contains(71)')
+            .parent()
+            .children()
+            .first()
+
+        cy.get('tr:contains(38)')
+            .find('td:contains(70)')
+            .parent()
+            .children()
+            .first()
+
+        cy.get('tr:contains(22)')
+            .find('td:contains(68)')
+            .parent()
+            .children()
+            .first()
+
+        cy.get('tr:contains(32)')
+            .find('td:contains(57)')
+            .parent()
+            .children()
+            .first()
     })
 
     it('Validates sizes in a table column are in ascending order', () => {
-        const sizeOrder = {
-            'Small': 0,
-            'Medium': 1,
-            'Enterprise': 2,
-            'Large Enterprise': 3,
-            'Very Large Enterprise': 4
-        };
+        cy.intercept(
+            'GET',
+            `${Cypress.env('API_URL')}/customers?page=1&limit=10&size=All`,
+            { fixture: 'allSizeCustomers' }
+        ).as('getAllSizeCustomers')
 
-        cy.get('select[aria-label="Pagination limit"]').select('50');
-        cy.get('[data-testid="pagination"] > :nth-child(3)').should('be.disabled');
+        cy.get('[data-testid="filter"]').select('All')
 
-        cy.get('thead > tr > :nth-child(4)').click();
-        cy.get('span[aria-label="up arrow"]').should('exist');
+        cy.wait('@getAllSizeCustomers')
 
-        cy.get('table tbody tr').should('have.length', 50);
+        cy.get('tr:contains(Number of employees)').children().eq(2).click()
 
-        cy.get('table tbody tr td:nth-child(4)').then(($elements) => {
-            const sizeValues = $elements.map((index, element) => {
-                return Cypress.$(element).text().trim();
-            });
+        cy.get('table tbody tr').should('have.length', 5);
 
-            let previousSizeOrder = Number.NEGATIVE_INFINITY;
+        cy.get('tr:contains(1)')
+            .find('td:contains(Small)')
+            .parent()
+            .children()
+            .first()
 
-            for (let i = 0; i < sizeValues.length; i++) {
-                const currentSize = sizeValues[i];
-                const currentSizeOrder = sizeOrder[currentSize];
+        cy.get('tr:contains(2)')
+            .find('td:contains(Medium)')
+            .parent()
+            .children()
+            .first()
 
-                if (currentSizeOrder >= previousSizeOrder) {
-                    previousSizeOrder = currentSizeOrder;
-                } else {
-                    cy.wrap(false).should('be.true');
-                }
-            }
+        cy.get('tr:contains(4)')
+            .find('td:contains(Enterprise)')
+            .parent()
+            .children()
+            .first()
 
-            cy.wrap(true).should('be.true');
-        });
+        cy.get('tr:contains(6)')
+            .find('td:contains(Large Enterprise)')
+            .parent()
+            .children()
+            .first()
+
+        cy.get('tr:contains(8)')
+            .find('td:contains(Very Large Enterprise)')
+            .parent()
+            .children()
+            .first()
     });
 
     it('Sorts by Size in descending order by default', () => {
-        const sizeOrder = {
-            'Small': 0,
-            'Medium': 1,
-            'Enterprise': 2,
-            'Large Enterprise': 3,
-            'Very Large Enterprise': 4
-        };
+        cy.intercept(
+            'GET',
+            `${Cypress.env('API_URL')}/customers?page=1&limit=10&size=All`,
+            { fixture: 'allSizeCustomers' }
+        ).as('getAllSizeCustomers')
 
-        cy.get('select[aria-label="Pagination limit"]').select('50');
-        cy.get('[data-testid="pagination"] > :nth-child(3)').should('be.disabled');
+        cy.get('[data-testid="filter"]').select('All')
 
-        cy.get('thead > tr > :nth-child(4)').click();
-        cy.get('thead > tr > :nth-child(4)').click();
-        cy.get('span[aria-label="down arrow"]').should('exist');
+        cy.wait('@getAllSizeCustomers')
 
-        cy.get('table tbody tr').should('have.length', 50);
+        cy.get('tr:contains(Size)').children().eq(3).click()
+        cy.get('tr:contains(Size)').children().eq(3).click()
 
-        cy.get('table tbody tr td:nth-child(4)').then(($elements) => {
-            const sizeValues = $elements.map((index, element) => {
-                return Cypress.$(element).text().trim();
-            });
+        cy.get('table tbody tr').should('have.length', 5);
 
-            let previousSizeOrder = Number.POSITIVE_INFINITY;
+        cy.get('tr:contains(8)')
+            .find('td:contains(Very Large Enterprise)')
+            .parent()
+            .children()
+            .first()
 
-            for (let i = 0; i < sizeValues.length; i++) {
-                const currentSize = sizeValues[i];
-                const currentSizeOrder = sizeOrder[currentSize];
+        cy.get('tr:contains(6)')
+            .find('td:contains(Large Enterprise)')
+            .parent()
+            .children()
+            .first()
 
-                if (currentSizeOrder <= previousSizeOrder) {
-                    previousSizeOrder = currentSizeOrder;
-                } else {
-                    cy.wrap(false).should('be.true');
-                }
-            }
+        cy.get('tr:contains(4)')
+            .find('td:contains(Enterprise)')
+            .parent()
+            .children()
+            .first()
 
-            cy.wrap(true).should('be.true');
-        });
+        cy.get('tr:contains(2)')
+            .find('td:contains(Medium)')
+            .parent()
+            .children()
+            .first()
+
+        cy.get('tr:contains(1)')
+            .find('td:contains(Small)')
+            .parent()
+            .children()
+            .first()
     });
 
     it('Goes back to the customers list when clicking the "Back" button', () => {

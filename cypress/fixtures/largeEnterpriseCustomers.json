@@ -1,0 +1,60 @@
+{
+    "customers": [
+      {
+        "id": 6,
+        "name": "Littel Co",
+        "employees": 10000,
+        "contactInfo": {
+          "name": "Selena",
+          "email": "Selena.Gleichner7@gmail.com"
+        },
+        "address": {
+          "street": "14135 Kari Garden Suite 427",
+          "city": "Mooreshire",
+          "state": "Nevada",
+          "zipCode": "64043",
+          "country": "United States of America"
+        },
+        "size": "Large Enterprise"
+      },
+      {
+        "id": 7,
+        "name": "Weber Co",
+        "employees": 49999,
+        "contactInfo": {
+          "name": "Malika",
+          "email": "Malika16@hotmail.com"
+        },
+        "address": {
+          "street": "70738 Mike Rue",
+          "city": "Whitechester",
+          "state": "Kentucky",
+          "zipCode": "57787",
+          "country": "United States of America"
+        },
+        "size": "Large Enterprise"
+      },
+      {
+        "id": 10,
+        "name": "Bartell - Wolff",
+        "employees": 29223,
+        "contactInfo": {
+          "name": "Nash",
+          "email": "Nash93@hotmail.com"
+        },
+        "address": {
+          "street": "52151 Prosacco Springs",
+          "city": "New Elyseshire",
+          "state": "Rhode Island",
+          "zipCode": "65590-7717",
+          "country": "United States of America"
+        },
+        "size": "Large Enterprise"
+      }
+    ],
+    "pageInfo": {
+      "currentPage": "1",
+      "totalPages": 1,
+      "totalCustomers": 3
+    }
+  }

@@ -1,23 +1,49 @@
 describe('Customers Tests', () => {
+    const CUSTOMERS_API = `${Cypress.env('API_URL')}/customers`
+
     beforeEach(() => {
-        cy.visit('/')
+          cy.visit('/')
     })
 
     it('Shows a list of customers when theres data in the database', () => {
-        cy.get('tbody tr').should('be.exist')
-        cy.get('table tbody tr').should('not.be.empty');
+        cy.intercept(
+            'GET',
+            `${Cypress.env('API_URL')}/customers?page=1&limit=10&size=Small`,
+            { fixture: 'smallCustomers' }
+        ).as('getSmallCustomers')
+
+        cy.get('[data-testid="filter"]').select('Small')
+
+        cy.wait('@getSmallCustomers')
+
+        cy.get('tbody tr').should('exist')
+        cy.get('tbody tr').should('have.length', 5)
     })
 
     it('Shows the image of an empty box and the text No customers available. when there are no customers in the database', () => {
-        cy.noCustomerAvailable()
+        cy.intercept(
+            'GET',
+            `${Cypress.env('API_URL')}/customers**`,
+            { body: '' }
+        ).as('getEmptyCustomers')
+
+        cy.visit('/')
+        cy.wait('@getEmptyCustomers')
 
         cy.get('svg[alt="image of an empty box"]').should('be.visible')
         cy.contains('span', 'No customers available.').should('be.visible')
     })
 
-    // aguardando fix do front
-    it.skip('Disables the text input field when there are no customers in the database', () => {
-        cy.noCustomerAvailable()
+
+    it('Disables the text input field when there are no customers in the database', () => {
+        cy.intercept(
+            'GET',
+            `${Cypress.env('API_URL')}/customers**`,
+            { body: '' }
+        ).as('getEmptyCustomers')
+
+        cy.visit('/')
+        cy.wait('@getEmptyCustomers')
 
         cy.get('[data-testid="name"]').should('be.disabled')
     })
@@ -28,123 +54,113 @@ describe('Customers Tests', () => {
         cy.get('[data-testid="name"]').should('be.disabled')
     })
 
-    it('Filter customers by all size', () => {
-        const expectedSizes = ['Small', 'Medium', 'Enterprise', 'Large Enterprise', 'Very Large Enterprise'];
-        const foundSizes = [];
+    it('filters customers by size correctly', () => {
+        const sizes = ['Small', 'Medium', 'Enterprise', 'Large Enterprise', 'Very Large Enterprise']
+        const limitOfEmployessPerSize = [99, 999, 9999, 49999, 999999] // Assuming that there aren't companies with more than 999999 employess in the database
 
-        cy.get('select[aria-label="Pagination limit"]').select('50');
+        sizes.forEach((size, index) => {
+            cy.request('GET', `${CUSTOMERS_API}?size=${size}`).as('getSizedCustomers')
 
-        cy.get('table tbody tr td:nth-child(4)').each(($element) => { // eslint-disable-line
-            const size = $element.text().trim();
+            cy.get('@getSizedCustomers')
+                .its('body.customers')
+                .each(customer => {
+                    expect(customer.size).to.eq(size)
+                    expect(customer.employees).to.be.lte(limitOfEmployessPerSize[index])
+                })
+        })
+    })
 
-            if (expectedSizes.includes(size) && !foundSizes.includes(size)) {
-                foundSizes.push(size);
-            }
-        }).then(() => {
-            expect(foundSizes).to.have.lengthOf(expectedSizes.length);
-            expect(foundSizes).to.have.members(expectedSizes);
-        });
-    });
+    it('filters by All sizes', () => {
+        cy.intercept(
+          'GET',
+          `${Cypress.env('API_URL')}/customers?page=1&limit=10&size=All`,
+          { fixture: 'allCustomers' }
+        ).as('getAllCustomers')
 
-
-    it('Filter customers by small size', () => {
-        const expectedSize = 'Small';
-        let allSizesAreSmall = true;
-
+        cy.get('[data-testid="filter"]').select('All')
+        cy.wait('@getAllCustomers')
+  
+        cy.get('tbody tr').should('have.length', 10)
+      })
+  
+      it('filters by Small size', () => {
+        cy.intercept(
+          'GET',
+          `${Cypress.env('API_URL')}/customers?page=1&limit=10&size=Small`,
+          { fixture: 'smallCustomers' }
+        ).as('getSmallCustomers')
+  
         cy.get('[data-testid="filter"]').select('Small')
-        cy.wait(3000) // eslint-disable-line
-
-        cy.get('table tbody tr td:nth-child(4)').each(($element) => { // eslint-disable-line
-            const size = $element.text().trim();
-
-            if (size !== expectedSize) {
-                allSizesAreSmall = false;
-            }
-        }).then(() => {
-            expect(allSizesAreSmall).to.be.true;
-        });
-    });
-
-    it('Filter customers by medium size', () => {
-        const expectedSize = 'Medium';
-        let allSizesAreMedium = true;
-
+  
+        cy.wait('@getSmallCustomers')
+  
+        cy.get('tbody tr').should('have.length', 5)
+      })
+  
+      it('filters by Medium size', () => {
+        cy.intercept(
+          'GET',
+          `${Cypress.env('API_URL')}/customers?page=1&limit=10&size=Medium`,
+          { fixture: 'mediumCustomers' }
+        ).as('getMediumCustomers')
+  
         cy.get('[data-testid="filter"]').select('Medium')
-        cy.wait(3000) // eslint-disable-line
-
-        cy.get('table tbody tr td:nth-child(4)').each(($element) => { // eslint-disable-line 
-            const size = $element.text().trim();
-
-            if (size !== expectedSize) {
-                allSizesAreMedium = false;
-            }
-        }).then(() => {
-            expect(allSizesAreMedium).to.be.true;
-        });
-    });
-
-    it('Filter customers by enterprise size', () => {
-        const expectedSize = 'Enterprise';
-        let allSizesAreEnterprise = true;
+  
+        cy.wait('@getMediumCustomers')
+  
+        cy.get('tbody tr').should('have.length', 5)
+      })
+  
+      it('filters by Enterprise size', () => {
+        cy.intercept(
+          'GET',
+          `${Cypress.env('API_URL')}/customers?page=1&limit=10&size=Enterprise`,
+          { fixture: 'enterpriseCustomers' }
+        ).as('getEnterpriseCustomers')
 
         cy.get('[data-testid="filter"]').select('Enterprise')
-        cy.wait(3000) // eslint-disable-line
-
-        cy.get('table tbody tr td:nth-child(4)').each(($element) => { // eslint-disable-line
-            const size = $element.text().trim();
-
-            if (size !== expectedSize) {
-                allSizesAreEnterprise = false;
-            }
-        }).then(() => {
-            expect(allSizesAreEnterprise).to.be.true;
-        });
-    });
-
-    it('Filter customers by large enterprise size', () => {
-        const expectedSize = 'Large Enterprise';
-        let allSizesAreLargeEnterprise = true;
-
+  
+        cy.wait('@getEnterpriseCustomers')
+  
+        cy.get('tbody tr').should('have.length', 1)
+      })
+  
+      it('filters by Large Enterprise size', () => {
+        cy.intercept(
+          'GET',
+          `${Cypress.env('API_URL')}/customers?page=1&limit=10&size=Large%20Enterprise`,
+          { fixture: 'largeEnterpriseCustomers'}
+        ).as('getLargeEnterpriseCustomers')
+  
         cy.get('[data-testid="filter"]').select('Large Enterprise')
-        cy.wait(3000) // eslint-disable-line
-
-        cy.get('table tbody tr td:nth-child(4)').each(($element) => { // eslint-disable-line 
-            const size = $element.text().trim();
-
-            if (size !== expectedSize) {
-                allSizesAreLargeEnterprise = false;
-            }
-        }).then(() => {
-            expect(allSizesAreLargeEnterprise).to.be.true;
-        });
-    });
-
-    it('Filter customers by very large enterprise size', () => {
-        const expectedSize = 'Very Large Enterprise';
-        let allSizesAreVeryLargeEnterprise = true;
-
+  
+        cy.wait('@getLargeEnterpriseCustomers')
+  
+        cy.get('tbody tr').should('have.length', 3)
+      })
+  
+      it('filters by Very Large Enterprise size', () => {
+        cy.intercept(
+          'GET',
+          `${Cypress.env('API_URL')}/customers?page=1&limit=10&size=Very%20Large%20Enterprise`,
+          { fixture: 'veryLargeEnterpriseCustomers'}
+        ).as('getVeryLargeEnterpriseCustomers')
+  
         cy.get('[data-testid="filter"]').select('Very Large Enterprise')
-        cy.wait(3000) // eslint-disable-line
-
-        cy.get('table tbody tr td:nth-child(4)').each(($element) => { // eslint-disable-line
-            const size = $element.text().trim();
-        
-            if (size !== expectedSize) {
-                allSizesAreVeryLargeEnterprise = false;
-            }
-        }).then(() => {
-            cy.wrap(allSizesAreVeryLargeEnterprise).should('be.true');
-        });
-    });
+  
+        cy.wait('@getVeryLargeEnterpriseCustomers')
+  
+        cy.get('tbody tr').should('have.length', 9)
+      })
 
     it('Correctly downloads a list of customers as a CSV file', () => {
         cy.readFile('cypress/downloads/customers.csv').should('not.exist')
         cy.get('.download-csv-button').click()
 
         cy.readFile('cypress/downloads/customers.csv').should('be.exist').then((fileContent) => {
-            expect(fileContent).to.not.be.null
-        });
-    });
+          expect(fileContent).to.not.be.null
+    })
+})
 
     it('Shows the contact info of a specific customer', () => {
         cy.get('tbody tr').should('be.exist')

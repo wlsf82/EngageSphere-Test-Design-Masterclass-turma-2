@@ -4,9 +4,9 @@ describe('API /customers Test', () => {
     it('Successfully retrieves customers', () => {
         cy.request('GET', CUSTOMERS_API).as('getCustomers')
 
-        cy.get('@getCustomers').should((response) => {
-            expect(response.status).to.eq(200)
-        })
+        cy.get('@getCustomers')
+            .its('status')
+            .should('eq', 200)
     })
 
     it('Paginates the customer list correctly', () => {
@@ -45,6 +45,19 @@ describe('API /customers Test', () => {
                 expect(customer).to.have.property('employees')
                 expect(customer).to.have.property('contactInfo')
                 expect(customer).to.have.property('address')
+
+                if (customer.contactInfo) {
+                    expect(customer.contactInfo).to.have.property('name')
+                    expect(customer.contactInfo).to.have.property('email')
+                }
+
+                if (customer.address) {
+                    expect(customer.address).to.have.property('street')
+                    expect(customer.address).to.have.property('city')
+                    expect(customer.address).to.have.property('state')
+                    expect(customer.address).to.have.property('zipCode')
+                    expect(customer.address).to.have.property('country')
+                }
             })
 
             expect(response.body).to.have.property('pageInfo')
@@ -69,6 +82,17 @@ describe('API /customers Test', () => {
         cy.request({
             method: 'GET',
             url: `${CUSTOMERS_API}?page=-1&limit=1&size=All`,
+            failOnStatusCode: false,
+        }).then(({ status, body }) => {
+            expect(status).to.eq(400)
+            expect(body.error).to.eq('Invalid page or limit. Both must be positive numbers.')
+        })
+    })
+
+    it('Handles invalid requests gracefully (e.g., 0 )', () => {
+        cy.request({
+            method: 'GET',
+            url: `${CUSTOMERS_API}?page=0&limit=0&size=All`,
             failOnStatusCode: false,
         }).then(({ status, body }) => {
             expect(status).to.eq(400)
