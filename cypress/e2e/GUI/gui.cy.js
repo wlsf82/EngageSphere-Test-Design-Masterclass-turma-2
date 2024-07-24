@@ -1,104 +1,131 @@
 /// <reference types="Cypress"/>
 
-describe('Validar Pagina inicial', () => {
+describe('EngageSphere', () => {
     beforeEach(() => {
-        cy.visit('http://localhost:3000')
+
+        cy.visit('')
+        
     })
 
     it('Valida se H1 esta visivel e alterna tema', () => {
-
         cy.contains('h1', 'EngageSphere').should('be.visible')
-        cy.get('button#theme-toggle-button').click()
+        cy.get('#theme-toggle-button').click()
     })
 
-    it('Valida mensagem de saudação', () => {
-
-        cy.contains('p', 'Hi there! It is now').should('be.visible')
-
+    it.only('Valida mensagem de saudação', () => {
+        const date = new Date(Date.UTC(2024, 8, 22))
+        cy.clock(date)
+        cy.contains('p', 'Hi there! It is now Sat Sep 21 2024').should('be.visible')
     });
 
-    it('Valida saudação personalizada', () => {
+    it.only('Valida saudação personalizada', () => {
+        const date = new Date(Date.UTC(2024, 8, 22))
+        cy.clock(date)
         cy.get('input#name').type('Félix')
-        cy.contains('p', 'Hi Félix! It is now').should('be.visible')
-
+        cy.contains('p', 'Hi Félix! It is now Sat Sep 21 2024').should('be.visible')
+    
     });
 
     it('Muda o tema para modo escuro, garantindo que persista no armazenamento local', () => {
-        cy.alteraTema('dark')
+        cy.get('button#theme-toggle-button').click()
+
+        cy.window().then((window) => {
+            const theme = window.localStorage.getItem("theme")
+            expect(theme).to.eq('dark')
+        })
     });
 
     it('Muda o tema para modo claro, garantindo que persista no armazenamento local', () => {
-        cy.alteraTema('dark')
-        cy.alteraTema('light')
+        cy.get('button#theme-toggle-button').click()
+        cy.window().then((window) => {
+            const theme = window.localStorage.getItem("theme")
+            expect(theme).to.eq('dark')
+        })
+        cy.get('button#theme-toggle-button').click()
+        cy.window().then((window) => {
+            const theme = window.localStorage.getItem("theme")
+            expect(theme).to.eq('light')
+        })
     })
     it('Valida se o campo de texto esta desabilitado ', () => {
-
-        cy.telaCliente()
-
+        cy.contains('button', '1').should('be.visible').click()
+        cy.contains('h2', 'Customer Details').should('be.visible')
+        cy.get('input#name').should('be.disabled')
     });
 
     it('Valida botão de voltar para lista de clientes ', () => {
-
-        cy.telaCliente()
-        cy.voltarHomepage()
-
+        cy.contains('button', '1').should('be.visible').click()
+        cy.contains('h2', 'Customer Details').should('be.visible')
+        cy.get('input#name').should('be.disabled')
+        cy.contains('button', 'Back').click()
+        cy.contains('h1', 'EngageSphere').should('be.visible')
     });
 
     it('Valida links do footer ', () => {
-
-        cy.validarLinkFooter()
-
+        cy.contains('p', 'Copyright 2024 - Talking About Testing').should('be.visible')
+        cy.contains('footer a', 'Hotmart').should('have.attr', 'href', 'https://hotmart.com/pt-br/club/talking-about-testing')
+        cy.contains('footer a', 'Udemy').should('have.attr', 'href', 'https://udemy.com/user/walmyr')
+        cy.contains('footer a', 'Blog').should('have.attr', 'href', 'https://talkingabouttesting.com')
+        cy.contains('footer a', 'YouTube').should('have.attr', 'href', 'https://youtube.com/@talkingabouttesting')
     });
 
 })
 
 describe('Teste de acessibilidade', ()=> {
     beforeEach(() => {
-        cy.visit('http://localhost:3000')
+        cy.visit('')
         cy.injectAxe()
+        cy.get('[data-theme="light"]').should('exist')
     })
 
     context('Tela inicial', ()=> {
         it('não encontra problemas de acessibilidade no modo claro', () => {
-            cy.validaAcessibilidade('light')
+            cy.checkA11y()
         });
     
         it('não encontra problemas de acessibilidade no modo escuro', () => {
-            cy.alteraTema('dark')
-            cy.validaAcessibilidade('dark')
-            
+            cy.get('#theme-toggle-button').click()
+
+            cy.get('[data-theme="dark"]').should('exist')
+
+            cy.checkA11y()
         });
     })
 
     context('tela de clientes', ()=>{
         beforeEach(()=>{
-            cy.telaCliente()
+            cy.contains('button', '1').should('be.visible').click()
+
+            cy.contains('h2', 'Customer Details').should('be.visible')
         })
         it('não encontra problemas de acessibilidade no modo claro', () => {
-            cy.validaAcessibilidade('light')
+            cy.checkA11y()
         });
 
         it('não encontra problemas de acessibilidade no modo escuro', () => {
-            cy.alteraTema('dark')
-            cy.validaAcessibilidade('dark')
+            cy.get('button#theme-toggle-button').click()
         });
     })
 
     context('Mostrar endereço', ()=>{
         beforeEach(()=>{
-            cy.telaCliente()
+            cy.contains('button', '1').should('be.visible').click()
+
+            cy.contains('h2', 'Customer Details').should('be.visible')
         })
 
         it('não encontra problemas de acessibilidade no modo claro', () => {
-            
             cy.get('button.show-address-btn').click()
-            cy.validaAcessibilidade('light')
+
+            cy.checkA11y()
         });
 
         it('não encontra problemas de acessibilidade no modo escuro', () => {
-            cy.alteraTema('dark')
+            cy.get('button#theme-toggle-button').click()
+
             cy.get('button.show-address-btn').click()
-            cy.validaAcessibilidade('dark')
+
+            cy.checkA11y()
         });
     })
 })

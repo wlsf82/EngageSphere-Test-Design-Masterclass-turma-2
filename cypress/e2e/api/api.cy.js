@@ -1,30 +1,31 @@
 /// <reference types="Cypress"/>
 
-const urlapi = 'http://localhost:3001'
+const API_URL = Cypress.env('API_URL')
 
 describe('Verificar API', () => {
     it('Ao enviar uma solicitação GET', () => {
         cy.api({
-            url: `${urlapi}/customers`,
+            url: `${API_URL}/customers`,
             method: 'GET'
-        }).then(response => {
-            expect(response.status).to.eq(200)
+        }).should(({status}) => {
+            expect(status).to.eq(200)
         })
     })
 
     it('Pagina a lista de clientes corretamente', () => {
         cy.api({
-            url:`${urlapi}/customers?page=1&limit=50&size=All`,
+            url:`${API_URL}/customers?page=1`,
             method: 'GET'
-        }).then(response => {
-            expect(response.status).to.eq(200)
-            expect(response.body.pageInfo).to.have.property('totalPages', 1)
+        }).should(({body, status}) => {
+            const { pageInfo } = body
+            expect(status).to.eq(200)
+            expect(pageInfo).to.have.property('currentPage', '1')
         })
     });
 
     it('Filtra clientes por tamanho corretamente', () => {
         cy.api({
-            url:`${urlapi}/customers?page=1&limit=50&size=Medium`,
+            url:`${API_URL}/customers?size=Medium`,
             method: 'GET'
         }).then(response => {
             expect(response.status).to.eq(200)
@@ -34,10 +35,9 @@ describe('Verificar API', () => {
         })
     });
 
-
     it('Retorna a estrutura correta da resposta', () => {
         cy.api({
-            url:`${urlapi}/customers?page=1&limit=1&size=All`,
+            url:`${API_URL}/customers?page=1&limit=1&size=All`,
             method: 'GET'
         }).then(response => {
             expect(response.status).to.eq(200)
@@ -50,53 +50,60 @@ describe('Verificar API', () => {
 
     it('Solicitação com página negativa', () => {
         cy.api({
-            url:`${urlapi}/customers?page=-1&limit=1&size=All`,
+            url:`${API_URL}/customers?page=-1&limit=1&size=All`,
             method: 'GET',
             failOnStatusCode: false
-        }).then(response => {
-            expect(response.status).to.eq(400)
+        }).should(({body, status})=> {
+            expect(status).to.eq(400)
+            expect(body).to.property("error")
         })
     });
 
     it('Solicitação com limite negativa', () => {
         cy.api({
-            url:`${urlapi}/customers?page=1&limit=-10&size=All`,
+            url:`${API_URL}/customers?page=1&limit=-10&size=All`,
             method: 'GET',
             failOnStatusCode: false
-        }).then(response => {
-            expect(response.status).to.eq(400)
+        }).should(({body, status})=> {
+            expect(status).to.eq(400)
+            expect(body).to.property("error")
         })
     });
 
     it('Solicitação com página com string', () => {
         cy.api({
-            url:`${urlapi}/customers?page=string&limit=1&size=All`,
+            url:`${API_URL}/customers?page=string&limit=1&size=All`,
             method: 'GET',
             failOnStatusCode: false
-        }).then(response => {
-            expect(response.status).to.eq(400)
+        }).should(({body, status})=> {
+            expect(status).to.eq(400)
+            expect(body).to.property("error")
         })
     });
 
 
     it('Solicitação com limite com booleano', () => {
         cy.api({
-            url:`${urlapi}/customers?page=10&limit=true&size=All`,
+            url:`${API_URL}/customers?page=10&limit=true&size=All`,
             method: 'GET',
             failOnStatusCode: false
-        }).then(response => {
-            expect(response.status).to.eq(400)
+        }).should(({body, status})=> {
+            expect(status).to.eq(400)
+            expect(body).to.property("error")
         })
     });
 
 
     it('Solicitação com size não suportado', () => {
         cy.api({
-            url:`${urlapi}/customers?page=10&limit=true&size=`,
+            url:`${API_URL}/customers?page=10&limit=true&size=`,
             method: 'GET',
             failOnStatusCode: false
-        }).then(response => {
-            expect(response.status).to.eq(400)
+        }).should(({body, status})=> {
+            expect(status).to.eq(400)
+            expect(body).to.property("error")
         })
     });
 })
+
+
