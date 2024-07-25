@@ -2,21 +2,14 @@
 
 describe('intercept', ()=> {
     beforeEach(()=> {
-        cy.intercept({
-            method: 'GET',
-            pathname: '**/customers',
-            query:{
-                page: '1',
-                limit: '10',
-                size: 'Small'
-            }
-        }).as('getCustomers')
-        cy.visit('/')
-
-        cy.wait('@getCustomers')
+      cy.intercept('GET', '**/customers?page=1&limit=10&size=All')
+        .as('getCustomers')
+      cy.visit('/')
+  
+      cy.wait('@getCustomers')
     })
-
-    it('asdasd', ()=> {
-        cy.get('#filter').should('be.visible')
+  
+    it('shows the customers table', ()=> {
+      cy.get('table').should('be.visible')
     })
-})
+  })

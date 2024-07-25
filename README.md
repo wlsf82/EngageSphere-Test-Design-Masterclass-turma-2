@@ -29,7 +29,6 @@ After cloning this project, to install the dev dependencies, open a terminal, go
 Read the following [doc](./docs/TestCases.md) to get a list of test cases.
 
 To execute the tests open a terminal, go to the root of this repo, and run `npm run test:e2e`
-The test `intercept.cy.js` is working in progress :D 
 ___
 
 Made with ❤️ by [Walmyr](https://walmyr.dev).
