@@ -1,0 +1,11 @@
+{
+    "name": "Acme Corp",
+    "employees": 100,
+    "size": "Medium",
+    "contactInfo": {
+      "name": "John Doe",
+      "email": "john.doe@example.com"
+    },
+    "address": null
+  }
+  

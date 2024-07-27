@@ -1,0 +1,81 @@
+name: GUI, API and Components Tests
+
+on:
+  push:
+    branches:
+      - main  
+
+jobs:
+  dependencies-install:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm install
+
+  gui-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install backend
+        run: npm run install:backend
+
+      - name: Install frontend
+        run: npm run install:frontend
+
+      - name: Start frontend and backend
+        run: |
+          npm run start:frontend &
+          npm run start:server &
+          sleep 20
+
+      - name: Run GUI tests
+        run: npm run gui:run
+
+  component-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Run Components tests
+        run: npm run component:run
+
+  api-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install backend dependencies
+        run: npm run install:backend
+
+      - name: Start backend
+        run: npm run start:server &
+      
+      - name: Run API tests
+        run: npm run api:run
+
+  accessibility-tests:
+    runs-on: ubuntu-latest
+        
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install frontend dependencies
+        run: npm run install:frontend
+
+      - name: Start frontend
+        run: npm run start:frontend &
+
+      - name: Run Accessibility tests
+        run: npm run accessibility:run
