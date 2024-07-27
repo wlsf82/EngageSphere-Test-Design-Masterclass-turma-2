@@ -1,4 +1,4 @@
-import DownloadCSVButton from '../components/DownloadCSV';
+import DownloadCSVButton from './DownloadCSV';
 
 describe('<DownloadCSVButton />', () => {
   const customers = [
@@ -12,20 +12,10 @@ describe('<DownloadCSVButton />', () => {
     }
   ];
 
-  beforeEach(() => {
+  it('initiates CSV file download on button click', () => {
     cy.mount(<DownloadCSVButton customers={customers} />);
-  });
 
-  context('Rendering', () => {
-    it('renders the download button', () => {
-      cy.get('.download-csv-button').should('be.visible');
-    });
-  });
-
-  context('Functionality', () => {
-    it('initiates CSV file download on button click', () => {
-      cy.get('.download-csv-button').click();
-      cy.readFile('cypress/downloads/customers.csv').should('exist');
-    });
+    cy.get('.download-csv-button').click();
+    cy.readFile('cypress/downloads/customers.csv').should('contain', '"Cadê meu inseto"');
   });
 });

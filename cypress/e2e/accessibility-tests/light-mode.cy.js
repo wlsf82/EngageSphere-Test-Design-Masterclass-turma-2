@@ -1,8 +1,8 @@
 describe('Light Mode Accessibility Tests', () => {
     beforeEach(() => {
         cy.visit('/')
-        cy.injectAxe()
         cy.get('[data-theme="light"]').should('exist')
+        cy.injectAxe()
     })
 
     context('Customer Table', () => {

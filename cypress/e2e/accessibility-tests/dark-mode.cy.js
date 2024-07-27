@@ -2,6 +2,7 @@ describe('Dark Mode Accessibility Tests', () => {
     beforeEach(() => {
         cy.visit('/')
         cy.injectAxe()
+        cy.get('[data-theme="light"]').should('exist')
         cy.get('#theme-toggle-button').click()
         cy.get('[data-theme="dark"]').should('exist')
     })

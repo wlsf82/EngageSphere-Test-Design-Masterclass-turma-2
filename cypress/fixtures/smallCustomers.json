@@ -1,0 +1,19 @@
+{
+    "customers": [
+      {
+        "id": 3,
+        "name": "Parisian - Berge",
+        "employees": 47,
+        "contactInfo": {
+          "name": "Alysson",
+          "email": "Alysson.Lang@hotmail.com"
+        },
+        "size": "Small"
+      }
+    ],
+    "pageInfo": {
+      "currentPage": 1,
+      "totalPages": 1,
+      "totalCustomers": 1
+    }
+  }

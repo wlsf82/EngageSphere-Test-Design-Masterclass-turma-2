@@ -13,8 +13,7 @@ describe('Home Page', () => {
   context('Customer Selection', () => {
     it('should disable input field after selecting a company', () => {
       cy.get('[data-testid="name"]').should('not.be.disabled');
-      cy.get('[data-testid="name"]').type('Gabriel Logan');
-      cy.contains('Lowe Co').click();
+      cy.get('td').eq(0).click();
       cy.get('[data-testid="name"]').should('be.disabled');
     });
   });

@@ -1,0 +1,61 @@
+{
+    "customers": [
+      {
+        "id": 1,
+        "name": "Jacobs, Bechtelar and Von",
+        "employees": 2174,
+        "contactInfo": null,
+        "size": "Enterprise"
+      },
+      {
+        "id": 2,
+        "name": "Kilback - Kerluke",
+        "employees": 226,
+        "contactInfo": {
+          "name": "Daija",
+          "email": "Daija_Gislason93@gmail.com"
+        },
+        "address": {
+          "street": "988 Kimberly Fort Apt. 921",
+          "city": "Lake Tracy",
+          "state": "Connecticut",
+          "zipCode": "07115",
+          "country": "United States of America"
+        },
+        "size": "Medium"
+      },
+      {
+        "id": 3,
+        "name": "Parisian - Berge",
+        "employees": 47,
+        "contactInfo": {
+          "name": "Alysson",
+          "email": "Alysson.Lang@hotmail.com"
+        },
+        "size": "Small"
+      },
+      {
+        "id": 4,
+        "name": "Wilderman, Marks and Funk",
+        "employees": 24000,
+        "contactInfo": {
+          "name": "Brando",
+          "email": "Brando_Kozey48@gmail.com"
+        },
+        "size": "Large Enterprise"
+      },
+      {
+        "id": 5,
+        "name": "Runolfsson, Satterfield and Huel",
+        "employees": 51015,
+        "contactInfo": null,
+        "size": "Very Large Enterprise"
+      }
+    ],
+    "pageInfo": {
+      "currentPage": 1,
+      "totalPages": 2,
+      "totalCustomers": 10
+    }
+  }
+  

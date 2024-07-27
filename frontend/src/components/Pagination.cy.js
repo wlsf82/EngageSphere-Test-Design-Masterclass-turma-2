@@ -41,7 +41,7 @@ describe('<Pagination />', () => {
     it('enables both Prev and Next buttons on a middle page', () => {
       mountPagination({ currentPage: 2, paginationInfo: { totalPages: 3, limit: 20 } });
       cy.contains('button', 'Next').should('not.be.disabled');
-      cy.contains('button', 'Prev').should('not.be.disabled');
+      cy.contains('button', 'Prev').should('be.enabled');
     });
   });
 });

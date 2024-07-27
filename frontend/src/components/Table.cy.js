@@ -1,4 +1,4 @@
-import Table from '../../src/components/Table';
+import Table from './Table';
 
 describe('<Table />', () => {
   const customers = [
@@ -25,7 +25,8 @@ describe('<Table />', () => {
     });
 
     it('sorts by number of employees in ascending order', () => {
-      cy.get('th').contains('Number of employees').click().click();
+      cy.get('th').contains('Number of employees').click();
+      cy.get('th').contains('Number of employees').click();
       cy.get('tbody tr').eq(0).should('contain.text', '50');
       cy.get('tbody tr').eq(1).should('contain.text', '200');
     });
@@ -39,7 +40,8 @@ describe('<Table />', () => {
     });
 
     it('sorts by size in descending order', () => {
-      cy.get('th').contains('Size').click().click();
+      cy.get('th').contains('Size').click();
+      cy.get('th').contains('Size').click();
       cy.get('tbody tr').eq(0).should('contain.text', 'Medium');
       cy.get('tbody tr').eq(1).should('contain.text', 'Small');
     });

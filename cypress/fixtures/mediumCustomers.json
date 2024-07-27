@@ -1,0 +1,26 @@
+{
+    "customers": [
+      {
+        "id": 2,
+        "name": "Kilback - Kerluke",
+        "employees": 226,
+        "contactInfo": {
+            "name": "Daija",
+            "email": "Daija_Gislason93@gmail.com"
+        },
+        "size": "Medium",
+        "address": {
+          "street": "988 Kimberly Fort Apt. 921",
+          "city": "Lake Tracy",
+          "state": "Connecticut",
+          "zipCode": "07115",
+          "country": "United States of America"
+        }
+      }
+    ],
+    "pageInfo": {
+      "currentPage": 1,
+      "totalPages": 1,
+      "totalCustomers": 1
+    }
+  }

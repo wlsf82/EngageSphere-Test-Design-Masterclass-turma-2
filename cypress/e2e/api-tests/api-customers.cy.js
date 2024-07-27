@@ -1,67 +1,123 @@
 describe('API /customers', () => {
-  
+  const CUSTOMERS_API_URL = `${Cypress.env('API_URL')}/customers`;
+
   context('Successful Data Retrieval', () => {
     it('should retrieve the list of customers successfully with valid structure', () => {
-      cy.getRequest(`${Cypress.env('API_URL')}/customers`).then((response) => {
-        expect(response.status).to.eq(200);
+      cy.request('GET', CUSTOMERS_API_URL)
+      .then(({ status, body }) => {
+          expect(status).to.eq(200);
+          expect(body.customers).to.be.an('array');
+          expect(body.pageInfo).to.be.an('object');
       });
-    });
   });
-
+});
   context('Pagination', () => {
-    it('should paginate the customer list correctly with valid parameters', () => {
-      cy.getRequest(`${Cypress.env('API_URL')}/customers?page=1&limit=10`).then((response) => {
-        expect(response.status).to.eq(200);
-        expect(response.body.customers).to.have.length(10);
-        expect(response.body.pageInfo.currentPage).to.eq('1');
-      });
+    it('should paginate the customer list correctly with valid page parameter', () => {
+      cy.request('GET', `${CUSTOMERS_API_URL}?page=1`)
+        .then(({ status, body }) => {
+          expect(status).to.eq(200);
+          expect(body.customers).to.have.length(10);
+          expect(body.pageInfo.currentPage).to.eq('1');
+        });
     });
   });
 
   context('Filtering', () => {
-    it('should filter customers correctly by size with a valid size parameter', () => {
-      cy.getRequest(`${Cypress.env('API_URL')}/customers?size=Large Enterprise`).then((response) => {
-        expect(response.status).to.eq(200);
-        response.body.customers.forEach((customer) => {
-          expect(customer.size).to.eq('Large Enterprise');
-        });
+    it('filters customers by size correctly', () => {
+      const sizes = ['Small', 'Medium', 'Enterprise', 'Large Enterprise', 'Very Large Enterprise'];
+      const limitOfEmployessPerSize = [99, 999, 9999, 49999, 999999];
+
+      sizes.forEach((size, index) => {
+        cy.request('GET', `${CUSTOMERS_API_URL}?size=${size}`).as('getSizedCustomers');
+
+        cy.get('@getSizedCustomers')
+          .its('body.customers')
+          .each(({ size: customerSize, employees }) => {
+            expect(customerSize).to.eq(size);
+            expect(employees).to.be.lte(limitOfEmployessPerSize[index]);
+          });
       });
     });
   });
 
   context('Invalid Requests', () => {
     it('should handle invalid request when page parameter is negative', () => {
-      cy.getRequest(`${Cypress.env('API_URL')}/customers?page=-1`, false).then((response) => {
-        expect(response.status).to.equal(400);
-        expect(response.body).to.have.property('error');
+      cy.request({
+        method: 'GET',
+        url: `${CUSTOMERS_API_URL}?page=-1`,
+        failOnStatusCode: false,
+      }).then(({ status, body }) => {
+        expect(status).to.equal(400);
+        expect(body).to.have.property('error');
+        expect(body.error).to.equal('Invalid page or limit. Both must be positive numbers.');
       });
     });
 
     it('should handle invalid request when limit parameter is negative', () => {
-      cy.getRequest(`${Cypress.env('API_URL')}/customers?limit=-10`, false).then((response) => {
-        expect(response.status).to.equal(400);
-        expect(response.body).to.have.property('error');
+      cy.request({
+        method: 'GET',
+        url: `${CUSTOMERS_API_URL}?limit=-10`,
+        failOnStatusCode: false,
+      }).then(({ status, body }) => {
+        expect(status).to.equal(400);
+        expect(body).to.have.property('error');
       });
     });
 
     it('should handle invalid request when page parameter is a string', () => {
-      cy.getRequest(`${Cypress.env('API_URL')}/customers?page=abc`, false).then((response) => {
-        expect(response.status).to.equal(400);
-        expect(response.body).to.have.property('error');
+      cy.request({
+        method: 'GET',
+        url: `${CUSTOMERS_API_URL}?page=abc`,
+        failOnStatusCode: false,
+      }).then(({ status, body }) => {
+        expect(status).to.equal(400);
+        expect(body).to.have.property('error');
       });
     });
 
     it('should handle invalid request when limit parameter is a boolean', () => {
-      cy.getRequest(`${Cypress.env('API_URL')}/customers?limit=true`, false).then((response) => {
-        expect(response.status).to.equal(400);
-        expect(response.body).to.have.property('error');
+      cy.request({
+        method: 'GET',
+        url: `${CUSTOMERS_API_URL}?limit=true`,
+        failOnStatusCode: false,
+      }).then(({ status, body }) => {
+        expect(status).to.equal(400);
+        expect(body).to.have.property('error');
       });
     });
 
     it('should handle invalid request when size parameter is unsupported', () => {
-      cy.getRequest(`${Cypress.env('API_URL')}/customers?size=extra-large`, false).then((response) => {
-        expect(response.status).to.equal(400);
-        expect(response.body).to.have.property('error');
+      cy.request({
+        method: 'GET',
+        url: `${CUSTOMERS_API_URL}?size=extra-large`,
+        failOnStatusCode: false,
+      }).then(({ status, body }) => {
+        expect(status).to.equal(400);
+        expect(body).to.have.property('error');
+      });
+    });
+
+    it('should handle invalid request when page parameter is zero', () => {
+      cy.request({
+        method: 'GET',
+        url: `${CUSTOMERS_API_URL}?page=0`,
+        failOnStatusCode: false,
+      }).then(({ status, body }) => {
+        expect(status).to.equal(400);
+        expect(body).to.have.property('error');
+        expect(body.error).to.equal('Invalid page or limit. Both must be positive numbers.');
+      });
+    });
+
+    it('should handle invalid request when limit parameter is zero', () => {
+      cy.request({
+        method: 'GET',
+        url: `${CUSTOMERS_API_URL}?limit=0`,
+        failOnStatusCode: false,
+      }).then(({ status, body }) => {
+        expect(status).to.equal(400);
+        expect(body).to.have.property('error');
+        expect(body.error).to.equal('Invalid page or limit. Both must be positive numbers.');
       });
     });
   });
