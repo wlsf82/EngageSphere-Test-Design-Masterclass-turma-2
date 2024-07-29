@@ -2,7 +2,12 @@
 describe('Successfully retrieves customers (e.g., checks for the 200 status code)', () => {
 
     it('successfully retrieves a list of customers', () => {
-        cy.api_retrieveCustomers({})
+        const queryParams = {
+            page: 1,
+            limit: 10,
+            size: 'All'
+        }
+        cy.request('GET', `${Cypress.env('API_URL')}/customers?page=${queryParams.page}&limit=${queryParams.limit}&size=${queryParams.size}`)
             .then(response => {
                 expect(response.status).to.eq(200)
             })
@@ -15,7 +20,7 @@ describe('Successfully retrieves customers (e.g., checks for the 200 status code
             size: 'All'
         }
 
-        cy.api_retrieveCustomers(queryParams)
+        cy.request('GET', `${Cypress.env('API_URL')}/customers?page=${queryParams.page}&limit=${queryParams.limit}&size=${queryParams.size}`)
             .then(response => {
 
                 expect(response.status).to.eq(200)
@@ -27,7 +32,7 @@ describe('Successfully retrieves customers (e.g., checks for the 200 status code
                 // Assert that the returned page info matches the expected values
                 const pageInfo = response.body.pageInfo
                 expect(pageInfo.currentPage).to.be.eq('2')
-                expect(pageInfo).to.have.property('totalPages').to.eq(5) 
+                expect(pageInfo).to.have.property('totalPages').to.eq(5)
                 expect(pageInfo).to.have.property('totalCustomers').to.eq(50)
 
                 // Assert specific details about the customers array
