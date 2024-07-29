@@ -9,7 +9,7 @@
     "start:server": "cd backend && npm start",
     "cy:open": "cypress open",
     "test": "cypress run",
-    "test:all": "start-test start:frontend http://localhost:3000 start:server http://localhost:3001 test"
+    "start:servers:and:test": "start-test start:frontend http://localhost:3000 start:server http://localhost:3001 test"
   },
   "repository": {
     "type": "git",

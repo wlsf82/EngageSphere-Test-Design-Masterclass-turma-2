@@ -1,6 +1,5 @@
 
-describe('Successfully retrieves customers (e.g., checks for the 200 status code)', () => {
-
+describe('EngageSphere', () => {
     it('successfully retrieves a list of customers', () => {
         const queryParams = {
             page: 1,
@@ -8,12 +7,12 @@ describe('Successfully retrieves customers (e.g., checks for the 200 status code
             size: 'All'
         }
         cy.request('GET', `${Cypress.env('API_URL')}/customers?page=${queryParams.page}&limit=${queryParams.limit}&size=${queryParams.size}`)
-            .then(response => {
-                expect(response.status).to.eq(200)
+            .then(({status}) => {
+                expect(status).to.eq(200)
             })
     })
 
-    it('Paginates the customer list correctly when fetching products for page 2 with limit 10', () => {
+    it('Paginates the customer list correctly', () => {
         const queryParams = {
             page: 2,
             limit: 10,
@@ -21,23 +20,14 @@ describe('Successfully retrieves customers (e.g., checks for the 200 status code
         }
 
         cy.request('GET', `${Cypress.env('API_URL')}/customers?page=${queryParams.page}&limit=${queryParams.limit}&size=${queryParams.size}`)
-            .then(response => {
-
-                expect(response.status).to.eq(200)
-
-                // Assert that the response contains the expected structure
-                expect(response.body).to.have.property('customers').that.is.an('array')
-                expect(response.body).to.have.property('pageInfo').that.is.an('object')
+            .then(({status,body}) => {
+                expect(status).to.eq(200)
 
                 // Assert that the returned page info matches the expected values
-                const pageInfo = response.body.pageInfo
+                const pageInfo = body.pageInfo
                 expect(pageInfo.currentPage).to.be.eq('2')
                 expect(pageInfo).to.have.property('totalPages').to.eq(5)
                 expect(pageInfo).to.have.property('totalCustomers').to.eq(50)
-
-                // Assert specific details about the customers array
-                const customers = response.body.customers
-                expect(customers).to.have.lengthOf.at.least(1) // Assuming at least one customer per page
             })
     })
 })

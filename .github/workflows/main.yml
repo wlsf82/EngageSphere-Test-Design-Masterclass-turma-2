@@ -15,19 +15,10 @@ jobs:
           npm run install:frontend
           npm run install:backend
 
-          # Uncommment this block of code if you want to run workflow changes locally using act: https://github.com/nektos/act
-          # - name: Install Cypress Dependencies
-          # run: |
-          #   sudo apt-get update
-          #   sudo apt-get install -y libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libnss3 libxss1 libasound2 libxtst6 xauth xvfb
-          # env:
-          #   DEBIAN_FRONTEND: noninteractive     
-      
       - name: Cypress tests
         uses: cypress-io/github-action@v6
         with:
           start: npm run start:frontend, npm run start:server
           wait-on: 'http://localhost:3000'
-          command: npm run test      
-
-
+          command: npm test
+          
