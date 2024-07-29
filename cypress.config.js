@@ -8,8 +8,7 @@ module.exports = defineConfig({
   },
   e2e: {
     baseUrl: 'http://localhost:3000',
-    experimentalRunAllSpecs: true // permite rodar todos os testes visuais de uma vez só
+    experimentalRunAllSpecs: true // permite rodar todos os testes de uma vez só
   },
-  fixturesFolder: false,
-  video: false
+  fixturesFolder: false
 })

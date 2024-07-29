@@ -1,19 +1,17 @@
 /// <reference types="cypress" />
-
 describe('Validar Cabeçalho e Mudar o Tema', () => {
     beforeEach(() => {
         cy.visit('/')
-    });
-    it('Tema escuro para claro', () => {
+    })
+
+    it('Validar tema claro', () => {
+        cy.get('[data-theme="light"]')
+            .should('exist')
         cy.get('#theme-toggle-button')
-            .should('be.visible')
             .click()
+        cy.get('[data-theme="dark"]')
+            .should('exist')
         cy.contains('h1', 'EngageSphere')
-        cy.contains('#theme-toggle-button', '☀')
-        
-        cy.get('#theme-toggle-button')
-            .should('be.visible')
-            .click()
-        cy.contains('#theme-toggle-button', '☽')
     })
 })
+

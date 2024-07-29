@@ -1,3 +1,4 @@
+/// <reference types="cypress" />
 describe('Validação do Rodapé', () => {
     beforeEach(() => {
         cy.visit('/')
@@ -12,5 +13,5 @@ describe('Validação do Rodapé', () => {
                 cy.contains('a', 'Blog').should('have.attr', 'href', 'https://talkingabouttesting.com')
                 cy.contains('a', 'YouTube').should('have.attr', 'href', 'https://youtube.com/@talkingabouttesting')
             })
-    });
-});
+    })
+})

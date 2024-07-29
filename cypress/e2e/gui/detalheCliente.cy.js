@@ -3,6 +3,7 @@ describe('Detalhes do cliente', () => {
     beforeEach(() => {
         cy.visit('/')
     })
+
     it('Campo entrada de texto deve estar desabilitado', () => {
         cy.get('tbody tr')
             .first()  // seleciona o primeiro elemento da lista
@@ -10,11 +11,12 @@ describe('Detalhes do cliente', () => {
         cy.get('[data-testid="name"]')
             .should('be.disabled')
     })
+
     it('Voltar para página inicial', () => {
         cy.get('tbody tr')
             .first()  // seleciona o primeiro elemento da lista
             .click()
-        cy.get(':nth-child(7) > button')
+        cy.contains('button', 'Back')
             .click()
         cy.get('[data-testid="name"]')
             .should('be.visible')
