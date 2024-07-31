@@ -1,5 +1,3 @@
-const { useContext } = require("react")
-
 describe('Theme', () => {
     context("Light mode", () => {
         beforeEach(() => {
