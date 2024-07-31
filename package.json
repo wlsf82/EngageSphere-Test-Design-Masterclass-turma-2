@@ -10,7 +10,7 @@
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "lint": "eslint . --ignore-pattern 'backend/*' --ignore-pattern 'frontend/*'",
-    "api:run:cloud": "cypress run --record --tag 'API' '--spec cypress/e2e/api-tests/**.cy.js'",
+    "api:run:cloud": "cypress run --record --tag 'API' '--spec cypress/e2e/api-tests/**.cy.js' --config baseUrl='http://localhost:3001/customers'",
     "api:run": "cypress run --spec 'cypress/e2e/api-tests/**.cy.js'",
     "gui:run:cloud": "cypress run --record --tag 'GUI' --spec 'cypress/e2e/gui-tests/**.cy.js'",
     "gui:run": "cypress run --spec cypress/e2e/gui-tests/**.cy.js",
