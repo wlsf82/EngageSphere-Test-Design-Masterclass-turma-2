@@ -24,8 +24,8 @@ describe('EngageSphere', () => {
                 expect(status).to.eq(200)
 
                 // Assert that the returned page info matches the expected values
-                const pageInfo = body.pageInfo
-                expect(pageInfo.currentPage).to.be.eq('2')
+                const {pageInfo} = body
+                expect(pageInfo).to.have.property('currentPage').to.eq('2')
                 expect(pageInfo).to.have.property('totalPages').to.eq(5)
                 expect(pageInfo).to.have.property('totalCustomers').to.eq(50)
             })
