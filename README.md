@@ -1,78 +1,49 @@
-# EngageSphere Automation Tests 
+# EngageSphere
 
-### Test suite
+Sample project with a [Node.js](https://nodejs.org/) backend and a [React](https://react.dev/) frontend.
 
-* ✔️ Cypress, usado para a escrita e execução dos testes GUI, API e componentes.
-* ✔️ Axe, usado para criar e rodar a automação de testes de acessibilidade.
-* ✔️ Test retry, para repetir testes que falharem e evienciar testes "flaky".
+## Business rules
 
-### Qualidade de código
-* ✔️ ESLint, para evitar erros no padrão do código e garantir uma boa qualidade do mesmo.
+Read the following [doc](./docs/Requirements.md) to understand all the EngageSphere application's functionalities.
 
-### CI/CD
-* ✔️ [GitHub Actions](https://github.com/thaydutra/test-design-masterclass/actions), para acionar uma pipeline a cada push, essa pipeline executa os testes automatizados com Cypress e também o ESlint para garantir testes funcionando e um código de qualidade.
+## Pre-requirements
 
-## 💻 Pré-requisitos para rodar o projeto na sua maquina
+To run this project, you will need:
 
-* Ter instalado uma IDE de sua preferencia, nesse projeto utilizamos o VS Code que pode ser encontrado [aqui](https://code.visualstudio.com/).
-* Node.js `v20.+`
-* git `v2.+`
-* npm `v10.+`
+- [git](https://git-scm.com/downloads) (I've used version `2.42.1` while writing this doc)
+- [Node.js](https://nodejs.org/en/) (I've used version `v20.13.1` while writing this doc)
+- npm (I've used version `10.5.2` while writing this doc)
 
 **Note:** When installing Node.js, npm is automatically installed too.
 
-## Cenários de teste
+## Installing and starting the servers
 
-Os testes estão documentados [aqui](./docs/TestCases.md), você pode conferir os cenários sempre que precisar.
+Read the following [doc](./docs/TestEnvironment.md) to install and start the backend and frontend servers.
 
-## ⚙️ Rodando o projeto na sua maquina
+## Installation of `devDependencies`
 
-Inicialmente, você deve clonar o projeto para sua máquina, caso tenha dúvidas de como fazer você pode seguir o passo a passo para clonagem via IDE VS Code [aqui](https://learn.microsoft.com/pt-br/azure/developer/javascript/how-to/with-visual-studio-code/clone-github-repository?tabs=create-repo-command-palette%2Cinitialize-repo-activity-bar%2Ccreate-branch-command-palette%2Ccommit-changes-command-palette%2Cpush-command-palette).
+After cloning this project, to install the dev dependencies, open a terminal, go to the root of this repo, and run `npm install` (or `npm i`, for short.)
 
-Link para clonagem do projeto:
-```
-git clone https://github.com/thaydutra/test-design-masterclass
-```
+## Tests
 
-Após clonar o repositório para sua máquina você deverá instalar as dependencias do projeto executando o comando abaixo no seu terminal:
-```
-npm install
-```
+The tests scenarios are documented [here](./docs/TestCases.md), you can check the scenarios whenever you need.
 
-Agora devemos instalar e executar o servidor do frontend:
-```
-npm run install:frontend
-```
-```
-npm run start:frontend
-```
-
-E também instalar e executar o servidor do backend:
-```
-npm run install:backend
-```
-```
-npm run start:backend
-```
-
-Para executar os testes automatizados em modo headless, você pode executar o comando abaixo no terminal para executar testes de GUI e API:
+To run the automated tests in headless mode, you can run the below command in the terminal to execute GUI and API tests:
 ```
 npm run cy:run
 ```
 
-Para executar os testes automatizados em modo headless, você pode executar o comando abaixo no terminal para executar testes de componente:
+To run the automated tests in headless mode, you can run the below command in the terminal to execute component tests:
 ```
 npm run component:run
 ```
 
-Para executar os testes  automatizados em modo headed em um navegador, você pode executar o comando abaixo no terminal, selecionar E2E testing para testes de API e GUI, ou Component para os testes de componente:
+To run automated tests in headed mode in a browser, you can run the command below in the terminal, select E2E testing for API and GUI tests, or Component for component tests:
 ```
 npm run cy:open
 ```
 
-Ao finalizar, todos os testes devem ter sido realizados sem falhas.
+When finished, all tests must have been carried out without fail.
+___
 
-
-## 💬 Comentários do autor
-
-* Este projeto conta com a execução via pipeline GitHub Actions, que é executada a cada commit e pode ter suas execuções visualizadas [aqui](https://github.com/thaydutra/test-design-masterclass/actions).
+Made with ❤️ by [Walmyr](https://walmyr.dev).

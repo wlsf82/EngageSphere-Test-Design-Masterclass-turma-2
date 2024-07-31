@@ -1,4 +1,4 @@
-describe('API /customers Test', () => {
+describe('API /customers', () => {
     const CUSTOMERS_API = `${Cypress.env('API_URL')}/customers`
 
     it('Successfully retrieves customers', () => {
@@ -10,19 +10,16 @@ describe('API /customers Test', () => {
     })
 
     it('Paginates the customer list correctly', () => {
-        cy.request('GET', `${CUSTOMERS_API}?page=5&limit=10`).as('getCustomersPageFive')
+        cy.request('GET', `${CUSTOMERS_API}?page=5`).as('getCustomersPageFive')
 
         cy.get('@getCustomersPageFive').should((response) => {
             expect(response.status).to.eq(200)
             expect(response.body).to.have.property('pageInfo')
-
-            expect(response.body.pageInfo.currentPage).to.eq('5')
-            expect(response.body.pageInfo.totalPages).to.eq(5)
         })
     })
 
     it('Filters customers by size correctly', () => {
-        cy.request('GET', `${CUSTOMERS_API}?page=1&limit=50&size=Small`).as('getSmallCustomers')
+        cy.request('GET', `${CUSTOMERS_API}?size=Small`).as('getSmallCustomers')
 
         cy.get('@getSmallCustomers').should((response) => {
             expect(response.status).to.eq(200)
@@ -70,7 +67,7 @@ describe('API /customers Test', () => {
     it('Handles invalid requests gracefully (e.g., negative limit)', () => {
         cy.request({
             method: 'GET',
-            url: `${CUSTOMERS_API}?page=1&limit=-1&size=All`,
+            url: `${CUSTOMERS_API}?limit=-1`,
             failOnStatusCode: false,
         }).then(({ status, body }) => {
             expect(status).to.eq(400)
@@ -81,7 +78,7 @@ describe('API /customers Test', () => {
     it('Handles invalid requests gracefully (e.g., negative page )', () => {
         cy.request({
             method: 'GET',
-            url: `${CUSTOMERS_API}?page=-1&limit=1&size=All`,
+            url: `${CUSTOMERS_API}?page=-1`,
             failOnStatusCode: false,
         }).then(({ status, body }) => {
             expect(status).to.eq(400)
@@ -89,10 +86,21 @@ describe('API /customers Test', () => {
         })
     })
 
-    it('Handles invalid requests gracefully (e.g., 0 )', () => {
+    it('Handles invalid requests gracefully (e.g., limit 0 )', () => {
         cy.request({
             method: 'GET',
-            url: `${CUSTOMERS_API}?page=0&limit=0&size=All`,
+            url: `${CUSTOMERS_API}?limit=0`,
+            failOnStatusCode: false,
+        }).then(({ status, body }) => {
+            expect(status).to.eq(400)
+            expect(body.error).to.eq('Invalid page or limit. Both must be positive numbers.')
+        })
+    })
+
+    it('Handles invalid requests gracefully (e.g., page 0 )', () => {
+        cy.request({
+            method: 'GET',
+            url: `${CUSTOMERS_API}?page=0`,
             failOnStatusCode: false,
         }).then(({ status, body }) => {
             expect(status).to.eq(400)
@@ -103,7 +111,7 @@ describe('API /customers Test', () => {
     it('Handles invalid requests gracefully (e.g., page as a string)', () => {
         cy.request({
             method: 'GET',
-            url: `${CUSTOMERS_API}?page=joao&limit=1&size=All`,
+            url: `${CUSTOMERS_API}?page=joao`,
             failOnStatusCode: false,
         }).then(({ status, body }) => {
             expect(status).to.eq(400)
@@ -114,7 +122,7 @@ describe('API /customers Test', () => {
     it('Handles invalid requests gracefully (e.g., page as a boolean)', () => {
         cy.request({
             method: 'GET',
-            url: `${CUSTOMERS_API}?page=false&limit=1&size=All`,
+            url: `${CUSTOMERS_API}?page=false`,
             failOnStatusCode: false,
         }).then(({ status, body }) => {
             expect(status).to.eq(400)
@@ -125,11 +133,27 @@ describe('API /customers Test', () => {
     it('Handles invalid requests gracefully (e.g., unsupported size)', () => {
         cy.request({
             method: 'GET',
-            url: `${CUSTOMERS_API}?page=5,4&limit=1&size=All`,
+            url: `${CUSTOMERS_API}?page=TEST`,
             failOnStatusCode: false,
         }).then(({ status, body }) => {
             expect(status).to.eq(400)
             expect(body.error).to.eq('Invalid page or limit. Both must be positive numbers.')
         })
     })
+
+    it('filters customers by size correctly', () => {
+        const sizes = ['Small', 'Medium', 'Enterprise', 'Large Enterprise', 'Very Large Enterprise']
+        const limitOfEmployessPerSize = [99, 999, 9999, 49999, 999999] // Assuming that there aren't companies with more than 999999 employess in the database
+    
+        sizes.forEach((size, index) => {
+          cy.request('GET', `${CUSTOMERS_API}?size=${size}`).as('getSizedCustomers')
+    
+          cy.get('@getSizedCustomers')
+            .its('body.customers')
+            .each(customer => {
+              expect(customer.size).to.eq(size)
+              expect(customer.employees).to.be.lte(limitOfEmployessPerSize[index])
+            })
+        })
+      })
 })

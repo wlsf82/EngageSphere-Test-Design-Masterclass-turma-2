@@ -21,6 +21,7 @@ describe('<Pagination />', () => {
       ...defaultProps,
     }
     cy.mount(<Pagination {...props} />)
+
     cy.contains('span', 'Page 1 of 5').should('be.visible')
   })
 
@@ -34,6 +35,7 @@ describe('<Pagination />', () => {
       ...defaultProps,
     }
     cy.mount(<Pagination {...props} />)
+
     cy.contains('button', 'Prev').should('be.disabled')
   })
 
@@ -47,6 +49,7 @@ describe('<Pagination />', () => {
       ...defaultProps,
     }
     cy.mount(<Pagination {...props} />)
+
     cy.contains('button', 'Next').should('be.disabled')
   })
 
@@ -60,6 +63,7 @@ describe('<Pagination />', () => {
       ...defaultProps,
     }
     cy.mount(<Pagination {...props} />)
+
     cy.contains('button', 'Next').should('be.disabled')
     cy.contains('button', 'Prev').should('be.disabled')
   })
@@ -74,6 +78,7 @@ describe('<Pagination />', () => {
       ...defaultProps,
     }
     cy.mount(<Pagination {...props} />)
+    
     cy.contains('button', 'Next').should('not.be.disabled')
     cy.contains('button', 'Prev').should('not.be.disabled')
   })
