@@ -26,8 +26,24 @@ After cloning this project, to install the dev dependencies, open a terminal, go
 
 ## Tests
 
-Read the following [doc](./docs/TestCases.md) to get a list of test cases.
+The tests scenarios are documented [here](./docs/TestCases.md), you can check the scenarios whenever you need.
 
+To run the automated tests in headless mode, you can run the below command in the terminal to execute GUI and API tests:
+```
+npm run cy:run
+```
+
+To run the automated tests in headless mode, you can run the below command in the terminal to execute component tests:
+```
+npm run component:run
+```
+
+To run automated tests in headed mode in a browser, you can run the command below in the terminal, select E2E testing for API and GUI tests, or Component for component tests:
+```
+npm run cy:open
+```
+
+When finished, all tests must have been carried out without fail.
 ___
 
 Made with ❤️ by [Walmyr](https://walmyr.dev).

@@ -1,0 +1,80 @@
+{
+    "customers": [
+      {
+        "id": 1,
+        "name": "Jacobs Co",
+        "employees": 99,
+        "contactInfo": null,
+        "address": {
+          "street": "988 Kimberly Fort Apt. 921",
+          "city": "Lake Tracy",
+          "state": "Connecticut",
+          "zipCode": "07115",
+          "country": "United States of America"
+        },
+        "size": "Small"
+      },
+      {
+        "id": 22,
+        "name": "Reynolds Inc",
+        "employees": 68,
+        "contactInfo": {
+          "name": "Darryl",
+          "email": "Darryl_Weimann98@yahoo.com"
+        },
+        "address": {
+          "street": "4798 E 4th Avenue",
+          "city": "Gislasonfurt",
+          "state": "Arkansas",
+          "zipCode": "57429",
+          "country": "United States of America"
+        },
+        "size": "Small"
+      },
+      {
+        "id": 32,
+        "name": "Kautzer Group",
+        "employees": 57,
+        "contactInfo": {
+          "name": "Mia",
+          "email": "Mia27@gmail.com"
+        },
+        "address": null,
+        "size": "Small"
+      },
+      {
+        "id": 35,
+        "name": "Deckow, Ernser and Gislason",
+        "employees": 71,
+        "contactInfo": null,
+        "address": {
+          "street": "307 E 11th Street",
+          "city": "Lansing",
+          "state": "Missouri",
+          "zipCode": "08909-6645",
+          "country": "United States of America"
+        },
+        "size": "Small"
+      },
+      {
+        "id": 38,
+        "name": "Frami - Predovic",
+        "employees": 70,
+        "contactInfo": null,
+        "address": {
+          "street": "6864 Baker Street",
+          "city": "North Eugene",
+          "state": "Oregon",
+          "zipCode": "12208-9487",
+          "country": "United States of America"
+        },
+        "size": "Small"
+      }
+    ],
+    "pageInfo": {
+      "currentPage": "1",
+      "totalPages": 1,
+      "totalCustomers": 5
+    }
+  }
+  

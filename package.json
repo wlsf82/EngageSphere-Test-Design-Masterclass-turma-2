@@ -1,13 +1,25 @@
 {
-  "name": "EngageSphere-Test-Design-Masterclass-turma-2",
+  "name": "engagesphere-test-design-masterclass",
   "version": "1.0.0",
   "description": "Sample project with a Node.js backend and a React frontend.",
   "scripts": {
     "install:frontend": "cd frontend && npm install",
     "install:backend": "cd backend && npm install",
     "start:frontend": "cd frontend && npm start",
-    "start:server": "cd backend && npm start"
+    "start:server": "cd backend && npm start",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "lint": "eslint . --ignore-pattern 'backend/*' --ignore-pattern 'frontend/*'",
+    "api:run:cloud": "cypress run --record --tag 'API' '--spec cypress/e2e/api-tests/**.cy.js' --config baseUrl='http://localhost:3001/customers'",
+    "api:run": "cypress run --spec 'cypress/e2e/api-tests/**.cy.js'",
+    "gui:run:cloud": "cypress run --record --tag 'GUI' --spec 'cypress/e2e/gui-tests/**.cy.js'",
+    "gui:run": "cypress run --spec cypress/e2e/gui-tests/**.cy.js",
+    "component:run:cloud": "cypress run --record  --tag 'component' --component",
+    "component:run": "cypress run --component",
+    "accessibility:run": "cypress run --record --tag 'a11y' --spec 'cypress/e2e/accessibility-tests/**.cy.js'",
+    "cloud:run": "cypress run && npm run --component"  
   },
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wlsf82/EngageSphere-Test-Design-Masterclass-turma-2.git"
@@ -27,5 +39,21 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+
+  "devDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "webpack": "^5.92.1",
+    "@babel/eslint-parser": "^7.24.7",
+    "@babel/parser": "^7.24.7",
+    "@babel/preset-react": "^7.24.7",
+    "axe-core": "^4.9.1",
+    "cypress": "^13.13.0",
+    "cypress-axe": "^1.5.0",
+    "eslint": "^9.6.0",
+    "eslint-plugin-cypress": "^3.3.0",
+    "globals": "^15.8.0",
+    "react-scripts": "^5.0.1"
   }
 }

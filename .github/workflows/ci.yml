@@ -1,0 +1,101 @@
+name: GUI, API and Components Tests
+
+on:
+  push:
+    branches:
+      - main  
+
+jobs:
+  eslint:
+    runs-on: ubuntu-22.04
+    steps:
+    - uses: actions/checkout@v4
+    - name: Install modules
+      run: npm install
+    - name: Run ESLint
+      run: npm run lint
+      
+
+  gui-tests:
+    needs: eslint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install backend
+        uses: cypress-io/github-action@v6
+        with:
+          install-command: npm run install:backend
+          runTests: false
+      - name: Install frontend
+        uses: cypress-io/github-action@v6
+        with:
+          install-command: npm run install:frontend
+          runTests: false
+      - name: Run GUI tests
+        uses: cypress-io/github-action@v6
+        with:
+          start: npm run start:frontend, npm run start:server
+          command: npm run gui:run:cloud
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+
+  component-tests:
+    needs: eslint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run Components tests
+        uses: cypress-io/github-action@v6
+        with:
+          command: npm run component:run:cloud
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+
+  api-tests:
+    needs: eslint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install backend
+        uses: cypress-io/github-action@v6
+        with:
+          install-command: npm run install:backend
+          runTests: false
+      - name: Run API tests
+        uses: cypress-io/github-action@v6
+        with:
+          start: npm run start:server
+          command: npm run api:run:cloud
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+
+  accessibility-tests:
+    needs: eslint
+    runs-on: ubuntu-latest
+        
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install backend
+        uses: cypress-io/github-action@v6
+        with:
+          install-command: npm run install:backend
+          runTests: false
+      - name: Install frontend
+        uses: cypress-io/github-action@v6
+        with:
+          install-command: npm run install:frontend
+          runTests: false
+      - name: Run Accessibility tests
+        uses: cypress-io/github-action@v6
+        with:
+          start: npm run start:frontend, npm run start:server
+          command: npm run accessibility:run
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}

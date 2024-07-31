@@ -1,0 +1,89 @@
+{
+    "customers": [
+      {
+        "id": 2,
+        "name": "Kilback Co",
+        "employees": 100,
+        "contactInfo": {
+          "name": "Daija",
+          "email": "Daija_Gislason93@gmail.com"
+        },
+        "address": {
+          "street": "5099 Murray Inlet",
+          "city": "South Tiffany",
+          "state": "Kentucky",
+          "zipCode": "08496",
+          "country": "United States of America"
+        },
+        "size": "Medium"
+      },
+      {
+        "id": 3,
+        "name": "Parisian Co",
+        "employees": 999,
+        "contactInfo": {
+          "name": "Alysson",
+          "email": "Alysson.Lang@hotmail.com"
+        },
+        "address": {
+          "street": "43247 Bennett Keys Apt. 999",
+          "city": "New Paulside",
+          "state": "Connecticut",
+          "zipCode": "87855",
+          "country": "United States of America"
+        },
+        "size": "Medium"
+      },
+      {
+        "id": 15,
+        "name": "Volkman, Rath and Conroy",
+        "employees": 250,
+        "contactInfo": {
+          "name": "Kaleigh",
+          "email": "Kaleigh13@gmail.com"
+        },
+        "address": {
+          "street": "9969 Green Street",
+          "city": "Fort Else",
+          "state": "Arkansas",
+          "zipCode": "94464-3210",
+          "country": "United States of America"
+        },
+        "size": "Medium"
+      },
+      {
+        "id": 30,
+        "name": "Stamm and Sons",
+        "employees": 881,
+        "contactInfo": {
+          "name": "Carmelo",
+          "email": "Carmelo_Upton70@hotmail.com"
+        },
+        "address": {
+          "street": "9894 Amya Rest",
+          "city": "Merlboro",
+          "state": "Rhode Island",
+          "zipCode": "67257-2125",
+          "country": "United States of America"
+        },
+        "size": "Medium"
+      },
+      {
+        "id": 44,
+        "name": "Waelchi LLC",
+        "employees": 598,
+        "contactInfo": {
+          "name": "Dagmar",
+          "email": "Dagmar_Gerhold70@hotmail.com"
+        },
+        "address": null,
+        "size": "Medium"
+      }
+    ],
+    "pageInfo": {
+      "currentPage": "1",
+      "totalPages": 1,
+      "totalCustomers": 5
+    }
+  }
+  

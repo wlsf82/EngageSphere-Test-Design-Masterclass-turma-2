@@ -1,0 +1,27 @@
+{
+    "customers": [
+      {
+        "id": 4,
+        "name": "Wilderman Co",
+        "employees": 1000,
+        "contactInfo": {
+          "name": "Brando",
+          "email": "Brando_Kozey48@gmail.com"
+        },
+        "address": {
+          "street": "8643 Jackson Wall",
+          "city": "Lake Davidstad",
+          "state": "Minnesota",
+          "zipCode": "29481",
+          "country": "United States of America"
+        },
+        "size": "Enterprise"
+      }
+    ],
+    "pageInfo": {
+      "currentPage": "1",
+      "totalPages": 1,
+      "totalCustomers": 1
+    }
+  }
+  
