@@ -36,10 +36,7 @@
     "cypress-axe": "^1.5.0",
     "eslint": "^9.7.0",
     "globals": "^15.8.0",
-    "typescript-eslint": "^7.17.0"
-  },
-  "dependencies": {
-    "axe": "^12.2.9",
+    "typescript-eslint": "^7.17.0",
     "cypress-plugin-api": "^2.11.1"
   }
 }
