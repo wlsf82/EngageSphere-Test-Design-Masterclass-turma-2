@@ -25,6 +25,38 @@ Read the following [doc](./docs/TestEnvironment.md) to install and start the bac
 After cloning this project, to install the dev dependencies, open a terminal, go to the root of this repo, and run `npm install` (or `npm i`, for short.)
 
 ## Tests
+### Principais Mudanças
+
+* Configuração inicial do Cypress e integração com os plugins Cypress-API e Cypress-axe.
+* Criação de testes de API para validar endpoints.
+* Criação de testes de acessibilidade para identificar problemas de acessibilidade.
+* Documentação atualizada com instruções sobre como rodar os testes.
+
+Clone o repositório e instale as dependências:
+ ```bash
+ bash
+  git clone <repositório>
+  cd <repositório>
+  npm install
+  ```
+Execute os testes automatizados:
+```bash
+   bash
+   npm run cypress:open
+
+   ou para rodar em modo headless:
+   bash
+   npm run cypress:run
+```
+### Considerações
+
+Certifique-se de revisar os testes adicionados para entender a cobertura e a lógica utilizada.
+Verifique a documentação para quaisquer requisitos adicionais ou configurações específicas.
+Referências
+
+* Cypress
+* Cypress-API
+* Cypress-axe
 
 Read the following [doc](./docs/TestCases.md) to get a list of test cases.
 

@@ -6,7 +6,9 @@
     "install:frontend": "cd frontend && npm install",
     "install:backend": "cd backend && npm install",
     "start:frontend": "cd frontend && npm start",
-    "start:server": "cd backend && npm start"
+    "start:server": "cd backend && npm start",
+    "cy:open": "cypress open",
+    "cy:run" : "cypress run"
   },
   "repository": {
     "type": "git",
@@ -27,5 +29,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "axe-core": "^4.9.1",
+    "cypress": "^13.13.0",
+    "cypress-axe": "^1.5.0",
+    "eslint": "^9.7.0",
+    "globals": "^15.8.0",
+    "typescript-eslint": "^7.17.0",
+    "cypress-plugin-api": "^2.11.1"
   }
 }
