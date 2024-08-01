@@ -8,10 +8,9 @@ describe('GET customers', ()=> {
     it('Success status', ()=>{
         cy.api({
             method: 'GET',
-            url: 'API_URL',
+            url: `${Cypress.env('API_URL')}/customers`,
         }).should(( {status}) => {
             expect(status).to.equal(200)
         })
     })
-
 })

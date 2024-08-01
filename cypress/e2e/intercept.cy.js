@@ -13,3 +13,4 @@ describe('intercept', ()=> {
       cy.get('table').should('be.visible')
     })
   })
+  

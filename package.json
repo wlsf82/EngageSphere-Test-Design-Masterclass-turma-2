@@ -8,7 +8,7 @@
     "start:frontend": "cd frontend && npm start",
     "start:server": "cd backend && npm start",
     "cy:open": "cypress open",
-    "test:e2e": "cypress run"
+    "cy:e2e": "cypress run"
   },
   "repository": {
     "type": "git",
@@ -37,9 +37,7 @@
     "cypress-plugin-api": "^2.11.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-scripts": "^5.0.1",
     "webpack": "^5.92.1"
-  },
-  "dependencies": {
-    "cypress-plugin-api": "^2.11.1"
   }
 }

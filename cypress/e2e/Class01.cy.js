@@ -6,7 +6,6 @@ describe('EngageSphere', ()=> {
   })
   
   context('Heading', ()=> {
-
     it('Shows the heading and the theme button', ()=> {
       cy.contains('h1','EngageSphere')
         .should('be.visible')
@@ -16,7 +15,6 @@ describe('EngageSphere', ()=> {
   })
 
   context('Greeting', ()=>{
-
     it('Validate default greting', ()=>{
       const pastDate = new Date(Date.UTC(1988, 3, 23))
       cy.clock(pastDate)
@@ -27,12 +25,11 @@ describe('EngageSphere', ()=> {
 
     it('Validate personal greting', ()=>{
       cy.get('[data-testid="name"]').type('Caio')
-      cy.contains('Hi Caio')
+      cy.contains('p','Hi Caio')
         .should('be.visible')
     })
   })
   context('Customer details modal', ()=>{
-
     beforeEach(()=> {
       cy.get('tbody tr').first().click()
     })
@@ -45,24 +42,26 @@ describe('EngageSphere', ()=> {
         .should('be.visible')
 
     })
-
-    it('shows and hides cliente address', ()=> {
+    it('shows and hides client address', ()=> {
       cy.get('.show-address-btn').click()
       cy.get('.address-info')
         .should('be.visible')
+
       cy.get('.hide-address-btn').click()
       cy.get('.show-address-btn')
         .should('be.visible')
+        
     })
-
     it('Validate if name field is disabled after open client details', ()=> {
       cy.get('.show-address-btn').click()
+      
       cy.get('[data-testid="name"]')
         .should('be.disabled')
+
     })
   })
-  context('Footer', ()=>{
 
+  context('Footer', ()=>{
     it('Validate links', ()=> {
       cy.contains('p', 'Copyright 2024 - Talking About Testing')
         .should('be.visible')
@@ -80,6 +79,4 @@ describe('EngageSphere', ()=> {
         .and('have.attr', 'href', 'https://youtube.com/@talkingabouttesting')
     })
   })
-  
 })
-

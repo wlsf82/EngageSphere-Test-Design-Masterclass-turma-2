@@ -28,7 +28,9 @@ After cloning this project, to install the dev dependencies, open a terminal, go
 
 Read the following [doc](./docs/TestCases.md) to get a list of test cases.
 
-To execute the tests open a terminal, go to the root of this repo, and run `npm run test:e2e`
+To execute the tests open a terminal, go to the root of this repo, and run:
+`npm run cy:e2e` to run as headless mode
+`npm run cy:open` to run as interactive mode
 ___
 
 Made with ❤️ by [Walmyr](https://walmyr.dev).
